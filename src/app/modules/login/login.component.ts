@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavParams } from '@ionic/angular';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -7,8 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private navParams: NavParams) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+  }
+
+  obterParams() {
+    let params = new BehaviorSubject(this.navParams.get('data'));
+
+    params.subscribe(val => {
+      console.log('acionei o val: ', val);
+      
+    })
+  }
 
 }

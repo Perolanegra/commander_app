@@ -4,7 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
-
+import { SuperTabsModule } from '@ionic-super-tabs/angular';
+import { LoginComponent } from '../login/login.component';
 
 @NgModule({
   imports: [
@@ -16,8 +17,10 @@ import { HomeComponent } from './home.component';
         path: '',
         component: HomeComponent
       }
-    ])
+    ]),
+    SuperTabsModule
   ],
-  declarations: [HomeComponent]
+  declarations: [HomeComponent, LoginComponent],
+  entryComponents:[LoginComponent]
 })
 export class HomeModule {}

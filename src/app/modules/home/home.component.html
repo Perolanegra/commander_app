@@ -1,13 +1,49 @@
-<ion-header>
-  <ion-toolbar>
+<!-- <ion-header> -->
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>
-      Home
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<!-- </ion-header> -->
+
+
 
 <ion-content>
+    <!-- <super-tabs>
+        <super-tab [root]="tabInicio" title="Iniciar"></super-tab>
+        <super-tab [root]="tabRestaurantes" title="Restaurantes" icon="md-restaurant"></super-tab>
+    </super-tabs> -->
+
+    <super-tabs (tabChange)="onTabChange($event)">
+        <super-tabs-toolbar slot="top" style="background-color: gray !important;"> 
+
+          <super-tab-button>
+            <ion-icon name="home" style="color: black;"></ion-icon>
+            <ion-label style="color: black;">Iniciar</ion-label>
+          </super-tab-button>
+
+          <super-tab-button>
+            <ion-icon name="restaurant" style="color: black;"></ion-icon>
+            <ion-label style="color: black;">Restaurantes</ion-label>
+          </super-tab-button>
+
+        </super-tabs-toolbar>
+
+
+        <super-tabs-container>
+
+          <super-tab>
+            <ion-nav [root]="tabInicio" [rootParams]="{ data: 'funciona' }" ></ion-nav>
+          </super-tab>
+
+          <super-tab>
+            <ion-nav [root]="tabRestaurantes"></ion-nav>
+          </super-tab>
+          
+        </super-tabs-container>
+      </super-tabs>
+
+  <!-- <div #tabInicio>
+    <p>
+      Igor;
+    </p>
+  </div> -->
 </ion-content>

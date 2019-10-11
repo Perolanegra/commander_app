@@ -13,6 +13,7 @@ import { DialogAguardeComponent } from './shared/dialogs/dialogAguarde/dialogAgu
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './modules/core/core.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SuperTabsModule } from '@ionic-super-tabs/angular';
 
 @NgModule({
   declarations: [
@@ -25,13 +26,13 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
+    SuperTabsModule.forRoot(),
     AppRoutingModule,
     NoopAnimationsModule,
     HttpClientModule,
     CoreModule,
     RouterModule,
     ReactiveFormsModule,
-    // LoginModule
   ],
   exports: [
     CoreModule
