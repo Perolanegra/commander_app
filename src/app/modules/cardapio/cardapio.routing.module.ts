@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ProdutoComponent } from './cardapio.component';
+import { CardapioComponent } from './cardapio.component';
+import { AuthGuardService } from 'src/app/shared/guards/auth.guard';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'produto', pathMatch: 'full' },
+    { path: '', redirectTo: 'cardapio', pathMatch: 'full' },
 
     {
-        path: 'produto',
-        component: ProdutoComponent,
+        path: 'cardapio',
+        component: CardapioComponent,
         resolve: {
 
         },

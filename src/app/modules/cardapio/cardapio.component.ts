@@ -4,7 +4,7 @@ import { AppController } from '../core/appController';
 @Component({
     selector: 'app-home',
     templateUrl: './cardapio.component.html',
-    styleUrls: ['./cardapio.component.css']
+    styleUrls: ['./cardapio.component.scss']
 })
 export class CardapioComponent implements OnInit {
     

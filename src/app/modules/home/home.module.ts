@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
+import { HomeComponent } from './home.component';
 
-import { HomePage } from './home.page';
 
 @NgModule({
   imports: [
@@ -14,10 +14,10 @@ import { HomePage } from './home.page';
     RouterModule.forChild([
       {
         path: '',
-        component: HomePage
+        component: HomeComponent
       }
     ])
   ],
-  declarations: [HomePage]
+  declarations: [HomeComponent]
 })
-export class HomePageModule {}
+export class HomeModule {}
