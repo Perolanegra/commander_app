@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login.component';
 import { IonicModule, NavParams } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
 
 @NgModule({
     declarations: [
@@ -22,6 +23,7 @@ import { RouterModule } from '@angular/router';
           ]),
     ],
     providers: [
+        GooglePlus
         // AutenticacaoService
     ]
 })

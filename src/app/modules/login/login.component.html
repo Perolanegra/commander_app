@@ -5,27 +5,26 @@
         <ion-img style="max-width: 120px;" [src]="'../../../assets/imgs/default.jpg'"></ion-img>
     </div>
 
-    <ion-row style="justify-content: center; margin-top: 80%;">
-        <button ion-button class="botao-fb" full>
-            <ion-icon name="logo-facebook"></ion-icon>
-            <p class="texto-botao-login">Login</p>
-        </button>
+    <div class="col">
+       
+    </div>
     
-        <!-- <button ion-button block class="botao-google" style="color: blanchedalmond;;">
-            <ion-icon name="logo-googleplus"></ion-icon>
-            Entrar com o Google
-        </button> -->
 
-        <a href="#" class="google btn">
-                <i class="fa fa-google fa-fw">
-                        Login with Google+
-                    </i>
-            <!-- <ion-icon name="logo-google"></ion-icon> -->
-        </a>
+    <ion-row style="justify-content: center; margin-top: 85%;">
 
+        <ion-button class="login" expand="block" fill="outline">Login</ion-button>
 
+        <button ion-button block class="google btn" (click)="loginGoogle()">
+            <i class="fa fa-google fa-fw">
+            </i>GOOGLE
+        </button>
     </ion-row>
 
+
+    <div class="sign-up">
+        <a href="#" style="color:#3a7dfa; font-family: sans-serif;">Não sou cadastrado</a>
+    </div>
+    
 
 
 </ion-content>
