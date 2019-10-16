@@ -39,29 +39,10 @@ export class SignInComponent implements OnInit {
 
 
   async presentModalPass() {
-
-    // const as = await this.actionSheet.create({
-    //     header: 'Digite a senha',
-    //     buttons:[{
-    //         text: 'Entrar',
-    //         icon: 'trash',
-    //         handler: () => console.log('pass clicked')
-    //     },
-    //     {
-    //         text: 'Entrar',
-    //         icon: 'trash',
-    //         handler: () => console.log('pass clicked')
-    //     },
-       
-    
-    // ],
-    //     backdropDismiss: false
-    // });
-    // as.present();
-
     const modal = await this.modalCtrl.create({
       component: ModalPasswordComponent,
-      
+      cssClass: 'modal-pass',
+      backdropDismiss: false
     });
 
     await modal.present();
@@ -69,5 +50,5 @@ export class SignInComponent implements OnInit {
     const { data } = await modal.onWillDismiss();
     this.forms.controls.password.setValue(data.password);
   }
-
+ 
 }
