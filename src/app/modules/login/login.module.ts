@@ -7,11 +7,13 @@ import { IonicModule } from '@ionic/angular';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { LoginRoutingModule } from './login.routing.module';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { ModalPasswordComponent } from './modal-password/modal-password.component';
 
 @NgModule({
     declarations: [
         LoginComponent,
-        SignInComponent
+        SignInComponent,
+        ModalPasswordComponent
     ],
     imports: [
         CommonModule,
@@ -22,6 +24,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
     providers: [
         GooglePlus
         // AutenticacaoService
-    ]
+    ],
+    entryComponents: [ModalPasswordComponent]
 })
 export class LoginModule { }

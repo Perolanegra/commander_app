@@ -31,7 +31,7 @@
 <ion-footer class="footer">
     <ion-toolbar>
         <ion-buttons class="footer-container" end>
-            <ion-button (click)="presentPassActionSheet()" [disabled]="forms.invalid" ion-button icon-right>
+            <ion-button (click)="presentModalPass()" [disabled]="forms.controls.email.invalid" ion-button icon-right>
                 AVANÇAR
             </ion-button>
             <ion-icon name="send"></ion-icon>

@@ -3,7 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
 import { AppController } from '../../core/appController';
-import { ActionSheetController } from '@ionic/angular';
+import { ModalController, ActionSheetController } from '@ionic/angular';
+import { ModalPasswordComponent } from '../modal-password/modal-password.component';
 
 @Component({
   selector: 'app-sign-in',
@@ -15,9 +16,10 @@ export class SignInComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, 
   protected formBuilder: FormBuilder, 
+  private actionSheet: ActionSheetController,
   public location: Location,
   public appController: AppController,
-  private actionSheetController: ActionSheetController) { }
+  public modalCtrl: ModalController) { }
 
   ngOnInit() {
     this.forms = this.createForm();
@@ -26,7 +28,7 @@ export class SignInComponent implements OnInit {
   createForm(): FormGroup {
     return this.formBuilder.group({
         email: ["", Validators.required],
-        // password: ["", Validators.required]
+        password: ["", Validators.required]
     });
   }
 
@@ -35,21 +37,37 @@ export class SignInComponent implements OnInit {
     this.appController.navigate('home');
   }
 
-  presentPassActionSheet() {
-    this.actionSheetController.create({
-        header: 'Digite a senha',
-        buttons: [{
-            text: 'Entrar',
-            icon: 'trash',
-            handler: () => {
-                console.log('pass clicked');
-            },
-        }],
-        backdropDismiss: false,
-    }).then(actionSheet => {
-        actionSheet.present();
+
+  async presentModalPass() {
+
+    // const as = await this.actionSheet.create({
+    //     header: 'Digite a senha',
+    //     buttons:[{
+    //         text: 'Entrar',
+    //         icon: 'trash',
+    //         handler: () => console.log('pass clicked')
+    //     },
+    //     {
+    //         text: 'Entrar',
+    //         icon: 'trash',
+    //         handler: () => console.log('pass clicked')
+    //     },
+       
+    
+    // ],
+    //     backdropDismiss: false
+    // });
+    // as.present();
+
+    const modal = await this.modalCtrl.create({
+      component: ModalPasswordComponent,
+      
     });
 
+    await modal.present();
+
+    const { data } = await modal.onWillDismiss();
+    this.forms.controls.password.setValue(data.password);
   }
 
 }
