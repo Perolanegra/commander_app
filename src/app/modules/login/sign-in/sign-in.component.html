@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons left>
+            <ion-button color="dark" (click)="location.back();">
+                <ion-icon name="arrow-back"></ion-icon>
+            </ion-button>
+            <ion-title>Login</ion-title>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+    <form style="margin-top: 2rem;" [formGroup]="forms" novalidate> <!--(ngSubmit)="confirm()"-->
+
+        <ion-item>
+            <ion-label color="primary" position="stacked">Digite seu email*</ion-label>
+            <ion-input id="email" formControlName="email" type="email" clearInput placeholder="Ex: gabriel@gmail.com">
+            </ion-input>
+        </ion-item>
+
+        <div class="recovery-pass">
+            <a style="color: #3a7dfa; font-family: sans-serif;">Esqueci a senha</a>
+        </div>
+
+    </form>
+
+</ion-content>
+
+<ion-footer class="footer">
+    <ion-toolbar>
+        <ion-buttons class="footer-container" end>
+            <ion-button (click)="login()" [disabled]="forms.invalid" ion-button icon-right>
+                AVANÇAR
+            </ion-button>
+            <ion-icon name="send"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-footer>

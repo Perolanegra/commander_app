@@ -187,6 +187,7 @@ export class AppController {
     public async navigate(pPage: string, pParams = {}) {
         await this.router.navigate(['/' + pPage, pParams]).catch(err => {
             this.tratarErro(err);
+            console.log('erro navigate: ', err);
         });
     }
 
