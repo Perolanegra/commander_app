@@ -1,51 +1,40 @@
-<!-- <ion-header> -->
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-<!-- </ion-header> -->
+<ion-buttons slot="start">
+  <ion-menu-button></ion-menu-button>
+</ion-buttons>
 
 
 
 <ion-content>
-    <!-- <super-tabs>
-        <super-tab [root]="tabInicio" title="Iniciar"></super-tab>
-        <super-tab [root]="tabRestaurantes" title="Restaurantes" icon="md-restaurant"></super-tab>
-    </super-tabs> -->
 
-    <super-tabs (tabChange)="onTabChange($event)">
-        <super-tabs-toolbar slot="top" style="background-color: gray !important;"> 
+  <super-tabs (tabChange)="onTabChange($event)">
+    <super-tabs-toolbar slot="top" style="background-color: gray !important;">
 
-          <super-tab-button>
-            <ion-icon name="home" style="color: black;"></ion-icon>
-            <ion-label style="color: black;">Iniciar</ion-label>
-          </super-tab-button>
+      <super-tab-button>
+        <ion-icon name="home" style="color: black;"></ion-icon>
+        <ion-label style="color: black;">Iniciar</ion-label>
+      </super-tab-button>
 
-          <super-tab-button>
-            <ion-icon name="restaurant" style="color: black;"></ion-icon>
-            <ion-label style="color: black;">Restaurantes</ion-label>
-          </super-tab-button>
+      <super-tab-button>
+        <ion-icon name="restaurant" style="color: black;"></ion-icon>
+        <ion-label style="color: black;">Restaurantes</ion-label>
+      </super-tab-button>
 
-        </super-tabs-toolbar>
+    </super-tabs-toolbar>
 
 
-        <super-tabs-container>
+    <super-tabs-container>
 
-          <super-tab>
-            <!-- <ion-nav [root]="tabInicio" [rootParams]="{ data: 'funciona' }" ></ion-nav> -->
-            <p>Tab 1 sendo renderizada</p>
-          </super-tab>
+      <super-tab>
+        <!-- <ion-nav [root]="tabInicio" [rootParams]="{ data: 'funciona' }" ></ion-nav> -->
+        <p>Tab 1 sendo renderizada</p>
+      </super-tab>
 
-          <super-tab>
-            <!-- <ion-nav [root]="tabRestaurantes"></ion-nav> -->
-            <p>Tab 2 sendo renderizada</p>
-          </super-tab>
-          
-        </super-tabs-container>
-      </super-tabs>
+      <super-tab>
+        <!-- <ion-nav [root]="tabRestaurantes"></ion-nav> -->
+        <p>Tab 2 (DOIS) sendo renderizada</p>
+      </super-tab>
 
-  <!-- <div #tabInicio>
-    <p>
-      Igor;
-    </p>
-  </div> -->
+    </super-tabs-container>
+  </super-tabs>
+
 </ion-content>

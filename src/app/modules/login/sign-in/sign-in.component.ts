@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { Location } from '@angular/common';
 import { ModalController } from '@ionic/angular';
 import { ModalPasswordComponent } from '../modal-password/modal-password.component';
@@ -11,34 +11,25 @@ import { ModalPasswordComponent } from '../modal-password/modal-password.compone
   styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent implements OnInit {
-  forms: FormGroup;
+  inputEmail: any;
 
   constructor(protected formBuilder: FormBuilder,
   public location: Location,
   public modalCtrl: ModalController) { }
 
   ngOnInit() {
-    this.forms = this.createForm();
-  }
-
-  createForm(): FormGroup {
-    return this.formBuilder.group({
-      email: ["", Validators.required],
-    });
   }
 
   async presentModalPass() {
     const modal = await this.modalCtrl.create({
       component: ModalPasswordComponent,
       componentProps: {
-        "login": this.forms.get('email').value
+        "email": this.inputEmail
       },
       cssClass: 'modal-footer',
-      backdropDismiss: true
     });
 
     await modal.present();
   }
-
 
 }

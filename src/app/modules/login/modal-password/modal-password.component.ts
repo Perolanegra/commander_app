@@ -1,4 +1,4 @@
-import { Component, Renderer2, OnInit } from '@angular/core';
+import { Component, Renderer2, OnInit, ViewChild, ElementRef, } from '@angular/core';
 import { ModalController, NavParams } from '@ionic/angular';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { AppController } from '../../core/appController';
@@ -10,6 +10,8 @@ import { AuthService } from '../auth.service';
     styleUrls: ['./modal-password.component.scss']
   })
 export class ModalPasswordComponent implements OnInit {
+  @ViewChild('inputHidden', {static: false}) public inputFocus: ElementRef;
+
   forms: FormGroup;
   
   constructor(private renderer: Renderer2, 
@@ -21,13 +23,20 @@ export class ModalPasswordComponent implements OnInit {
 
   ngOnInit() {
     this.forms = this.createForm();
+    
   }
 
   createForm(): FormGroup {
     return this.formBuilder.group({
-      email: [this.navParams.get('login'), Validators.required],
+      email: [this.navParams.get('email'), Validators.required],
       password: ["", Validators.required],
     });
+  }
+
+  login() {
+    // aplicar o método de login
+    this.appController.navigate('home');
+    
   }
 
   handleInputType(event) {
@@ -35,13 +44,13 @@ export class ModalPasswordComponent implements OnInit {
     if(this.forms.get('password').value.length >= 6) {
       // fazer requisição do login
       // this.authService.obterAcessToken();
+      
+      this.modalCtrl.dismiss();
+      this.login();
     }
   }
 
-  login() {
-    // aplicar o método de login
-    this.appController.navigate('home');
-  }
+  
     
   
 }

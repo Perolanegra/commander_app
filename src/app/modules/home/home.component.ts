@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit, AfterViewInit } from '@angular/core';
 import { SuperTabs } from '@ionic-super-tabs/angular';
 
 @Component({
@@ -6,17 +6,18 @@ import { SuperTabs } from '@ionic-super-tabs/angular';
   templateUrl: 'home.component.html',
   styleUrls: ['home.component.scss'],
 })
-export class HomeComponent implements OnInit {
-
+export class HomeComponent implements AfterViewInit {
   @ViewChild(SuperTabs, { static: false }) superTabs: SuperTabs;
+
   constructor() {}
 
-  ngOnInit(): void {
-    
+  ngAfterViewInit() {
+    // console.log('Super tabs is ', this.superTabs);
+    this.superTabs.selectTab(0);
   }
 
   onTabChange(event) { // this.superTabs.tabChange (Observable)
-    console.log('evento: ', event);
+    console.log('evento Tab: ');
   }
 
 

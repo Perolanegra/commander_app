@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppMaskDirective } from './directives/appMask.directive';
+import { AutofocusDirective } from './directives/autoFocus.directive';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
     imports: [
         CommonModule,
-        // MaterialModule,
+        MaterialModule,
         RouterModule,
         ReactiveFormsModule,
         // MatAutocompleteModule,
@@ -18,16 +20,18 @@ import { AppMaskDirective } from './directives/appMask.directive';
         CUSTOM_ELEMENTS_SCHEMA
     ],
     declarations: [
-        AppMaskDirective
+        AppMaskDirective,
+        AutofocusDirective
     ],  
     exports: [ 
         CommonModule,
-        // MaterialModule,
+        MaterialModule,
         RouterModule,
         ReactiveFormsModule,
         // MatAutocompleteModule,
         // NgxMaskModule,
-        AppMaskDirective
+        AppMaskDirective,
+        AutofocusDirective
     ],
     providers:[
         // DynamicDatabase,

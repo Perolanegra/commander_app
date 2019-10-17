@@ -15,6 +15,7 @@ import { HomeRoutingModule } from './home.routing.module';
     HomeRoutingModule
   ],
   declarations: [HomeComponent],
-  entryComponents:[]
+  entryComponents:[],
+  providers:[]
 })
 export class HomeModule {}
