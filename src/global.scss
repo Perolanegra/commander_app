@@ -25,10 +25,19 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-.modal-pass .modal-wrapper {
-    width: 100%;
-    height: 100%; 
-    position: fixed; 
-    top:75%;
-    border-radius: 8px;
-}
+
+    .modal-footer .modal-wrapper {
+        --background: transparent;
+        pointer-events: none;
+    }
+
+    .modal-footer .modal-wrapper .ion-page {
+        pointer-events: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .modal-footer .modal-wrapper .ion-page > * {
+        pointer-events: all;
+    }

@@ -1,6 +1,5 @@
 import { NgModule } from "@angular/core";
 import { SharedModule } from 'src/app/shared/shared.module';
-import { AutenticacaoService } from './autenticacao.service';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login.component';
 import { IonicModule } from '@ionic/angular';
@@ -8,6 +7,8 @@ import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { LoginRoutingModule } from './login.routing.module';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { ModalPasswordComponent } from './modal-password/modal-password.component';
+import { AutofocusModule } from 'angular-autofocus-fix';
+import { AuthService } from './auth.service';
 
 @NgModule({
     declarations: [
@@ -19,10 +20,12 @@ import { ModalPasswordComponent } from './modal-password/modal-password.componen
         CommonModule,
         SharedModule,
         IonicModule,
-        LoginRoutingModule
+        LoginRoutingModule,
+        AutofocusModule
     ],
     providers: [
-        GooglePlus
+        GooglePlus,
+        AuthService
         // AutenticacaoService
     ],
     entryComponents: [ModalPasswordComponent]

@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 
 @Injectable()
-export class AutenticacaoService {
+export class AuthService {
     clientId;
     clientSecret;
     server: string;
