@@ -4,4 +4,5 @@ export class UserModel {
     phone: String;
     email: String;
     password: String;
+    img: String;
 }

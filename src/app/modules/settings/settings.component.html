@@ -1,19 +1,28 @@
-<mat-list>
 
-    <mat-list-item (click)="appController.navigate('profile');">
-        <!-- imagem de perfil do usuário -->
-        <h4 mat-line>{{ user?.name }}</h4>
-        <p mat-line> {{ user?.statusMsg }} </p>
-    </mat-list-item>
+<mat-list>
+    <ion-buttons left (click)="navCtrl.pop();">
+        <ion-button color="dark">
+            <ion-icon name="arrow-back"></ion-icon>
+        </ion-button>
+    </ion-buttons>
+
+    <div class="profile-avatar" (click)="appController.navigate('profile');">
+        <ion-avatar slot="start">
+            <img [src]="user?.img">
+        </ion-avatar>
+        <h4 mat-line class="text text-h4">{{ user?.name }}</h4>
+        <p mat-line class="text text-p"> {{ user?.statusMsg }} </p>
+    </div>
+
     <mat-divider></mat-divider>
 
 
-    <mat-list-item *ngFor="let item of arrayModules" (click)="appController.navigate('item.name');">
+    <mat-list-item *ngFor="let item of arrayModules" (click)="appController.navigate(item.name);">
         <mat-icon mat-list-icon>{{ item?.icon }}</mat-icon>
         <h4 mat-line>{{ item?.displayTitle }}</h4>
         <p mat-line> {{ item?.displaySubTitle }} </p>
     </mat-list-item>
-    
+
     <mat-divider></mat-divider>
 
     <mat-list-item (click)="exit();">

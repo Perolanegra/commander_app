@@ -1,0 +1,32 @@
+.profile-avatar {
+    height: inherit;	
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 5px 0 10px;
+}
+
+.text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    box-sizing: border-box;
+}
+
+.text-h4 {
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    font-size: inherit;
+}
+
+.text-p {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+}

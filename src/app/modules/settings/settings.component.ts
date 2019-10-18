@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppController } from '../core/appController';
 import { UserModel } from 'src/app/shared/models/classes/user/user.model';
 import { GlobalVars } from 'src/app/shared/globalVars';
+import { NavController } from '@ionic/angular';
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
@@ -16,9 +17,11 @@ export class SettingsComponent implements OnInit {
   ];
 
   constructor(public appController: AppController,
-  private globalVars: GlobalVars) {}
+  private globalVars: GlobalVars,
+  public navCtrl: NavController) {}
 
   ngOnInit(): void {
+    console.log('blz');
     
   }
 
@@ -30,7 +33,6 @@ export class SettingsComponent implements OnInit {
   public get user(): UserModel {
     return this.globalVars.getUserLoggedIn();
   }
-
 
 
 }

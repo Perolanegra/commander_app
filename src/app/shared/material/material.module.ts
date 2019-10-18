@@ -1,7 +1,7 @@
 import {
     MatCheckboxModule, MatDialogModule, MatIconModule, MAT_DIALOG_DEFAULT_OPTIONS, MatDialogRef,
     MAT_DIALOG_DATA, MAT_DATE_LOCALE, MAT_CHIPS_DEFAULT_OPTIONS, MAT_DATE_FORMATS,
-    DateAdapter, MatFormFieldModule, MatInputModule, MatRippleModule, MatButtonModule, MatListModule, MatLineModule
+    DateAdapter, MatFormFieldModule, MatInputModule, MatRippleModule, MatButtonModule, MatListModule, MatLineModule, MatCardModule
 } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -29,6 +29,7 @@ const modules = [
     MatButtonModule, 
     MatListModule,
     MatLineModule,
+    MatCardModule
     // MatProgressSpinnerModule,
     // MatSortModule,
     // MatSelectModule,
