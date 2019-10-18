@@ -20,10 +20,10 @@ export class ModalPasswordComponent implements OnInit {
   public appController: AppController,
   private authService: AuthService,
   private navParams: NavParams) { }
+  private inputValidate: boolean[] = [false,false,false,false,false,false];
 
   ngOnInit() {
     this.forms = this.createForm();
-    
   }
 
   createForm(): FormGroup {
@@ -39,12 +39,14 @@ export class ModalPasswordComponent implements OnInit {
     
   }
 
-  handleInputType(event) {
-    console.log('evento: ', event);
+  handleInputType({target}) {
+    this.inputValidate = [false,false,false,false,false,false];
+    for(let i = 0; i < target.value.length; i++) {
+      this.inputValidate[i] = true;
+    }
     if(this.forms.get('password').value.length >= 6) {
       // fazer requisição do login
       // this.authService.obterAcessToken();
-      
       this.modalCtrl.dismiss();
       this.login();
     }

@@ -1,0 +1,24 @@
+<mat-list>
+
+    <mat-list-item (click)="appController.navigate('profile');">
+        <!-- imagem de perfil do usuário -->
+        <h4 mat-line>{{ user.name }}</h4>
+        <p mat-line> {{ user.statusMsg }} </p>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+
+
+    <mat-list-item *ngFor="let item of arrayModules" (click)="appController.navigate('item.name');">
+        <mat-icon mat-list-icon>{{ item.icon }}</mat-icon>
+        <h4 mat-line>{{ item.displayTitle }}</h4>
+        <p mat-line> {{ item.displaySubTitle }} </p>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+
+    <mat-list-item (click)="exit();">
+        <mat-icon mat-list-icon>exit_to_app</mat-icon>
+        <h4 mat-line>Sair</h4>
+        <p mat-line> sair da aplicação </p>
+    </mat-list-item>
+
+</mat-list>
