@@ -37,13 +37,19 @@ export class ModalPasswordComponent implements OnInit {
 
   async login() {
     // call request service to get the data
-    const accessToken = await this.authService.getAccessToken(this.forms.value);
-    this.globalVars.setAccessToken(accessToken);
-
-    const user = await this.authService.getUserLoggedIn();
-
-    this.globalVars.setUserLoggedIn(user);
-    this.appController.navigate('home');
+    try {
+      const accessToken = await this.authService.getAccessToken(this.forms.value);
+      this.globalVars.setAccessToken(accessToken);
+  
+      const user = await this.authService.getUserLoggedIn();
+  
+      this.globalVars.setUserLoggedIn(user);
+      this.appController.navigate('home');
+      
+    } catch(err) {
+      this.appController.tratarErro(err);
+      this.forms.get('password').reset();
+    }
   }
 
   handleInputType({target}) {

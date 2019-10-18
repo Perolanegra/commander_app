@@ -9,7 +9,7 @@ import { GlobalVars } from 'src/app/shared/globalVars';
 })
 export class SettingsComponent implements OnInit {
   
-  arrayModules: [
+  arrayModules = [
     { name: 'account', displayTitle: 'Conta', displaySubTitle: 'Privacidade, segurança, pagamento', icon: 'vpn_key' },
     { name: 'help', displayTitle: 'Ajuda', displaySubTitle: 'Política de privacidade, Fale conosco', icon: 'help_outline' },
     { name: 'joinUs', displayTitle: 'Adicionar o meu restaurante', displaySubTitle: 'Gerenciamento, escalabilidade, menor custo', icon: 'restaurant' },
