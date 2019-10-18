@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { UserModel } from 'src/app/shared/models/classes/user/user.model';
 
 @Injectable()
 export class AuthService {
@@ -15,7 +16,14 @@ export class AuthService {
         });
     }
 
-    atualizarAcessToken() {
+    refreshAccessToken() {
         
+    }
+
+    getUserLoggedIn(): Promise<UserModel> {
+        return new Promise( (resolve, reject) => {
+            console.log('requisição que traz os dados do usuário logado');
+            resolve({ name: "Igor Alves", statusMsg: "Sextou", email: "pedratto3@gmail.com", password: "123", phone: "993337275" });
+        });
     }
 }

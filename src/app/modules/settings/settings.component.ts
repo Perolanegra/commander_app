@@ -3,7 +3,7 @@ import { AppController } from '../core/appController';
 import { UserModel } from 'src/app/shared/models/classes/user/user.model';
 import { GlobalVars } from 'src/app/shared/globalVars';
 @Component({
-  selector: 'app-home',
+  selector: 'app-settings',
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss'],
 })
@@ -23,7 +23,8 @@ export class SettingsComponent implements OnInit {
   }
 
   exit() {
-    console.log("desgraça: ", this.user.name);
+    console.log("desgraça quer sair pq: ", this.user.name);
+    console.log('AcessToken: ', this.globalVars.getAccessToken());
   }
 
   public get user(): UserModel {

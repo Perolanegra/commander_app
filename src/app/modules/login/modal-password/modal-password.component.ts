@@ -36,14 +36,14 @@ export class ModalPasswordComponent implements OnInit {
   }
 
   async login() {
-    // fazer requisição do login
-    this.globalVars.setAccessToken(await this.authService.getAccessToken(this.forms.value));
-    this.signUp();
-    this.appController.navigate('home');
-  }
+    // call request service to get the data
+    const accessToken = await this.authService.getAccessToken(this.forms.value);
+    this.globalVars.setAccessToken(accessToken);
 
-  signUp() { // criar component de Cadastrar e colocar o metodo;
-    this.globalVars.setUserLoggedIn({ name: "Igor Alves", statusMsg: "Sextou", email: "pedratto3@gmail.com", password: "123", phone: "993337275" });
+    const user = await this.authService.getUserLoggedIn();
+
+    this.globalVars.setUserLoggedIn(user);
+    this.appController.navigate('home');
   }
 
   handleInputType({target}) {
