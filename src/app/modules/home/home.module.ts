@@ -6,6 +6,7 @@ import { HomeComponent } from './home.component';
 import { SuperTabsModule } from '@ionic-super-tabs/angular';
 import { HomeRoutingModule } from './home.routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { EstablishmentModule } from '../ establishment/ establishment.module';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     IonicModule,
     SuperTabsModule,
     HomeRoutingModule,
-    SharedModule
+    SharedModule,
+    EstablishmentModule
   ],
   declarations: [HomeComponent],
   entryComponents:[],

@@ -7,12 +7,16 @@ import { AutofocusDirective } from './directives/autoFocus.directive';
 import { MaterialModule } from './material/material.module';
 import { GlobalVars } from './globalVars';
 
+const modules = [
+    CommonModule,
+    MaterialModule,
+    RouterModule,
+    ReactiveFormsModule,
+    // MatAutocompleteModule,
+]
 @NgModule({
     imports: [
-        CommonModule,
-        MaterialModule,
-        RouterModule,
-        ReactiveFormsModule,
+        ...modules
         // MatAutocompleteModule,
         // MatTooltipModule,
         // NgxMaskModule.forRoot(),
@@ -25,14 +29,10 @@ import { GlobalVars } from './globalVars';
         AutofocusDirective
     ],  
     exports: [ 
-        CommonModule,
-        MaterialModule,
-        RouterModule,
-        ReactiveFormsModule,
-        // MatAutocompleteModule,
-        // NgxMaskModule,
+        ...modules,
         AppMaskDirective,
         AutofocusDirective
+        // NgxMaskModule,
     ],
     providers:[
         GlobalVars
