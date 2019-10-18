@@ -11,6 +11,8 @@ import { AppController } from '../core/appController';
 export class HomeComponent implements AfterViewInit {
   @ViewChild(SuperTabs, { static: false }) superTabs: SuperTabs;
 
+  rating: string = '4.5';
+
   constructor(private modalCtrl: ModalController, public appController: AppController) {}
 
   ngAfterViewInit() {

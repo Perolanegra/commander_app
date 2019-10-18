@@ -26,7 +26,6 @@ export class SettingsComponent implements OnInit {
   }
 
   exit() {
-    console.log("desgraça quer sair pq: ", this.user.name);
     console.log('AcessToken: ', this.globalVars.getAccessToken());
   }
 

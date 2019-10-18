@@ -1,8 +1,8 @@
 export class UserModel {
-    name: String;
-    statusMsg: String;
-    phone: String;
-    email: String;
-    password: String;
-    img: String;
+    name: string;
+    statusMsg: string;
+    phone: string;
+    email: string;
+    password: string;
+    img: string;
 }
