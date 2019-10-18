@@ -16,7 +16,7 @@ export class SignUpComponent implements OnInit {
     
   }
 
-  signUp() { // criar component de Cadastrar e colocar o metodo;
+  signUp() { 
     
   }
 
