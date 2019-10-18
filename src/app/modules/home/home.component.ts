@@ -1,6 +1,7 @@
 import { Component, ViewChild, OnInit, AfterViewInit } from '@angular/core';
 import { SuperTabs } from '@ionic-super-tabs/angular';
 import { ModalController } from '@ionic/angular';
+import { AppController } from '../core/appController';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ import { ModalController } from '@ionic/angular';
 export class HomeComponent implements AfterViewInit {
   @ViewChild(SuperTabs, { static: false }) superTabs: SuperTabs;
 
-  constructor(private modalCtrl: ModalController) {}
+  constructor(private modalCtrl: ModalController, public appController: AppController) {}
 
   ngAfterViewInit() {
     this.superTabs.selectTab(0);

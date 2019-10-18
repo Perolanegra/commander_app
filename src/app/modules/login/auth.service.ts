@@ -8,8 +8,11 @@ export class AuthService {
 
     constructor() { }
 
-    obterAcessToken() {
-
+    getAccessToken({ email, password }): Promise<any> {
+        return new Promise((resolve, reject) => {       
+            console.log('email e senha passei no AuthService: ', email, password);
+            resolve("AcessToken1234");
+        });
     }
 
     atualizarAcessToken() {

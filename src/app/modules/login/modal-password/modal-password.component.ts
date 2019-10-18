@@ -3,6 +3,7 @@ import { ModalController, NavParams } from '@ionic/angular';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { AppController } from '../../core/appController';
 import { AuthService } from '../auth.service';
+import { GlobalVars } from 'src/app/shared/globalVars';
 
 @Component({
     selector: 'app-modal-password',
@@ -19,6 +20,7 @@ export class ModalPasswordComponent implements OnInit {
   private modalCtrl: ModalController,
   public appController: AppController,
   private authService: AuthService,
+  private globalVars: GlobalVars,
   private navParams: NavParams) { }
   private inputValidate: boolean[] = [false,false,false,false,false,false];
 
@@ -33,10 +35,15 @@ export class ModalPasswordComponent implements OnInit {
     });
   }
 
-  login() {
-    // aplicar o método de login
+  async login() {
+    // fazer requisição do login
+    this.globalVars.setAccessToken(await this.authService.getAccessToken(this.forms.value));
+    this.signUp();
     this.appController.navigate('home');
-    
+  }
+
+  signUp() { // criar component de Cadastrar e colocar o metodo;
+    this.globalVars.setUserLoggedIn({ name: "Igor Alves", statusMsg: "Sextou", email: "pedratto3@gmail.com", password: "123", phone: "993337275" });
   }
 
   handleInputType({target}) {
@@ -45,8 +52,6 @@ export class ModalPasswordComponent implements OnInit {
       this.inputValidate[i] = true;
     }
     if(this.forms.get('password').value.length >= 6) {
-      // fazer requisição do login
-      // this.authService.obterAcessToken();
       this.modalCtrl.dismiss();
       this.login();
     }

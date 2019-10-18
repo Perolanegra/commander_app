@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppMaskDirective } from './directives/appMask.directive';
 import { AutofocusDirective } from './directives/autoFocus.directive';
 import { MaterialModule } from './material/material.module';
+import { GlobalVars } from './globalVars';
 
 @NgModule({
     imports: [
@@ -34,6 +35,7 @@ import { MaterialModule } from './material/material.module';
         AutofocusDirective
     ],
     providers:[
+        GlobalVars
         // DynamicDatabase,
         // DynamicDataSource
     ]
