@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { DistanceModel } from './models/classes/distance.model';
+import { DistanceModel } from '../models/classes/distance.model';
 
 
 @Injectable()

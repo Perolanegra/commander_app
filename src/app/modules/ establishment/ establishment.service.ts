@@ -2,13 +2,19 @@ import { Injectable } from '@angular/core';
 import { RestService } from '../core/rest.service';
 import { map } from 'rxjs/operators';
 import { AppController } from '../core/appController';
+import { NativeGeocoder, NativeGeocoderOptions, NativeGeocoderReverseResult } from '@ionic-native/native-geocoder/ngx';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
+
+declare var google;
 
 @Injectable()
 export class EstablishmentService {
     
     constructor(private appController: AppController,
-    private restService: RestService) { }
+    private restService: RestService,
+    private geolocation: Geolocation,
+    private nativeGeocoder: NativeGeocoder) { }
 
     public getAll(): Promise<any> {
         return new Promise((resolve, reject) => {
@@ -26,6 +32,7 @@ export class EstablishmentService {
             resolve(bars);
         });
     }
+
 
     // public getSomeId(pId): Promise<any> {
     //     return new Promise((resolve, reject) => {
