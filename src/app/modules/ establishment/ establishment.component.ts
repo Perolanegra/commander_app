@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppController } from '../core/appController';
+import { EstablishmentService } from './ establishment.service';
 
 @Component({
     selector: 'app-establishment',
@@ -7,13 +8,14 @@ import { AppController } from '../core/appController';
     styleUrls: ['./ establishment.component.scss'],
 })
 export class EstablishmentComponent implements OnInit {
-    rating: string = '4.5';
+    bars: any;
 
-    constructor(public appController: AppController) { }
+    constructor(public appController: AppController,
+    private establishmentService: EstablishmentService) { }
 
-    ngOnInit() {
+    async ngOnInit() {
         // make the request to bring the list of establishments registered
-        // this.establishmentService.getAll();
+        this.bars = await this.establishmentService.getAll();
     }
 
 

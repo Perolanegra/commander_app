@@ -4,6 +4,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { SharedModule } from 'src/app/shared/shared.module';
 import { EstablishmentComponent } from './ establishment.component';
+import { EstablishmentService } from './ establishment.service';
 
 const modules = [
   CommonModule,
@@ -14,6 +15,6 @@ const modules = [
   imports: [...modules],
   declarations: [EstablishmentComponent],
   entryComponents:[],
-  providers:[]
+  providers:[EstablishmentService]
 })
 export class EstablishmentModule {}
