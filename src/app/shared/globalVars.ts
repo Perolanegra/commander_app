@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { UserModel } from './models/classes/user/user.model';
+import { UserModel } from './models/classes/user.model';
 
 const KEY = 'authToken';
 const KEY_REFRESH = 'authRefreshToken';

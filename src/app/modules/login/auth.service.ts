@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { UserModel } from 'src/app/shared/models/classes/user/user.model';
+import { UserModel } from 'src/app/shared/models/classes/user.model';
 
 @Injectable()
 export class AuthService {

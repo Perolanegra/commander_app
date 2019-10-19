@@ -13,13 +13,15 @@ export class EstablishmentService {
     public getAll(): Promise<any> {
         return new Promise((resolve, reject) => {
             console.log('requisicao lista restaurantes');
-            const bars = {
+            const bars = [{
                 name: 'Quiosque do Galego',
                 description: 'Bar e Restaurante',
                 distance: '2 km',
-                rating: '4.5',
-                img: 'https://material.angular.io/assets/img/examples/shiba1.jpg'
-            };
+                lat: 12.9692472222,
+                lng: -38.4367916667,
+                rating: '4.8',
+                img: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
+            }];
             
             resolve(bars);
         });

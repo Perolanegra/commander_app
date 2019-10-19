@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppController } from '../core/appController';
-import { UserModel } from 'src/app/shared/models/classes/user/user.model';
+import { UserModel } from 'src/app/shared/models/classes/user.model';
 import { GlobalVars } from 'src/app/shared/globalVars';
 import { NavController } from '@ionic/angular';
 @Component({
