@@ -1,7 +1,7 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { SuperTabs } from '@ionic-super-tabs/angular';
 import { AppController } from '../core/appController';
-import { EstablishmentComponent } from '../ establishment/ establishment.component';
+import { EstablishmentComponent } from '../establishment/establishment.component';
 
 @Component({
   selector: 'app-home',
