@@ -55,7 +55,6 @@ export class GoogleService {
                     resolve(nearbyPlaces);
                 }
 
-                return nearbyPlaces;
             }, catchError((error, caught) => {
                 console.log('error: ', error);
                 console.log('caught: ', caught);

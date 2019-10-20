@@ -12,7 +12,7 @@ export class HomeComponent implements AfterViewInit {
   tabEstablishment = EstablishmentComponent;
   @ViewChild(SuperTabs, { static: false }) superTabs: SuperTabs;
 
-  constructor(public appController: AppController) {}
+  constructor(public appController: AppController) { }
 
   ngAfterViewInit() {
     this.superTabs.selectTab(0);

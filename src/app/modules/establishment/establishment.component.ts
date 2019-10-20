@@ -15,38 +15,43 @@ export class EstablishmentComponent implements OnInit {
     array: any;
 
     constructor(public appController: AppController,
-    private establishmentService: EstablishmentService,
-    private googleService: GoogleService) { }
+        private establishmentService: EstablishmentService,
+        private googleService: GoogleService) { }
 
-    async ngOnInit() {
+    ngOnInit() {
         this.getBars();
     }
 
 
     async getBars() { // mudar essa lógica
         this.bars = await this.establishmentService.getAll(); // lista dos cadastrados
-        const nearBy = await this.establishmentService.getEstablishmentsNearBy(); // obtenho a lista dos restaurantes proximos
-        console.log('nearBy: ', nearBy);
+        console.log('bar: ', this.bars);
+
+        // obtenho a lista dos restaurantes proximos
+        this.establishmentService.getEstablishmentsNearBy().then(resp => {
+            console.log('resp: ', resp);
+        }).catch(error => this.appController.tratarErro(error));
+
 
         // pesquisar os bares com base no nearBy e trazer os cadastrados
         // depois fazer o foreach abaixo
         // hoje estou trazendo todos, porém estático no service pq ainda n fiz a implementacao do front com o back e nem cadastrei os bares no banco.
-         
-        this.bars.forEach(async (bar, key) => {
-            
-            try {
-                const item = await this.googleService.getDistance(bar.lat,bar.lng);
-                // this.distance.push(item);
-                // bar.distance = item.
-                console.log('distancia loop: ', item);
-                
-            } catch (error) {
-                this.appController.tratarErro(error);
-            }
-        });
 
-        console.log('bar: ', this.bars);
-        
+        // this.bars.forEach(async (bar, key) => {
+
+        //     try {
+        //         const item = await this.googleService.getDistance(bar.lat,bar.lng);
+        //         // this.distance.push(item);
+        //         // bar.distance = item.
+        //         console.log('distancia loop: ', item);
+
+        //     } catch (error) {
+        //         this.appController.tratarErro(error);
+        //     }
+        // });
+
+
+
     }
 
 

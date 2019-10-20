@@ -25,7 +25,7 @@
     "@angular/platform-browser-dynamic": "~8.1.2",
     "@angular/router": "~8.1.2",
     "@ionic-native/core": "^5.0.0",
-    "@ionic-native/geolocation": "^5.0.0",
+    "@ionic-native/geolocation": "^5.15.1",
     "@ionic-native/google-plus": "^5.15.0",
     "@ionic-native/native-geocoder": "^5.0.0",
     "@ionic-native/pin-dialog": "^5.15.0",
@@ -96,9 +96,7 @@
       },
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-pin-dialog": {},
-      "cordova-plugin-geolocation": {
-        "GEOLOCATION_USAGE_DESCRIPTION": "To locate you"
-      },
+      "cordova-plugin-geolocation": {},
       "cordova-plugin-nativegeocoder": {}
     },
     "platforms": [
