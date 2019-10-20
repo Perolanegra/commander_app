@@ -27,6 +27,7 @@ export class EstablishmentService {
                 name: 'Quiosque do Galego',
                 description: 'Bar e Restaurante',
                 distance: '2 km',
+                duration: null,
                 lat: -13.0010826,
                 lng: -38.5269862,
                 rating: '4.8',
@@ -40,14 +41,14 @@ export class EstablishmentService {
     public getEstablishmentsNearBy(): Promise<any> {
 
         return new Promise((resolve, reject) => {
-            this.geolocation.getCurrentPosition({ enableHighAccuracy: true, maximumAge: 8000 })
+            this.geolocation.getCurrentPosition({ enableHighAccuracy: true })
             .then((pos: Geoposition) => {
 
                 resolve(this.googleService.getEstablishments(pos.coords.latitude, pos.coords.longitude));
             }
                 , (err: PositionError) => {
-                    console.log("colé de pan : " + err.message);
                     // reject(err);
+                    console.log("colé de pan : " + err.message);
                 })
                 .catch(error => {
                     reject(error);

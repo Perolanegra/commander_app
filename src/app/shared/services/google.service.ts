@@ -10,13 +10,14 @@ export class GoogleService {
 
     constructor(private geolocation: Geolocation) { }
 
-    public getDistance(lat: number, lng: number) {
+    public getDistance(lat: number, lng: number): Promise<Object> {
         return new Promise((resolve, reject) => {
             this.geolocation.getCurrentPosition({ enableHighAccuracy: true }).then(async (pos: Geoposition) => {
                 const distance = await this.calculateDistance(pos.coords.latitude, pos.coords.longitude, lat, lng);
                 resolve(distance);
             }, (err: PositionError) => {
                 console.log("erro gps : " + err.message);
+                reject(err);
             }).catch(error => {
                 reject(error);
             })
@@ -51,7 +52,7 @@ export class GoogleService {
                     for (var i = 0; i < resp.length; i++) {
                         nearbyPlaces.push(resp[i]);
                     }
-
+                    
                     resolve(nearbyPlaces);
                 }
 

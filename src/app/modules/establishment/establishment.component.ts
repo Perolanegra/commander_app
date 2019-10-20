@@ -3,6 +3,7 @@ import { AppController } from '../core/appController';
 import { EstablishmentService } from './establishment.service';
 import { DistanceModel } from 'src/app/shared/models/classes/distance.model';
 import { GoogleService } from 'src/app/shared/services/google.service';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 @Component({
     selector: 'app-establishment',
@@ -16,6 +17,7 @@ export class EstablishmentComponent implements OnInit {
 
     constructor(public appController: AppController,
         private establishmentService: EstablishmentService,
+        private geolocation: Geolocation,
         private googleService: GoogleService) { }
 
     ngOnInit() {
@@ -25,30 +27,27 @@ export class EstablishmentComponent implements OnInit {
 
     async getBars() { // mudar essa lógica
         this.bars = await this.establishmentService.getAll(); // lista dos cadastrados
-        console.log('bar: ', this.bars);
 
         // obtenho a lista dos restaurantes proximos
-        this.establishmentService.getEstablishmentsNearBy().then(resp => {
-            console.log('resp: ', resp);
-        }).catch(error => this.appController.tratarErro(error));
-
+        const nearBy = await this.establishmentService.getEstablishmentsNearBy();
+        console.log('nearBy: ', nearBy);
 
         // pesquisar os bares com base no nearBy e trazer os cadastrados
         // depois fazer o foreach abaixo
         // hoje estou trazendo todos, porém estático no service pq ainda n fiz a implementacao do front com o back e nem cadastrei os bares no banco.
 
-        // this.bars.forEach(async (bar, key) => {
+        this.bars.forEach(async (bar, key) => {
 
-        //     try {
-        //         const item = await this.googleService.getDistance(bar.lat,bar.lng);
-        //         // this.distance.push(item);
-        //         // bar.distance = item.
-        //         console.log('distancia loop: ', item);
+            try {
+                const item = await this.googleService.getDistance(bar.lat,bar.lng);
+                bar.distance = item['distance'].toFixed(1);
+                bar.duration = item['duration'];
+                console.log('distancia item: ', item);
 
-        //     } catch (error) {
-        //         this.appController.tratarErro(error);
-        //     }
-        // });
+            } catch (error) {
+                this.appController.tratarErro(error);
+            }
+        });
 
 
 

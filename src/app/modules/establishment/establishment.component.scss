@@ -18,3 +18,10 @@
 :host ::ng-deep .mat-list-base .mat-list-item .mat-list-item-content {
     flex-direction: row-reverse;
 }
+
+.minutes {
+    font-weight: 300;
+    color: #717171;
+    font-size: 0.875rem;
+    line-height: 0.9375rem;
+}
