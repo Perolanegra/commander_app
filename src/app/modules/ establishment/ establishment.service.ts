@@ -3,7 +3,8 @@ import { RestService } from '../core/rest.service';
 import { map } from 'rxjs/operators';
 import { AppController } from '../core/appController';
 import { NativeGeocoder, NativeGeocoderOptions, NativeGeocoderReverseResult } from '@ionic-native/native-geocoder/ngx';
-import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { Geolocation, Geoposition } from '@ionic-native/geolocation/ngx';
+import { GoogleService } from 'src/app/shared/services/google.service';
 
 
 declare var google;
@@ -14,22 +15,38 @@ export class EstablishmentService {
     constructor(private appController: AppController,
     private restService: RestService,
     private geolocation: Geolocation,
+    private googleService: GoogleService,
     private nativeGeocoder: NativeGeocoder) { }
 
     public getAll(): Promise<any> {
         return new Promise((resolve, reject) => {
-            console.log('requisicao lista restaurantes');
             const bars = [{
                 name: 'Quiosque do Galego',
                 description: 'Bar e Restaurante',
                 distance: '2 km',
-                lat: 12.9692472222,
-                lng: -38.4367916667,
+                lat:-13.0010826,
+                lng:-38.5269862,
                 rating: '4.8',
                 img: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
             }];
             
             resolve(bars);
+        });
+    }
+
+    public getEstablishmentsNearBy() {
+
+        return new Promise((resolve, reject) => {
+            this.geolocation.getCurrentPosition({ enableHighAccuracy: true }).then((pos: Geoposition) => {
+
+                resolve(this.googleService.getEstablishments(pos.coords.latitude, pos.coords.longitude));
+
+            }, (err: PositionError) => {
+                console.log("erro gps : " + err.message);
+            })
+            .catch(error => {
+                reject(error);
+            })
         });
     }
 

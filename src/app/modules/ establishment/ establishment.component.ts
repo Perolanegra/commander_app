@@ -21,33 +21,29 @@ export class EstablishmentComponent implements OnInit {
     private distanceService: DistanceService) { }
 
     async ngOnInit() {
-        // make the request to bring the list of establishments registered - this.bars = 
+        
         this.getBars();
     }
 
 
-    async getBars() {
-        const currentLat = -38.4921199;
-        const currentLng = -12.9911449;
-        let teste1;
-        let teste2;
+    async getBars() { // mudar essa lógica
+        const nearBy = await this.establishmentService.getEstablishmentsNearBy(); // obtenho a lista dos restaurantes proximos
+        console.log('nearBy: ', nearBy);
 
-        this.bars = await this.establishmentService.getAll();
-        this.bars.forEach((bar, key) => {
-            // this.distance.push(this.distanceService.calcRadiusDistance(currentLat, currentLng, bar.lat, bar.lng));
-            // bar.distance = this.distanceService.calcRadiusDistance(currentLat, currentLng, bar.lat, bar.lng);
-            // this.distance[key].establishment = bar.name;
-            teste1 = bar.lat;
-            teste2 = bar.lng;
+        // pesquisar os bares com base no nearBy e trazer os cadastrados
+        // depois fazer o foreach abaixo
+        // hoje estou trazendo todos, porém estático no service pq ainda n fiz a implementacao do front com o back e nem cadastrei os bares no banco.
+        
+        this.bars = await this.establishmentService.getAll(); // lista dos cadastrados
+        this.bars.forEach(async (bar, key) => {
+            try {
+                const distance = await this.googleService.getDistance(bar.lat,bar.lng);
+                console.log('distancia loop: ', distance);
+                
+            } catch (error) {
+                this.appController.tratarErro(error);
+            }
         });
-        let distancia;
-        try {
-            this.googleService.getDistance(teste1, teste2);
-        } catch (error) {
-            this.appController.tratarErro(error);
-        }
-
-        // console.log('distancia: ', distancia);
     }
 
     calculate() {
@@ -55,7 +51,7 @@ export class EstablishmentComponent implements OnInit {
         var myLatLng2 = { lat: 40.04215, lng: 14.102552 };
     }
 
-    calculateDistance(lat1:number,lat2:number,long1:number,long2:number){
+    getEstablishments(lat1:number,lat2:number,long1:number,long2:number){
         let p = 0.017453292519943295;    // Math.PI / 180
         let c = Math.cos;
         let a = 0.5 - c((lat1-lat2) * p) / 2 + c(lat2 * p) *c((lat1) * p) * (1 - c(((long1- long2) * p))) / 2;

@@ -1,49 +1,30 @@
 import { Geolocation, Geoposition } from '@ionic-native/geolocation/ngx';
 import { Injectable } from '@angular/core';
+import { catchError } from 'rxjs/operators';
 
 declare var google;
+var service = new google.maps.DistanceMatrixService();
 
 @Injectable()
 export class GoogleService {
-    distance: any;
 
     constructor(private geolocation: Geolocation) { }
 
     public getDistance(lat: number, lng: number) {
         return new Promise((resolve, reject) => {
-            this.geolocation.getCurrentPosition({ enableHighAccuracy: true }).then((pos: Geoposition) => {
-                // const origin1 = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-                // const origin2 = 'Salvador, Bahia'
-                // const destA = 'Salvador, Bahia'
-                // const destB = new google.maps.LatLng(-12.9785741, -38.4551153);
-                // this.getEstablishments(pos.coords.latitude, pos.coords.longitude);
-                this.obterDistanciaTeste(pos.coords.latitude, pos.coords.longitude);
-              
-                
-                resolve('this.distance');
+            this.geolocation.getCurrentPosition({ enableHighAccuracy: true }).then(async (pos: Geoposition) => {
+                const distance = await this.calculateDistance(pos.coords.latitude, pos.coords.longitude, lat, lng);
+                resolve(distance);
             }, (err: PositionError) => {
                 console.log("erro gps : " + err.message);
-            })
-            .catch(error => {
+            }).catch(error => {
                 reject(error);
             })
         });
 
     }
 
-    private obterDistanciaTeste(currentLat, currentLng) {
-        var myLatLng1 = currentLat + "," + currentLng;
-        var myLatLng2 = '-12.9785741,-38.4551153';
-
-        try {
-            let rsult = google.maps.geometry.spherical.computeDistanceBetween(myLatLng1, myLatLng2);
-            console.log('array: ', rsult);
-        } catch (error) {
-            console.log('erro: ', error);
-        }
-    }
-
-    private getEstablishments(curentLat: number, currentLng: number) {
+    public getEstablishments(curentLat: number, currentLng: number): Promise<any> {
         let here = new google.maps.LatLng(curentLat, currentLng);
         let request = {
             location: here,
@@ -60,19 +41,69 @@ export class GoogleService {
         };
 
         const places = new google.maps.places.PlacesService(new google.maps.Map('d', options));
-        places.nearbySearch(request, this.callback);
+
+        return new Promise((resolve, reject) => {
+
+            places.nearbySearch(request, (resp, status) => {
+
+                let nearbyPlaces = [];
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    for (var i = 0; i < resp.length; i++) {
+                        nearbyPlaces.push(resp[i]);
+                    }
+
+                    resolve(nearbyPlaces);
+                }
+
+                return nearbyPlaces;
+            }, catchError((error, caught) => {
+                console.log('error: ', error);
+                console.log('caught: ', caught);
+
+                reject(error);
+                return caught;
+            }));
+        });
+
     }
 
-    callback(results, status) {
-        let nearbyPlaces = [];
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-          for (var i = 0; i < results.length; i++) {
-            //let place = results[i];
-            nearbyPlaces.push(results[i]);
-          }
-        }
+    private calculateDistance(currentLat: number, currentLng: number, destinationLat: number, destinationLng: number): Promise<any> {
 
-        return nearbyPlaces;
+        return new Promise((resolve, reject) => {
+            
+            service.getDistanceMatrix(
+                {
+                    origins: [new google.maps.LatLng(currentLat, currentLng)],
+                    destinations: [new google.maps.LatLng(destinationLat, destinationLng)],
+                    travelMode: 'DRIVING'
+                }, (response, status) => { // callback
+                    let travelDetailsObject;
+                    if (status == 'OK') {
+                        var origins = response.originAddresses;
+                        var destinations = response.destinationAddresses;
+                        for (var i = 0; i < origins.length; i++) {
+                            var results = response.rows[i].elements;
+                            for (var j = 0; j < results.length; j++) {
+                                var element = results[j];
+                                var distance = parseFloat(element.distance.value) / 1000;
+                                var duration = element.duration.text;
+                                var from = origins[i];
+                                var to = destinations[j];
+                                travelDetailsObject = {
+                                    distance: distance,
+                                    duration: duration
+                                }
+                            }
+                        }
+            
+                        resolve(travelDetailsObject);
+                    }
+                    else {
+                        reject('Não foi possível obter a lista');
+                    }
+                });
+        });
+
     }
 
 }
