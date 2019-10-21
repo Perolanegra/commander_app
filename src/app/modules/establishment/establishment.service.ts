@@ -26,8 +26,8 @@ export class EstablishmentService {
             const bars = [{
                 name: 'Quiosque do Galego',
                 description: 'Bar e Restaurante',
-                distance: '2 km',
-                duration: null,
+                distance: '',
+                duration: '',
                 lat: -13.0010826,
                 lng: -38.5269862,
                 rating: '4.8',
