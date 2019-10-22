@@ -23,18 +23,22 @@ export class EstablishmentService {
 
     public getAll(): Promise<any> {
         return new Promise((resolve, reject) => {
-            const bars = [{
-                name: 'Quiosque do Galego',
-                description: 'Bar e Restaurante',
-                distance: '',
-                duration: '',
-                lat: -13.0010826,
-                lng: -38.5269862,
-                rating: '4.8',
-                img: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
-            }];
-
-            resolve(bars);
+            resolve([{
+                "name": "Quiosque do Galego",
+                "description": "Bar e Restaurante",
+                "distance": "",
+                "duration": "",
+                "lat": -13.0010826,
+                "lng": -38.5269862,
+                "rating": "4.8",
+                "img": "https://material.angular.io/assets/img/examples/shiba1.jpg"
+            }]);
+            // this.restService.get('endPoint', null).pipe(map(resp => resp))
+            // .subscribe(value => {
+            //     resolve(value); // colchetes por enquanto
+            // }), (err) => {
+            //     reject(err);
+            // }
         });
     }
 

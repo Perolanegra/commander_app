@@ -29,6 +29,8 @@ export class EstablishmentComponent implements AfterViewInit {
     async getBars() { // mudar essa lógica
         // lista dos cadastrados
         this.bars = await this.establishmentService.getAll();
+        console.log('bars: ', this.bars);
+        
         // pesquisar os bares com base no nearBy e trazer os cadastrados
         // depois fazer o foreach abaixo
         // hoje estou trazendo todos, porém estático no service pq ainda n fiz a implementacao do front com o back e nem cadastrei os bares no banco.
@@ -41,7 +43,7 @@ export class EstablishmentComponent implements AfterViewInit {
         });
         console.log('bars: ', this.bars);
         
-        // // obtenho a lista dos restaurantes proximos
+        // obtenho a lista dos restaurantes proximos
         // const nearBy = await this.establishmentService.getEstablishmentsNearBy();
         // console.log('nearBy: ', nearBy);
     }
