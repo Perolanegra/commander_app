@@ -1,5 +1,5 @@
 <mat-list>
-    <mat-list-item style="flex-direction: row-reverse;" *ngFor="let bar of bars;">
+    <mat-list-item style="flex-direction: row-reverse;" *ngFor="let bar of bars;" (click)="pushToDetails(bar);">
         <ion-avatar class="bar-icon" slot="start">
             <img [src]="bar?.img">
         </ion-avatar>
@@ -13,9 +13,9 @@
                 </svg>
                 <a class="rating">{{ bar?.rating }}</a>
             </span>
-            • {{ bar?.description }} • {{ bar?.distance }} km 
+            • {{ bar?.description }} • {{ bar?.distance }} km
             <br>
-            <span class="minutes">
+            <span *ngIf="bar?.duration" class="minutes">
                 • {{ bar?.duration }} • 
             </span>
         </p>

@@ -31,7 +31,10 @@ export class EstablishmentService {
                 "lat": -13.0010826,
                 "lng": -38.5269862,
                 "rating": "4.8",
-                "img": "https://material.angular.io/assets/img/examples/shiba1.jpg"
+                "img": "https://material.angular.io/assets/img/examples/shiba1.jpg",
+                "feedback": 'Some text here...',
+                "schedule": "11:00 às 02:00",
+                "address": "Avenida Jorge Amado, s/nº, Canal do Imbuí, Salvador - BA"
             }]);
             // this.restService.get('endPoint', null).pipe(map(resp => resp))
             // .subscribe(value => {
