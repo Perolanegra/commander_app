@@ -4,8 +4,8 @@ import { GlobalVars } from 'src/app/shared/globalVars';
 
 @Component({
   selector: 'app-sign-up',
-  templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.scss'],
+  templateUrl: './sign-up.component.html',
+  styleUrls: ['./sign-up.component.scss'],
 })
 export class SignUpComponent implements OnInit {
 

@@ -37,8 +37,9 @@ export class EstablishmentComponent implements AfterViewInit {
                 bar.duration = resp['duration'];
             });
         });
+        
+        setTimeout(() => loader.dismiss());
 
-        loader.dismiss();
         // obtenho a lista dos restaurantes proximos
         // const nearBy = await this.establishmentService.getEstablishmentsNearBy();
         // console.log('nearBy: ', nearBy);
