@@ -2,3 +2,31 @@
   display: flex;
   justify-content: flex-end;
 }
+
+.svg-span svg {
+  color: #e7a74e;
+  fill: #e7a74e;
+}
+
+.rating {
+  color: #e7a74e;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.bar-icon {
+  min-width: 64px;
+  margin-right: 5.5vw;
+}
+
+:host ::ng-deep .mat-list-base .mat-list-item .mat-list-item-content {
+  flex-direction: row-reverse;
+}
+
+.minutes {
+  font-weight: 300;
+  color: #717171;
+  font-size: 0.875rem;
+  line-height: 0.9375rem;
+}

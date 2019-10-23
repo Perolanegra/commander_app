@@ -12,7 +12,6 @@ import { EstablishmentDetComponent } from './establishment-det/establishment-det
 })
 export class EstablishmentComponent implements OnInit {
     bars: any;
-    array: any;
 
     constructor(public appController: AppController,
     private establishmentService: EstablishmentService,
