@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AppController } from '../core/appController';
 import { EstablishmentService } from './establishment.service';
 import { GoogleService } from 'src/app/shared/services/google.service';
@@ -10,7 +10,7 @@ import { EstablishmentDetComponent } from './establishment-det/establishment-det
     templateUrl: './establishment.component.html',
     styleUrls: ['./establishment.component.scss'],
 })
-export class EstablishmentComponent implements AfterViewInit {
+export class EstablishmentComponent implements OnInit {
     bars: any;
     array: any;
 
@@ -19,8 +19,8 @@ export class EstablishmentComponent implements AfterViewInit {
     private modalCtrl: ModalController,
     private googleService: GoogleService) { }
 
-    ngAfterViewInit() {
-        this.getBars();
+    async ngOnInit() {
+        await this.getBars();
     }
 
     async getBars() { // mudar essa lógica
@@ -38,7 +38,7 @@ export class EstablishmentComponent implements AfterViewInit {
             });
         });
         
-        setTimeout(() => loader.dismiss());
+        loader.dismiss();
 
         // obtenho a lista dos restaurantes proximos
         // const nearBy = await this.establishmentService.getEstablishmentsNearBy();
