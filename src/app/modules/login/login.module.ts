@@ -8,11 +8,13 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { ModalPasswordComponent } from './modal-password/modal-password.component';
 import { AutofocusModule } from 'angular-autofocus-fix';
 import { AuthService } from './auth.service';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
     declarations: [
         LoginComponent,
         SignInComponent,
+        SignUpComponent,
         ModalPasswordComponent
     ],
     imports: [

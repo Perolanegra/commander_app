@@ -6,6 +6,7 @@ import { AppMaskDirective } from './directives/appMask.directive';
 import { AutofocusDirective } from './directives/autoFocus.directive';
 import { MaterialModule } from './material/material.module';
 import { GlobalVars } from './globalVars';
+import { DialogConfirmComponent } from './dialogs/dialogConfirmacao/dialogConfirm.component';
 
 const modules = [
     CommonModule,
@@ -26,7 +27,8 @@ const modules = [
     ],
     declarations: [
         AppMaskDirective,
-        AutofocusDirective
+        AutofocusDirective,
+        DialogConfirmComponent
     ],  
     exports: [ 
         ...modules,
