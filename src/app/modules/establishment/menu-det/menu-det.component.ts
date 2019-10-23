@@ -8,26 +8,29 @@ import { ProductModel } from 'src/app/shared/models/classes/product.model';
     selector: 'app-establishment-det-menu',
     templateUrl: './menu-det.component.html',
     styleUrls: ['./menu-det.component.scss'],
-    providers:[ProductService]
+    providers: [ProductService]
 })
 export class MenuDetComponent implements AfterViewInit {
     products: ProductModel;
-
-    slideOpts = {
-        initialSlide: 0,
-        speed: 400,
-        pagination: {
-            el: '.swiper-pagination',
-            type: 'custom',
-            renderCustom: (swiper, current, total) => {
-                return this.generateProgressBar(current, total);
-            }
-        }
-    };
+    slideOpts;
 
     constructor(public appController: AppController,
     private productService: ProductService,
-    private navParams: NavParams) { }
+    private navParams: NavParams) {
+        console.log('everytime');
+        
+        this.slideOpts = {
+            initialSlide: 0,
+            speed: 400,
+            pagination: {
+                el: '.swiper-pagination',
+                type: 'custom',
+                renderCustom: (swiper, current, total) => {
+                    return this.generateProgressBar(current, total);
+                }
+            }
+        };
+    }
 
     ngAfterViewInit(): void {
         this.getProducts(this.navParams.get('_id'));

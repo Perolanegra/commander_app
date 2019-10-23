@@ -53,7 +53,7 @@ export class EstablishmentComponent implements AfterViewInit {
       
         await modal.present();
         
-        modal.onDidDismiss().then(() => this.getBars());
+        modal.onWillDismiss().then(() => this.getBars());
     }
 
 

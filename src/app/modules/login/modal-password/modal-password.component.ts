@@ -1,5 +1,5 @@
 import { Component, Renderer2, OnInit, ViewChild, ElementRef, } from '@angular/core';
-import { ModalController, NavParams } from '@ionic/angular';
+import { ModalController, NavParams, NavController } from '@ionic/angular';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { AppController } from '../../core/appController';
 import { AuthService } from '../auth.service';
@@ -15,7 +15,7 @@ export class ModalPasswordComponent implements OnInit {
 
   forms: FormGroup;
   
-  constructor(private renderer: Renderer2, 
+  constructor(private navCtrl: NavController, 
   protected formBuilder: FormBuilder,
   private modalCtrl: ModalController,
   public appController: AppController,
@@ -44,7 +44,7 @@ export class ModalPasswordComponent implements OnInit {
       const user = await this.authService.getUserLoggedIn();
   
       this.globalVars.setUserLoggedIn(user);
-      this.appController.navigate('home');
+      this.navCtrl.navigateRoot('home');
       
     } catch(err) {
       this.appController.tratarErro(err);
