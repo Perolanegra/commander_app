@@ -9,9 +9,9 @@ export class AppController {
     private msg = "";
 
     constructor(private toastCtrl: ToastController,
-    private router: Router,
-    public modalCtrl: ModalController,
-    private loadingController: LoadingController) { }
+        private router: Router,
+        public modalCtrl: ModalController,
+        private loadingController: LoadingController) { }
 
     tratarErro(err): void {
         //Mensagem a ser exibida
@@ -61,7 +61,7 @@ export class AppController {
     public async exibirErro(msg: string = "Operação Indisponível no Momento") {
         const toast = await this.toastCtrl.create({
             // header: 'Ops...',
-            message: msg.length >= 75  ? "Operação Indisponível no Momento" : msg,
+            message: msg.length >= 75 ? "Operação Indisponível no Momento" : msg,
             position: 'bottom',
             color: "danger",
             duration: 2500,
@@ -69,7 +69,7 @@ export class AppController {
             showCloseButton: true,
             closeButtonText: 'OK'
         });
-        
+
         toast.present();
     }
 
@@ -79,23 +79,23 @@ export class AppController {
             message: 'Click to Close',
             position: 'bottom',
             buttons: [
-              {
-                side: 'start',
-                icon: 'star',
-                text: 'Favorite',
-                handler: () => {
-                  console.log('Favorite clicked');
+                {
+                    side: 'start',
+                    icon: 'star',
+                    text: 'Favorite',
+                    handler: () => {
+                        console.log('Favorite clicked');
+                    }
+                }, {
+                    text: 'Done',
+                    role: 'cancel',
+                    handler: () => {
+                        console.log('Cancel clicked');
+                    }
                 }
-              }, {
-                text: 'Done',
-                role: 'cancel',
-                handler: () => {
-                  console.log('Cancel clicked');
-                }
-              }
             ]
         });
-        
+
         toast.present();
     }
 
@@ -135,29 +135,29 @@ export class AppController {
         });
     }
 
-     /** 
-     * @pFormControl Parâmetro que será observado obtendo os valores quando houver modificação.
-     * @pFuncaoTratamento Função responsável por obter os registros de um `Autocomplete`
-     * @pTamanhoMinimo Quantidade mínima de caractere digitado para efetuar a requisição, Default: 3.
-     * @author igor.alves
-    */
+    /** 
+    * @pFormControl Parâmetro que será observado obtendo os valores quando houver modificação.
+    * @pFuncaoTratamento Função responsável por obter os registros de um `Autocomplete`
+    * @pTamanhoMinimo Quantidade mínima de caractere digitado para efetuar a requisição, Default: 3.
+    * @author igor.alves
+   */
     public tratarAutocomplete(pFormControl: AbstractControl, pFuncaoTratamento, pTamanhoMinimo: number = 3) {
         pFormControl.valueChanges
-        .pipe(
-            debounceTime(500),
-            tap(async pValue => {
-                if (pValue && pValue.length >= pTamanhoMinimo && pValue != null) {
-                    // const lDialog = this.openDialogAguarde();
-                    try {
-                        await pFuncaoTratamento(pValue);
-                    } catch (err) {
-                        this.tratarErro(err);
-                    } finally {
-                        // lDialog.close();
+            .pipe(
+                debounceTime(500),
+                tap(async pValue => {
+                    if (pValue && pValue.length >= pTamanhoMinimo && pValue != null) {
+                        // const lDialog = this.openDialogAguarde();
+                        try {
+                            await pFuncaoTratamento(pValue);
+                        } catch (err) {
+                            this.tratarErro(err);
+                        } finally {
+                            // lDialog.close();
+                        }
                     }
-                }
-            })
-        ).subscribe();
+                })
+            ).subscribe();
     }
 
     // public openDialogAguarde(): MatDialogRef<DialogAguardeComponent> {
@@ -203,17 +203,17 @@ export class AppController {
         let lReg;
 
         pArray.forEach(item => {
-            if(pStr != undefined && pStr != null) {
+            if (pStr != undefined && pStr != null) {
                 lReplace = item;
-                if(item == ".") {
+                if (item == ".") {
                     lReplace = /\./;
                 }
 
                 lReg = new RegExp(lReplace, "g");
-                lStr = lStr.replace(lReg,'');
+                lStr = lStr.replace(lReg, '');
             }
         });
-    
+
         return lStr;
     }
 
@@ -248,19 +248,19 @@ export class AppController {
     obterAnoMesDia(pDataBr: string): Object {
         let lObjRetorno: any = {
             dia: new String(),
-            mes: new String(), 
+            mes: new String(),
             ano: new String()
         };
 
         for (let i = 0; i < pDataBr.length; i++) {
-            if(i < 2) {
+            if (i < 2) {
                 lObjRetorno.dia += pDataBr.charAt(i);
             }
-            else if(i > 2 && i < 5) {
-                    lObjRetorno.mes += pDataBr.charAt(i);
+            else if (i > 2 && i < 5) {
+                lObjRetorno.mes += pDataBr.charAt(i);
             }
-            else if(i > 5 && i < 10) {
-                    lObjRetorno.ano += pDataBr.charAt(i);
+            else if (i > 5 && i < 10) {
+                lObjRetorno.ano += pDataBr.charAt(i);
             }
         }
 
@@ -270,14 +270,14 @@ export class AppController {
     criarParamsEndpoint(pNomes: string[], pValores: any[]): string { // Encoda os params na URI para concatenar na QueryString.
         var lRetorno = '';
         for (let i = 0; i < pNomes.length; i++) {
-          if (pValores[i] != undefined && pValores[i] != null) {
-            if (i > 0) {
-              lRetorno += '&';
+            if (pValores[i] != undefined && pValores[i] != null) {
+                if (i > 0) {
+                    lRetorno += '&';
+                }
+                lRetorno += pNomes[i] + '=' + encodeURIComponent(pValores[i]);
             }
-            lRetorno += pNomes[i] + '=' + encodeURIComponent(pValores[i]);
-          }
         }
-    
+
         return lRetorno;
     }
 
@@ -286,22 +286,22 @@ export class AppController {
             component: pPage,
             componentProps: pParams
         });
-        
+
         return await modal.present();
     }
 
-
-    public async abrirAguarde() {
-        const loadingRef = await this.loadingController.create({
-            message: 'Aguarde',
-            spinner: "dots",
-            showBackdrop: true,
-            // id: 'interceptor',
+    async presentLoadingDefault() {
+        const loading = await this.loadingController.create({
+            spinner: 'dots',
+            message: 'Processando...',
+            translucent: true,
+            //   showBackdrop: true,
+            // cssClass: 'custom-class custom-loading'
         });
 
-        await loadingRef.present();
+        await loading.present();
 
-        return this.loadingController;
+        return loading;
     }
 
 }

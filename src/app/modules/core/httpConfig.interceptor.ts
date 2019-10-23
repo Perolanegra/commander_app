@@ -10,7 +10,7 @@ export class HttpConfigInterceptor implements HttpInterceptor {
     constructor(private appController: AppController) { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        const dialogAguarde = this.appController.abrirAguarde();
+        const loader = this.appController.presentLoadingDefault();
         const token: string = ''; // implementar getAcessToken
 
         if(token) {
@@ -39,7 +39,7 @@ export class HttpConfigInterceptor implements HttpInterceptor {
             console.log('Interceptor diz: Requisição em Exception', err);
         }
         finally {
-            dialogAguarde.then(resp => resp.dismiss());
+            loader.then(resp => resp.dismiss());
         }
     }
 

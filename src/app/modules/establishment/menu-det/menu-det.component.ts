@@ -34,10 +34,11 @@ export class MenuDetComponent implements AfterViewInit {
         this.getProducts(this.navParams.get('_id'));
     }
 
-    getProducts(id: String) {
+    async getProducts(id: String) {
+        const loader = await this.appController.presentLoadingDefault();
         this.productService.getById(id).then((resp: ProductModel) => {
             this.products = resp;
-        });
+        }).finally(() => loader.dismiss());
     }
 
     private generateProgressBar(current: number, total: number): string {

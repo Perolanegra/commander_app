@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { AppController } from '../core/appController';
 import { EstablishmentService } from './establishment.service';
 import { GoogleService } from 'src/app/shared/services/google.service';
@@ -11,7 +11,6 @@ import { EstablishmentDetComponent } from './establishment-det/establishment-det
     styleUrls: ['./establishment.component.scss'],
 })
 export class EstablishmentComponent implements AfterViewInit {
-
     bars: any;
     array: any;
 
@@ -24,9 +23,9 @@ export class EstablishmentComponent implements AfterViewInit {
         this.getBars();
     }
 
-
     async getBars() { // mudar essa lógica
         // lista dos cadastrados
+        const loader = await this.appController.presentLoadingDefault();
         this.bars = await this.establishmentService.getAll();
         // pesquisar os bares com base no nearBy e trazer os cadastrados
         // depois fazer o foreach abaixo
@@ -38,6 +37,8 @@ export class EstablishmentComponent implements AfterViewInit {
                 bar.duration = resp['duration'];
             });
         });
+
+        loader.dismiss();
         // obtenho a lista dos restaurantes proximos
         // const nearBy = await this.establishmentService.getEstablishmentsNearBy();
         // console.log('nearBy: ', nearBy);
@@ -55,6 +56,5 @@ export class EstablishmentComponent implements AfterViewInit {
         
         modal.onWillDismiss().then(() => this.getBars());
     }
-
 
 }

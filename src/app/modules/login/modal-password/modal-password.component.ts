@@ -1,5 +1,5 @@
 import { Component, Renderer2, OnInit, ViewChild, ElementRef, } from '@angular/core';
-import { ModalController, NavParams, NavController } from '@ionic/angular';
+import { ModalController, NavParams, NavController, LoadingController } from '@ionic/angular';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { AppController } from '../../core/appController';
 import { AuthService } from '../auth.service';
@@ -21,6 +21,7 @@ export class ModalPasswordComponent implements OnInit {
   public appController: AppController,
   private authService: AuthService,
   private globalVars: GlobalVars,
+  private loadingController: LoadingController,
   private navParams: NavParams) { }
   private inputValidate: boolean[] = [false,false,false,false,false,false];
 
@@ -37,6 +38,7 @@ export class ModalPasswordComponent implements OnInit {
 
   async login() {
     // call request service to get the data
+    const loader = await this.appController.presentLoadingDefault();
     try {
       const accessToken = await this.authService.getAccessToken(this.forms.value);
       this.globalVars.setAccessToken(accessToken);
@@ -49,6 +51,8 @@ export class ModalPasswordComponent implements OnInit {
     } catch(err) {
       this.appController.tratarErro(err);
       this.forms.get('password').reset();
+    } finally {
+      loader.dismiss();
     }
   }
 
@@ -62,6 +66,8 @@ export class ModalPasswordComponent implements OnInit {
       this.login();
     }
   }
+
+ 
 
   
     
