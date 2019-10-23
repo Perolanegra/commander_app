@@ -13,7 +13,7 @@ export class EstablishmentDetComponent {
     constructor(public appController: AppController,
     private navParams: NavParams,
     public modalCtrl: ModalController) {
-        this.bar = this.navParams.get('bar');
+        this.bar = this.navParams.get('bar');        
     }
 
     async pushToMenuDetails(id: String) {
@@ -27,6 +27,5 @@ export class EstablishmentDetComponent {
 
         modal.present();
     }
-
 
 }

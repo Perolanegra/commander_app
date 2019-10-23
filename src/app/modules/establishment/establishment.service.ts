@@ -31,7 +31,7 @@ export class EstablishmentService {
                 "lat": -13.0010826,
                 "lng": -38.5269862,
                 "rating": "4.8",
-                "img": "https://material.angular.io/assets/img/examples/shiba1.jpg",
+                "img": "https://s3-media4.fl.yelpcdn.com/bphoto/Ia7nxDwEVYPL27tt21z70A/ls.jpg",
                 "feedback": 'Some text here...',
                 "schedule": "11:00 às 02:00",
                 "address": "Avenida Jorge Amado, s/nº, Canal do Imbuí, Salvador - BA"

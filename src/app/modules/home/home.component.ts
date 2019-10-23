@@ -8,9 +8,9 @@ import { EstablishmentComponent } from '../establishment/establishment.component
   styleUrls: ['home.component.scss'],
 })
 export class HomeComponent {
-  public tabEstablishment;
+  public tabEstablishment = EstablishmentComponent;;
   // @ViewChild(SuperTabs, { static: false }) superTabs: SuperTabs;
 
-  constructor(public appController: AppController) { this.tabEstablishment = EstablishmentComponent; }
+  constructor(public appController: AppController) { }
 
 }
