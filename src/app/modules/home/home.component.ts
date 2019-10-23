@@ -1,5 +1,4 @@
-import { Component, ViewChild, AfterViewInit } from '@angular/core';
-import { SuperTabs } from '@ionic-super-tabs/angular';
+import { Component, ViewChild } from '@angular/core';
 import { AppController } from '../core/appController';
 import { EstablishmentComponent } from '../establishment/establishment.component';
 
@@ -8,19 +7,10 @@ import { EstablishmentComponent } from '../establishment/establishment.component
   templateUrl: 'home.component.html',
   styleUrls: ['home.component.scss'],
 })
-export class HomeComponent implements AfterViewInit {
+export class HomeComponent {
   tabEstablishment = EstablishmentComponent;
-  @ViewChild(SuperTabs, { static: false }) superTabs: SuperTabs;
+  // @ViewChild(SuperTabs, { static: false }) superTabs: SuperTabs;
 
   constructor(public appController: AppController) { }
-
-  ngAfterViewInit() {
-    this.superTabs.selectTab(0);
-  }
-
-  onTabChange(event) {
-    console.log('evento Tab:');
-  }
-
 
 }
