@@ -21,9 +21,8 @@ export class ModalPasswordComponent implements OnInit {
   public appController: AppController,
   private authService: AuthService,
   private globalVars: GlobalVars,
-  private loadingController: LoadingController,
   private navParams: NavParams) { }
-  private inputValidate: boolean[] = [false,false,false,false,false,false];
+  public inputValidate: boolean[] = [false,false,false,false,false,false];
 
   ngOnInit() {
     this.forms = this.createForm();

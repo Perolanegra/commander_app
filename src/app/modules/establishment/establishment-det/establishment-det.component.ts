@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AppController } from '../../core/appController';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavParams } from '@ionic/angular';
 import { MenuDetComponent } from '../menu-det/menu-det.component';
 
 @Component({
@@ -9,9 +9,12 @@ import { MenuDetComponent } from '../menu-det/menu-det.component';
     styleUrls: ['./establishment-det.component.scss'],
 })
 export class EstablishmentDetComponent {
-
+    bar;
     constructor(public appController: AppController,
-    private modalCtrl: ModalController) { }
+    private navParams: NavParams,
+    public modalCtrl: ModalController) {
+        this.bar = this.navParams.get('bar');
+    }
 
     async pushToMenuDetails(id: String) {
         const modal = await this.modalCtrl.create({
