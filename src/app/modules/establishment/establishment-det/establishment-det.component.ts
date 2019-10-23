@@ -23,7 +23,8 @@ export class EstablishmentDetComponent implements OnInit {
             component: MenuDetComponent,
             componentProps: {
                 "_id": id
-            }
+            },
+            cssClass: 'modal-center'
         });
 
         modal.present();

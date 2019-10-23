@@ -41,3 +41,36 @@
     .modal-footer .modal-wrapper .ion-page > * {
         pointer-events: all;
     }
+
+    .action-sheet-default {
+        padding: 0 20px 50px 3px;
+        border-radius: 16px 16px 0 0;
+        background-color: #fff;
+        overflow: hidden;
+    }
+
+    .modal-center .modal-wrapper .ion-page {
+        pointer-events: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-center .modal-wrapper {
+        --background: transparent;
+        pointer-events: none;
+    }
+
+    .modal-center .modal-wrapper .ion-page > * {
+        pointer-events: all;
+    }
+
+    .modal-centering {
+        padding: 3px 5px 5px 5px;
+        border-radius: 16px;
+        background-color: #fff;
+        overflow: hidden;
+        width: 72.222vw;
+    }
+

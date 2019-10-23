@@ -1,0 +1,25 @@
+<div class="modal-centering">
+
+    <ion-slides class="slide-menu-det" pager="true" [options]="slideOpts" (ionSlideDidChange)="troquei($event);">
+        
+        <ion-slide *ngFor="let product of products">
+            <ion-card style="box-shadow: none;">
+                <div style="display: flex; justify-content: center;">
+                    <img class="menu-pic" [src]="product?.img" alt="produto-imagem">
+                </div>
+
+                <ion-card-header>
+                    <ion-card-subtitle style="color: blue;"> R$ {{ product?.price }} </ion-card-subtitle>
+                    <ion-card-title> {{ product?.title }} </ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-card-subtitle> 
+                        {{ product?.description }}
+                    </ion-card-subtitle>
+                </ion-card-content>
+            </ion-card>
+        </ion-slide>
+
+    </ion-slides>
+</div>

@@ -36,7 +36,7 @@ export class EstablishmentService {
                 "schedule": "11:00 às 02:00",
                 "address": "Avenida Jorge Amado, s/nº, Canal do Imbuí, Salvador - BA"
             }]);
-            // this.restService.get('endPoint', null).pipe(map(resp => resp))
+            // this.restService.get('establishments', null).pipe(map(resp => resp))
             // .subscribe(value => {
             //     resolve(value); // colchetes por enquanto
             // }), (err) => {

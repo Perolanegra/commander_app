@@ -1,7 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { AppController } from '../core/appController';
 import { EstablishmentService } from './establishment.service';
-import { DistanceModel } from 'src/app/shared/models/classes/distance.model';
 import { GoogleService } from 'src/app/shared/services/google.service';
 import { ModalController } from '@ionic/angular';
 import { EstablishmentDetComponent } from './establishment-det/establishment-det.component';
@@ -14,7 +13,6 @@ import { EstablishmentDetComponent } from './establishment-det/establishment-det
 export class EstablishmentComponent implements AfterViewInit {
 
     bars: any;
-    distance: DistanceModel[] = [];
     array: any;
 
     constructor(public appController: AppController,
