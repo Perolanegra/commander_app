@@ -13,7 +13,7 @@ export class ProductService {
             const products = [
                 {
                     "title": 'Mistão',
-                    "img": 'http://www.qburgao.com.br/iririu/wp-content/uploads/2018/02/25-1.jpg',
+                    "img": 'https://rechlanches.com.br/wp-content/uploads/2017/06/mist%C3%A3o-rechlanches-joinville.jpg',
                     "description": 'Carne mista (boi, frango, porco e calabresa), batata frita, cebola e cheddar',
                     "price": '46,80'
                 },
@@ -25,7 +25,7 @@ export class ProductService {
                 },
                 {
                     "title": 'Escondidinho de Camarão',
-                    "img": 'http://atdigital.com.br/boamesa/wp-content/uploads/2014/09/090914-Escondidinho-Camarao-07-1024x682.jpg',
+                    "img": 'https://www.destaquesp.com/wp-content/uploads/2008/11/receita-escondidinho-de-camarao.jpg',
                     "description": 'Aimpim, coentro, cebola, azeitona, tomate e salsinha',
                     "price": '39,90'
                 },
