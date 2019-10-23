@@ -10,7 +10,8 @@
 <ion-card style="flex: 1 !important;">
 
     <div class="img-container">
-        <img class="establishment-pic" src="https://s3-media4.fl.yelpcdn.com/bphoto/Ia7nxDwEVYPL27tt21z70A/ls.jpg" alt="">
+        <img class="establishment-pic" src="https://s3-media4.fl.yelpcdn.com/bphoto/Ia7nxDwEVYPL27tt21z70A/ls.jpg"
+            alt="">
     </div>
 
     <ion-card-header>
@@ -22,8 +23,9 @@
         <ion-label>{{ bar?.distance }} km </ion-label>
         <ion-button fill="outline" slot="end" (click)="pushToMenuDetails(bar?.id);">Cardápio</ion-button>
     </ion-item>
-    <ion-card-content>
-            <ion-card-subtitle> Horário: {{ bar?.schedule }}
+    <ion-card-content style="padding-top: 5px;">
+        <ion-card-subtitle style="max-width: 50vh; bottom: 4px;">
+            Horário: {{ bar?.schedule }}
             <br>
             {{ bar?.address }}</ion-card-subtitle>
     </ion-card-content>
