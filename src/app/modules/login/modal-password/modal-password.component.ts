@@ -1,5 +1,5 @@
 import { Component, Renderer2, OnInit, ViewChild, ElementRef, } from '@angular/core';
-import { ModalController, NavParams, NavController, LoadingController } from '@ionic/angular';
+import { ModalController, NavParams, NavController } from '@ionic/angular';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { AppController } from '../../core/appController';
 import { AuthService } from '../auth.service';
@@ -66,9 +66,5 @@ export class ModalPasswordComponent implements OnInit {
     }
   }
 
- 
-
-  
-    
   
 }

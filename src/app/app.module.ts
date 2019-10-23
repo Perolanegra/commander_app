@@ -13,7 +13,7 @@ import { DialogAguardeComponent } from './shared/dialogs/dialogAguarde/dialogAgu
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './modules/core/core.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { SuperTabsModule } from '@ionic-super-tabs/angular';
+import { SuperTabsModule } from 'ionic2-super-tabs';
 
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';

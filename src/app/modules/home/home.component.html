@@ -1,38 +1,15 @@
-
 <div class="toolbar">
-  <i class="material-icons" (click)="appController.navigate('settings');" style="font-size: 45px !important;">account_circle</i>
+  <i class="material-icons" (click)="appController.navigate('settings');"
+    style="font-size: 45px !important;">account_circle</i>
 </div>
 
 <ion-content>
 
-  <super-tabs>
-    <super-tabs-toolbar slot="top" style="background-color: gray !important;">
-
-      <super-tab-button>
-        <ion-icon name="home" style="color: black;"></ion-icon>
-        <ion-label style="color: black;">Iniciar</ion-label>
-      </super-tab-button>
-
-      <super-tab-button>
-        <ion-icon name="restaurant" style="color: black;"></ion-icon>
-        <ion-label style="color: black;">Restaurantes</ion-label>
-      </super-tab-button>
-
-    </super-tabs-toolbar>
-
-
-    <super-tabs-container>
-
-      <super-tab>
-        <!-- <ion-nav [root]="tabInicio" [rootParams]="{ data: 'funciona' }" ></ion-nav> -->
-        <p>Tab 1 sendo renderizada</p>
-      </super-tab>
-
-      <super-tab>
-        <ion-nav [root]="tabEstablishment"></ion-nav>
-      </super-tab>
-
-    </super-tabs-container>
+  <super-tabs selectedTabIndex="1">
+    <super-tab title="Iniciar" icon="home">
+      <p>Tab 1 sendo renderizada</p>
+    </super-tab>
+    <super-tab [root]="tabEstablishment" title="Restaurantes" icon="restaurant"></super-tab>
   </super-tabs>
 
 </ion-content>
