@@ -17,8 +17,6 @@ export class MenuDetComponent implements AfterViewInit {
     constructor(public appController: AppController,
     private productService: ProductService,
     private navParams: NavParams) {
-        console.log('everytime');
-        
         this.slideOpts = {
             initialSlide: 0,
             speed: 400,

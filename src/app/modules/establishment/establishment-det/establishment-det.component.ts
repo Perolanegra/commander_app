@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AppController } from '../../core/appController';
-import { NavParams, ModalController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
 import { MenuDetComponent } from '../menu-det/menu-det.component';
 
 @Component({
@@ -8,15 +8,10 @@ import { MenuDetComponent } from '../menu-det/menu-det.component';
     templateUrl: './establishment-det.component.html',
     styleUrls: ['./establishment-det.component.scss'],
 })
-export class EstablishmentDetComponent implements OnInit {
+export class EstablishmentDetComponent {
 
     constructor(public appController: AppController,
-    private modalCtrl: ModalController,
-    private navParams: NavParams) { }
-
-    ngOnInit(): void {
-        
-    }
+    private modalCtrl: ModalController) { }
 
     async pushToMenuDetails(id: String) {
         const modal = await this.modalCtrl.create({
