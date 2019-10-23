@@ -52,10 +52,4 @@ export class MenuDetComponent implements AfterViewInit {
         return progressBarContainer;
     }
 
-    troquei(ev) {
-        console.log('sou emitido qd troco de slide: ', ev);
-        
-    }
-
-
 }

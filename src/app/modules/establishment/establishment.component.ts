@@ -38,8 +38,6 @@ export class EstablishmentComponent implements AfterViewInit {
                 bar.duration = resp['duration'];
             });
         });
-
-        console.log('bars: ', this.bars);
         // obtenho a lista dos restaurantes proximos
         // const nearBy = await this.establishmentService.getEstablishmentsNearBy();
         // console.log('nearBy: ', nearBy);

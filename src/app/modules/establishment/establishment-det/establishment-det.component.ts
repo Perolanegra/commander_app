@@ -15,7 +15,7 @@ export class EstablishmentDetComponent implements OnInit {
     private navParams: NavParams) { }
 
     ngOnInit(): void {
-        console.log('component det exists and works!', this.navParams.get('bar'));
+        
     }
 
     async pushToMenuDetails(id: String) {
