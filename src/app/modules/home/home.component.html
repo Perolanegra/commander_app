@@ -5,7 +5,7 @@
 
 <ion-content>
 
-  <super-tabs>
+  <!-- <super-tabs>
     <super-tabs-toolbar slot="top" style="background-color: gray !important;">
 
       <super-tab-button>
@@ -23,42 +23,42 @@
 
     <super-tabs-container>
 
-      <super-tab>
+      <super-tab> -->
         <!-- <ion-nav [root]="tabInicio" [rootParams]="{ data: 'funciona' }" ></ion-nav> -->
-        <p>Tab 1 sendo renderizada</p>
+        <!-- <p>Tab 1 sendo renderizada</p>
       </super-tab>
 
       <super-tab>
-        <!-- <ion-nav [root]="tabEstablishment"></ion-nav> -->
-
-        <mat-list>
-          <mat-list-item style="flex-direction: row-reverse;" *ngFor="let bar of bars;" (click)="pushToDetails(bar);">
-            <ion-avatar class="bar-icon" slot="start">
-              <img [src]="bar?.img">
-            </ion-avatar>
-            <h4 mat-line style="padding: 0 0 2px;">{{ bar?.name }}</h4>
-            <p mat-line style="line-height: 20px; color: #717171;">
-              <span class="svg-span">
-                <svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M5.483.314l1.128 2.39a.54.54 0 0 0 .405.308l2.522.383c.442.067.618.635.299.96l-1.825 1.86a.58.58 0 0 0-.155.499l.43 2.626c.076.46-.386.811-.78.594L5.25 8.694a.518.518 0 0 0-.502 0l-2.255 1.24c-.395.217-.857-.134-.782-.594l.431-2.626a.58.58 0 0 0-.155-.499L.163 4.355c-.32-.326-.143-.893.299-.96l2.522-.383a.54.54 0 0 0 .405-.308L4.517.314a.528.528 0 0 1 .966 0z">
-                  </path>
-                </svg>
-                <a class="rating">{{ bar?.rating }}</a>
-              </span>
-              • {{ bar?.description }} • {{ bar?.distance }} km
-              <br>
-              <span *ngIf="bar?.duration" class="minutes">
-                • {{ bar?.duration }} •
-              </span>
-            </p>
-
-          </mat-list-item>
-        </mat-list>
-
+        <ion-nav [root]="tabEstablishment"></ion-nav>
       </super-tab>
 
     </super-tabs-container>
-  </super-tabs>
+  </super-tabs> -->
+  <div style="width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+    <div style="width: 100%; height: 60px; display: flex;">
+        <div (click)="handleSwitch('command')" style="flex: 1; background-color: green; color: #fff; font-weight: bold; display: flex; align-items: center; justify-content: center;">
+          Comanda
+        </div>
+        <div  (click)="handleSwitch('establishments')" style="flex: 1; background-color: green; border-left: 1px solid #fff; border-right: 1px solid #fff; color: #fff; font-weight: bold; display: flex; align-items: center; justify-content: center;">
+          Restaurantes
+        </div>
+        <div  (click)="handleSwitch('orders')" style="flex: 1; background-color: green; color: #fff; font-weight: bold; display: flex; align-items: center; justify-content: center;">
+          Pedidos
+        </div>
+    </div>
+
+    <ng-container [ngSwitch]="switchVar">
+      <div *ngSwitchCase="'command'" style="flex: 1; background-color: red; color: #fff;">
+        Conteudo1
+      </div>
+      <div *ngSwitchCase="'establishments'" style="flex: 1; background-color: blue; color: #fff;">
+        Conteudo2
+      </div>
+      <div *ngSwitchCase="'orders'" style="flex: 1; background-color: black; color: #fff;">
+        Conteudo3
+      </div>
+    </ng-container>
+
+  </div>
 
 </ion-content>
