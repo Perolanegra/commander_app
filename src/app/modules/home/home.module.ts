@@ -7,7 +7,6 @@ import { SuperTabsModule } from '@ionic-super-tabs/angular';
 import { HomeRoutingModule } from './home.routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { EstablishmentModule } from '../establishment/establishment.module';
-import { EstablishmentComponent } from '../establishment/establishment.component';
 
 @NgModule({
   imports: [
@@ -20,7 +19,7 @@ import { EstablishmentComponent } from '../establishment/establishment.component
     EstablishmentModule
   ],
   declarations: [HomeComponent],
-  entryComponents:[EstablishmentComponent],
+  entryComponents:[], // ListEstablishment
   providers:[]
 })
 export class HomeModule {}

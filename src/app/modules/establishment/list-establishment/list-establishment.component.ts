@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { AppController } from '../core/appController';
-import { EstablishmentService } from './establishment.service';
+import { AppController } from '../../core/appController';
+import { EstablishmentService } from '../establishment.service';
 import { GoogleService } from 'src/app/shared/services/google.service';
 import { ModalController } from '@ionic/angular';
-import { EstablishmentDetComponent } from './establishment-det/establishment-det.component';
+import { EstablishmentDetComponent } from '../establishment-det/establishment-det.component';
 
 @Component({
     selector: 'app-establishment',
-    templateUrl: './establishment.component.html',
-    styleUrls: ['./establishment.component.scss'],
+    templateUrl: './list-establishment.component.html',
+    styleUrls: ['./list-establishment.component.scss'],
 })
-export class EstablishmentComponent implements OnInit {
+export class ListEstablishmentComponent implements OnInit {
     bars: any;
 
     constructor(public appController: AppController,

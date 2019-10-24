@@ -1,4 +1,5 @@
 <mat-list>
+
     <mat-list-item style="flex-direction: row-reverse;" *ngFor="let bar of bars;" (click)="pushToDetails(bar);">
         <ion-avatar class="bar-icon" slot="start">
             <img [src]="bar?.img">
@@ -19,6 +20,6 @@
                 • {{ bar?.duration }} • 
             </span>
         </p>
-            
     </mat-list-item>
+    
 </mat-list>
