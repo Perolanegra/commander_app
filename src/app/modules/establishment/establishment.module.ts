@@ -25,7 +25,7 @@ const providers = [
 ];
 @NgModule({
   imports: [...modules],
-  declarations: [ListEstablishmentComponent, EstablishmentDetComponent, MenuDetComponent],
+  declarations: [EstablishmentDetComponent, MenuDetComponent],
   entryComponents: [EstablishmentDetComponent, MenuDetComponent],
   providers: [...providers]
 })

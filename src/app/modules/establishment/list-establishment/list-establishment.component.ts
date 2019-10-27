@@ -6,7 +6,7 @@ import { ModalController } from '@ionic/angular';
 import { EstablishmentDetComponent } from '../establishment-det/establishment-det.component';
 
 @Component({
-    selector: 'app-establishment',
+    selector: 'app-list-establishment',
     templateUrl: './list-establishment.component.html',
     styleUrls: ['./list-establishment.component.scss'],
 })

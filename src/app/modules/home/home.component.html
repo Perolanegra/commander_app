@@ -51,9 +51,11 @@
       <div *ngSwitchCase="'command'" style="flex: 1; background-color: red; color: #fff;">
         Conteudo1
       </div>
-      <div *ngSwitchCase="'establishments'" style="flex: 1; background-color: blue; color: #fff;">
-        Conteudo2
+      
+      <div *ngSwitchCase="'establishments'" style="flex: 1;">
+        <app-list-establishment></app-list-establishment>
       </div>
+      
       <div *ngSwitchCase="'orders'" style="flex: 1; background-color: black; color: #fff;">
         Conteudo3
       </div>
