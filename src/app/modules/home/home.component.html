@@ -48,8 +48,8 @@
     </div>
 
     <ng-container [ngSwitch]="switchVar">
-      <div *ngSwitchCase="'command'" style="flex: 1; background-color: red; color: #fff;">
-        Conteudo1
+      <div *ngSwitchCase="'command'" style="flex: 1;">
+        <app-command></app-command>
       </div>
       
       <div *ngSwitchCase="'establishments'" style="flex: 1;">
