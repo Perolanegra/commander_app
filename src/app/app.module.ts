@@ -9,7 +9,6 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { DialogAguardeComponent } from './shared/dialogs/dialogAguarde/dialogAguarde.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './modules/core/core.module';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -21,10 +20,8 @@ import { LocationAccuracy } from '@ionic-native/location-accuracy/ngx';
 @NgModule({
   declarations: [
     AppComponent,
-    DialogAguardeComponent
   ],
   entryComponents: [
-    DialogAguardeComponent
   ],
   imports: [
     BrowserModule,

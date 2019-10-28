@@ -12,7 +12,7 @@ import { EstablishmentService } from '../establishment/establishment.service';
   styleUrls: ['home.component.scss'],
 })
 export class HomeComponent {
-  switchVar: string = 'start';
+  switchVar: string = 'command';
   // qrDataFill: Object = {
   //   "id": "5",
   //   "name": "To em Belle",

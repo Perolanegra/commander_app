@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 import { LocationAccuracy } from '@ionic-native/location-accuracy/ngx';
 
@@ -13,18 +12,6 @@ import { LocationAccuracy } from '@ionic-native/location-accuracy/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-  public appPages = [
-    {
-      title: 'Home',
-      url: '/home',
-      icon: 'home'
-    },
-    {
-      title: 'List',
-      url: '/list',
-      icon: 'list'
-    }
-  ];
 
   constructor(
   private platform: Platform,
@@ -41,7 +28,7 @@ export class AppComponent {
       this.checkGPSPermission();
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      this.statusBar.overlaysWebView(false);
+      // this.statusBar.overlaysWebView(false);
     });
   }
 

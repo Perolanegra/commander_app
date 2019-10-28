@@ -7,7 +7,7 @@
 
   <div style="width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
     <div style="width: 100%; height: 60px; display: flex;">
-      <div (click)="handleSwitch('start')"
+      <div (click)="handleSwitch('command')"
         style="flex: 1; background-color: green; color: #fff; font-weight: bold; display: flex; align-items: center; justify-content: center;">
         Comanda
       </div>
@@ -22,7 +22,7 @@
     </div>
 
     <ng-container [ngSwitch]="switchVar">
-      <div *ngSwitchCase="'start'" style="flex: 1;">
+      <div *ngSwitchCase="'command'" style="flex: 1;">
         <div class="btn-start-command">
           <ion-button color="tertiary" expand="block" (click)="startCommand();">Iniciar Comanda</ion-button>
         </div>

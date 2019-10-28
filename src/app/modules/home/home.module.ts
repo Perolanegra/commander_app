@@ -7,7 +7,6 @@ import { HomeRoutingModule } from './home.routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { EstablishmentModule } from '../establishment/establishment.module';
 import { ListEstablishmentComponent } from '../establishment/list-establishment/list-establishment.component';
-import { CommandComponent } from '../command/command.component';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { Base64ToGallery } from '@ionic-native/base64-to-gallery/ngx';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
@@ -22,8 +21,8 @@ import { NgxQRCodeModule } from 'ngx-qrcode2';
     EstablishmentModule,
     NgxQRCodeModule
   ],
-  declarations: [HomeComponent, ListEstablishmentComponent, CommandComponent],
-  entryComponents:[ListEstablishmentComponent, CommandComponent],
+  declarations: [HomeComponent, ListEstablishmentComponent],
+  entryComponents:[ListEstablishmentComponent],
   providers: [
     BarcodeScanner,
     Base64ToGallery
