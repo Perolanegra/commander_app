@@ -40,7 +40,7 @@ export class HomeComponent {
       const resp = await this.googleService.getDistance(Number(scannedObj.lat), Number(scannedObj.lng));
       const distanceInMeters = Number(resp['distance'].toFixed(1)) * 1000;
 
-      if(distanceInMeters >= 70) { // Se a distância q o cara tá for menor q 70m, JUST DO IT!
+      if(distanceInMeters <= 70) { // Se a distância q o cara tá for menor q 70m, JUST DO IT!
         // obtém o estabelecimento pelo id e navega para Mesa passando a entidade Estabelecimento como parametro.
         const { id } = scannedObj;
         const establishment = await this.establishmentService.getById(id);
