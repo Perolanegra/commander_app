@@ -65,16 +65,30 @@ export class EstablishmentService {
     }
 
 
-    // public getSomeId(pId): Promise<any> {
-    //     return new Promise((resolve, reject) => {
-    //         this.restService
-    //         .post(`produto/obterPorId?` + this.appController.criarParamsEndpoint(['pId'],[pId]), null)
-    //         .pipe(map(resp => resp)).subscribe(resp => {
-    //             resolve(resp);
-    //         }), (err) => {
-    //             console.log('erro requisição: ', err);
-    //             reject(err);
-    //         }
-    //     });
-    // }
+    public getById(pId): Promise<any> {
+        return new Promise((resolve, reject) => {
+            resolve({
+                "_id": 1,
+                "name": "Quiosque do Galego",
+                "description": "Bar e Restaurante",
+                "distance": "",
+                "duration": "",
+                "lat": -13.0010826,
+                "lng": -38.5269862,
+                "rating": "4.8",
+                "img": "https://s3-media4.fl.yelpcdn.com/bphoto/Ia7nxDwEVYPL27tt21z70A/ls.jpg",
+                "feedback": 'Some text here...',
+                "schedule": "11:00 às 02:00",
+                "address": "Avenida Jorge Amado, s/nº, Canal do Imbuí, Salvador - BA"
+            });
+            // this.restService
+            // .get(`establishments/getById`, pId)
+            // .pipe(map(resp => resp)).subscribe(resp => {
+            //     resolve(resp);
+            // }), (err) => {
+            //     console.log('erro requisição: ', err);
+            //     reject(err);
+            // }
+        });
+    }
 }

@@ -7,9 +7,11 @@ import { AutofocusDirective } from './directives/autoFocus.directive';
 import { MaterialModule } from './material/material.module';
 import { GlobalVars } from './globalVars';
 import { DialogConfirmComponent } from './dialogs/dialogConfirmacao/dialogConfirm.component';
+import { IonicModule } from '@ionic/angular';
 
 const modules = [
     CommonModule,
+    IonicModule,
     MaterialModule,
     RouterModule,
     ReactiveFormsModule,

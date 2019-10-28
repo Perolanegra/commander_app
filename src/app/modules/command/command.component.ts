@@ -10,10 +10,8 @@ export class CommandComponent implements OnInit {
 
   constructor(public appController: AppController) { }
 
-  hasCommand: boolean = false;
-  
   ngOnInit() {
-
+    console.log('CommandComponent Works!');
   }
 
 }

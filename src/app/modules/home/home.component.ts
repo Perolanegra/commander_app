@@ -5,6 +5,7 @@ import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-sca
 import { GoogleService } from 'src/app/shared/services/google.service';
 import { catchError } from 'rxjs/operators';
 import { throwError, EMPTY } from 'rxjs';
+import { EstablishmentService } from '../establishment/establishment.service';
 
 @Component({
   selector: 'app-home',
@@ -15,14 +16,15 @@ export class HomeComponent {
   switchVar: string = 'command';
   scannedObj = null;
   qrDataFill: Object = {
-    "id": "1",
-    "name": "Quiosque do Galego",
-    "lat": "-13.0010826",
-    "lng": "-38.5269862"
+    "id": "2",
+    "name": "Bar Terapia",
+    "lat": "-12.969360",
+    "lng": "-38.436841"
   };
 
   constructor(public appController: AppController,
   private navCtrl: NavController,
+  private establishmentService: EstablishmentService,
   private barcodeScanner: BarcodeScanner,
   private googleService: GoogleService) {
     this.qrDataFill = JSON.stringify(this.qrDataFill);
@@ -42,14 +44,11 @@ export class HomeComponent {
 
       if(distanceInMeters <= 70) { // Se a distância q o cara tá for menor q 70m, JUST DO IT!
         // obter o estabelecimento pelo id e navegar para Mesa passando o objeto Estabelecimento como parametro.
+        const { id } = scannedObj;
+        const establishment = await this.establishmentService.getById(id);
+        this.navCtrl.navigateRoot('command', establishment);
       }
-
-      console.log('distancia em metros: ', distanceInMeters);
-      
-      // at the end, success 
-      // this.navCtrl.navigateRoot('command');
     }
-
   }
 
   handleQrCode(): Promise<any> {
@@ -82,8 +81,6 @@ export class HomeComponent {
       })
       );
     });
-
-
   }
 
 }
