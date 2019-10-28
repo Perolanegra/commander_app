@@ -3,6 +3,8 @@ import { AppController } from '../core/appController';
 import { NavController } from '@ionic/angular';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner/ngx';
 import { GoogleService } from 'src/app/shared/services/google.service';
+import { catchError } from 'rxjs/operators';
+import { throwError, EMPTY } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -32,12 +34,17 @@ export class HomeComponent {
 
   async startCommand() { // open QrCode, validate QrCode, then if success navigate to new Root 'Command'
     const scannedObj = await this.handleQrCode();
-    console.log('colé de pan: ', scannedObj);
     
-    if(scannedObj !== null) { // foi setado pelo HandleQr
+    if(scannedObj) { // foi setado pelo HandleQr
 
-      const resp = await this.googleService.getDistance(scannedObj.lat, scannedObj.lng);
-      console.log('distance: ', resp['distance'].toFixed(1));
+      const resp = await this.googleService.getDistance(Number(scannedObj.lat), Number(scannedObj.lng));
+      const distanceInMeters = Number(resp['distance'].toFixed(1)) * 1000;
+
+      if(distanceInMeters <= 70) { // Se a distância q o cara tá for menor q 70m, JUST DO IT!
+        // obter o estabelecimento pelo id e navegar para Mesa passando o objeto Estabelecimento como parametro.
+      }
+
+      console.log('distancia em metros: ', distanceInMeters);
       
       // at the end, success 
       // this.navCtrl.navigateRoot('command');
@@ -58,21 +65,22 @@ export class HomeComponent {
       // open qrCode and handle with validations.
       this.barcodeScanner.scan(options).then(barcodeData => {
         if (!barcodeData.cancelled && barcodeData.format === 'QR_CODE') {
-          if(typeof  barcodeData === 'object') { // mais uma validação de q vem no stringfy
-            // this.scannedObj = ;
-            resolve(JSON.stringify(barcodeData));
+          const { text } = barcodeData;
+          if(text && typeof JSON.parse(text) === 'object') { // mais uma validação de q vem no stringfy
+            resolve(JSON.parse(text));
           }
           else {
             this.appController.exibirErro('QRCode Inválido!');
-            reject(null);
+            resolve(false);
           }
           
         }
-      }, (err => {
-        console.log('sup: ', err);
+      }, catchError((err, caught) => {
         reject(err);
-        
-      }));
+        console.log('caught is: ', caught);
+        throw new Error(err);
+      })
+      );
     });
 
 
