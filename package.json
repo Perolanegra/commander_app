@@ -25,6 +25,9 @@
     "@angular/platform-browser-dynamic": "~8.1.2",
     "@angular/router": "~8.1.2",
     "@ionic-native/android-permissions": "^5.15.1",
+    "@ionic-native/barcode-scanner": "^5.15.1",
+    "@ionic-native/base64-to-gallery": "^5.15.1",
+    "@ionic-native/camera": "^5.15.1",
     "@ionic-native/core": "^5.0.0",
     "@ionic-native/geolocation": "^5.15.1",
     "@ionic-native/google-plus": "^5.15.0",
@@ -37,8 +40,10 @@
     "@ionic/angular": "^4.7.1",
     "angular-autofocus-fix": "^0.1.2",
     "cordova-android": "8.1.0",
+    "cordova-base64-to-gallery": "^4.1.3",
     "cordova-browser": "6.0.0",
     "cordova-plugin-android-permissions": "^1.0.2",
+    "cordova-plugin-camera": "^4.1.0",
     "cordova-plugin-geolocation": "^4.0.2",
     "cordova-plugin-googleplus": "^8.1.2",
     "cordova-plugin-nativegeocoder": "^3.2.2",
@@ -48,6 +53,8 @@
     "hammerjs": "^2.0.8",
     "ionic2-super-tabs": "^5.2.0",
     "moment": "^2.24.0",
+    "ngx-qrcode2": "0.0.9",
+    "phonegap-plugin-barcodescanner": "^8.1.0",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
     "vanilla-text-mask": "^5.1.1",
@@ -106,7 +113,14 @@
       "cordova-plugin-android-permissions": {},
       "cordova-plugin-request-location-accuracy": {
         "PLAY_SERVICES_LOCATION_VERSION": "16.+"
-      }
+      },
+      "cordova-plugin-camera": {
+        "ANDROID_SUPPORT_V4_VERSION": "27.+"
+      },
+      "phonegap-plugin-barcodescanner": {
+        "ANDROID_SUPPORT_V4_VERSION": "27.+"
+      },
+      "cordova-base64-to-gallery": {}
     },
     "platforms": [
       "android"

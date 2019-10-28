@@ -24,6 +24,7 @@ export class EstablishmentService {
     public getAll(): Promise<any> {
         return new Promise((resolve, reject) => {
             resolve([{
+                "_id": 1,
                 "name": "Quiosque do Galego",
                 "description": "Bar e Restaurante",
                 "distance": "",

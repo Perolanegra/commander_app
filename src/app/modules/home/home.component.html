@@ -32,12 +32,20 @@
         <app-list-establishment></app-list-establishment>
       </div>
 
-      <div *ngSwitchCase="'orders'" style="flex: 1; background-color: black; color: #fff;">
-        Conteudo3
+      <div *ngSwitchCase="'orders'" style="flex: 1;">
+        <ngx-qrcode [qrc-value]="qrDataFill" [qrc-element-type]="'img'"></ngx-qrcode>
         <!-- <app-my-orders></app-my-orders> -->
       </div>
     </ng-container>
 
+    <ion-fab *ngIf="switchVar !== 'command'" vertical="bottom" style="margin: 0 1vh 8vh 0;" horizontal="end" edge slot="fixed">
+      <ion-fab-button (click)="startCommand();">
+        <ion-icon name="play"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+    
   </div>
+
 
 </ion-content>

@@ -9,7 +9,6 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 import { GoogleService } from 'src/app/shared/services/google.service';
 import { EstablishmentDetComponent } from './establishment-det/establishment-det.component';
 import { MenuDetComponent } from './menu-det/menu-det.component';
-import { ListEstablishmentComponent } from './list-establishment/list-establishment.component';
 
 const modules = [
   CommonModule,
@@ -27,6 +26,6 @@ const providers = [
   imports: [...modules],
   declarations: [EstablishmentDetComponent, MenuDetComponent],
   entryComponents: [EstablishmentDetComponent, MenuDetComponent],
-  providers: [...providers]
+  providers: [...providers],
 })
 export class EstablishmentModule {}

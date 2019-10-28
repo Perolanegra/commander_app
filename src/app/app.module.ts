@@ -47,7 +47,8 @@ import { LocationAccuracy } from '@ionic-native/location-accuracy/ngx';
     AndroidPermissions,
     Geolocation,
     LocationAccuracy,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

@@ -10,6 +10,13 @@ import { MenuDetComponent } from '../menu-det/menu-det.component';
 })
 export class EstablishmentDetComponent {
     bar;
+
+    public qrDataFill = {
+        id: 12,
+        establishment: 'Quiosque do Galego',
+        address: 'Imbuí'
+      };
+
     constructor(public appController: AppController,
     private navParams: NavParams,
     public modalCtrl: ModalController) {
