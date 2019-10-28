@@ -8,7 +8,7 @@ import { HomeRoutingModule } from './home.routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { EstablishmentModule } from '../establishment/establishment.module';
 import { ListEstablishmentComponent } from '../establishment/list-establishment/list-establishment.component';
-import { CommandComponent } from './command/command.component';
+import { CommandComponent } from '../command/command.component';
 
 @NgModule({
   imports: [

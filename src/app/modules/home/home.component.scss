@@ -30,3 +30,14 @@
   font-size: 0.875rem;
   line-height: 0.9375rem;
 }
+
+.btn-start-command {
+  display: flex; 
+  justify-content: center;
+  position: relative;
+  top: 65.688vw;
+  text-transform: uppercase;
+  font-family: 'Fira Code', monospace, sans-serif;
+  line-height: 20px;
+  font-weight: 401;
+}

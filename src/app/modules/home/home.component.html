@@ -5,59 +5,36 @@
 
 <ion-content>
 
-  <!-- <super-tabs>
-    <super-tabs-toolbar slot="top" style="background-color: gray !important;">
-
-      <super-tab-button>
-        <ion-icon name="home" style="color: black;"></ion-icon>
-        <ion-label style="color: black;">Iniciar</ion-label>
-      </super-tab-button>
-
-      <super-tab-button>
-        <ion-icon name="restaurant" style="color: black;"></ion-icon>
-        <ion-label style="color: black;">Restaurantes</ion-label>
-      </super-tab-button>
-
-    </super-tabs-toolbar>
-
-
-    <super-tabs-container>
-
-      <super-tab> -->
-        <!-- <ion-nav [root]="tabInicio" [rootParams]="{ data: 'funciona' }" ></ion-nav> -->
-        <!-- <p>Tab 1 sendo renderizada</p>
-      </super-tab>
-
-      <super-tab>
-        <ion-nav [root]="tabEstablishment"></ion-nav>
-      </super-tab>
-
-    </super-tabs-container>
-  </super-tabs> -->
   <div style="width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
     <div style="width: 100%; height: 60px; display: flex;">
-        <div (click)="handleSwitch('command')" style="flex: 1; background-color: green; color: #fff; font-weight: bold; display: flex; align-items: center; justify-content: center;">
-          Comanda
-        </div>
-        <div  (click)="handleSwitch('establishments')" style="flex: 1; background-color: green; border-left: 1px solid #fff; border-right: 1px solid #fff; color: #fff; font-weight: bold; display: flex; align-items: center; justify-content: center;">
-          Restaurantes
-        </div>
-        <div  (click)="handleSwitch('orders')" style="flex: 1; background-color: green; color: #fff; font-weight: bold; display: flex; align-items: center; justify-content: center;">
-          Pedidos
-        </div>
+      <div (click)="handleSwitch('command')"
+        style="flex: 1; background-color: green; color: #fff; font-weight: bold; display: flex; align-items: center; justify-content: center;">
+        Comanda
+      </div>
+      <div (click)="handleSwitch('establishments')"
+        style="flex: 1; background-color: green; border-left: 1px solid #fff; border-right: 1px solid #fff; color: #fff; font-weight: bold; display: flex; align-items: center; justify-content: center;">
+        Restaurantes
+      </div>
+      <div (click)="handleSwitch('orders')"
+        style="flex: 1; background-color: green; color: #fff; font-weight: bold; display: flex; align-items: center; justify-content: center;">
+        Pedidos
+      </div>
     </div>
 
     <ng-container [ngSwitch]="switchVar">
       <div *ngSwitchCase="'command'" style="flex: 1;">
-        <app-command></app-command>
+        <div class="btn-start-command">
+          <ion-button color="tertiary" expand="block" (click)="startCommand();">Iniciar Comanda</ion-button>
+        </div>
       </div>
-      
+
       <div *ngSwitchCase="'establishments'" style="flex: 1;">
         <app-list-establishment></app-list-establishment>
       </div>
-      
+
       <div *ngSwitchCase="'orders'" style="flex: 1; background-color: black; color: #fff;">
         Conteudo3
+        <!-- <app-my-orders></app-my-orders> -->
       </div>
     </ng-container>
 
