@@ -22,7 +22,7 @@
     </div>
 
     <ng-container [ngSwitch]="switchVar">
-      <div *ngSwitchCase="'command'" style="flex: 1;">
+      <div *ngSwitchCase="'start'" style="flex: 1;">
         <div class="btn-start-command">
           <ion-button color="tertiary" expand="block" (click)="startCommand();">Iniciar Comanda</ion-button>
         </div>
@@ -33,7 +33,7 @@
       </div>
 
       <div *ngSwitchCase="'orders'" style="flex: 1;">
-        <ngx-qrcode [qrc-value]="qrDataFill" [qrc-element-type]="'img'"></ngx-qrcode>
+        <!-- <ngx-qrcode [qrc-value]="qrDataFill" [qrc-element-type]="'img'"></ngx-qrcode> -->
         <!-- <app-my-orders></app-my-orders> -->
       </div>
     </ng-container>

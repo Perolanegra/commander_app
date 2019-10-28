@@ -13,21 +13,20 @@ import { EstablishmentService } from '../establishment/establishment.service';
   styleUrls: ['home.component.scss'],
 })
 export class HomeComponent {
-  switchVar: string = 'command';
-  scannedObj = null;
-  qrDataFill: Object = {
-    "id": "2",
-    "name": "Bar Terapia",
-    "lat": "-12.969360",
-    "lng": "-38.436841"
-  };
+  switchVar: string = 'start';
+  // qrDataFill: Object = {
+  //   "id": "5",
+  //   "name": "To em Belle",
+  //   "lat": "-12.969229",
+  //   "lng": "-38.436642",
+  // };
 
   constructor(public appController: AppController,
   private navCtrl: NavController,
   private establishmentService: EstablishmentService,
   private barcodeScanner: BarcodeScanner,
   private googleService: GoogleService) {
-    this.qrDataFill = JSON.stringify(this.qrDataFill);
+    // this.qrDataFill = JSON.stringify(this.qrDataFill);
   }
 
   handleSwitch(newSwitch: string) {

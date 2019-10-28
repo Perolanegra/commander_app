@@ -1,0 +1,14 @@
+{
+    "_id": 5,
+    "name": "Tô em Belle",
+    "description": "Bar",
+    "distance": "",
+    "duration": "",
+    "lat": -12.969229,
+    "lng": -38.436642,
+    "rating": "4.2",
+    "img": "../../../../assets/imgs/barbudo-logo.jpeg",
+    "feedback": "Some text here...",
+    "schedule": "09:00 às 03:00",
+    "address": "Av. Jorge Amado, 2464 - Imbuí, Salvador - BA, 41720-025"
+}
