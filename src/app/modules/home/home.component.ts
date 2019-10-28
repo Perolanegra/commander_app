@@ -4,7 +4,6 @@ import { NavController } from '@ionic/angular';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner/ngx';
 import { GoogleService } from 'src/app/shared/services/google.service';
 import { catchError } from 'rxjs/operators';
-import { throwError, EMPTY } from 'rxjs';
 import { EstablishmentService } from '../establishment/establishment.service';
 
 @Component({
@@ -41,8 +40,8 @@ export class HomeComponent {
       const resp = await this.googleService.getDistance(Number(scannedObj.lat), Number(scannedObj.lng));
       const distanceInMeters = Number(resp['distance'].toFixed(1)) * 1000;
 
-      if(distanceInMeters <= 70) { // Se a distância q o cara tá for menor q 70m, JUST DO IT!
-        // obter o estabelecimento pelo id e navegar para Mesa passando o objeto Estabelecimento como parametro.
+      if(distanceInMeters >= 70) { // Se a distância q o cara tá for menor q 70m, JUST DO IT!
+        // obtém o estabelecimento pelo id e navega para Mesa passando a entidade Estabelecimento como parametro.
         const { id } = scannedObj;
         const establishment = await this.establishmentService.getById(id);
         this.navCtrl.navigateRoot('command', establishment);
