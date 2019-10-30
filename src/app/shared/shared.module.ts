@@ -6,7 +6,6 @@ import { AppMaskDirective } from './directives/appMask.directive';
 import { AutofocusDirective } from './directives/autoFocus.directive';
 import { MaterialModule } from './material/material.module';
 import { GlobalVars } from './globalVars';
-import { DialogConfirmComponent } from './dialogs/dialogConfirmacao/dialogConfirm.component';
 import { IonicModule } from '@ionic/angular';
 
 const modules = [
@@ -30,7 +29,6 @@ const modules = [
     declarations: [
         AppMaskDirective,
         AutofocusDirective,
-        DialogConfirmComponent
     ],  
     exports: [ 
         ...modules,
