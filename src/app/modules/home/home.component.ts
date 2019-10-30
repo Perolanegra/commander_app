@@ -5,6 +5,7 @@ import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-sca
 import { GoogleService } from 'src/app/shared/services/google.service';
 import { catchError } from 'rxjs/operators';
 import { EstablishmentService } from '../establishment/establishment.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -22,6 +23,7 @@ export class HomeComponent {
 
   constructor(public appController: AppController,
   private navCtrl: NavController,
+  private router: Router,
   private establishmentService: EstablishmentService,
   private barcodeScanner: BarcodeScanner,
   private googleService: GoogleService) {
@@ -33,20 +35,23 @@ export class HomeComponent {
   }
 
   async startCommand() { // open QrCode, validate QrCode, then if success navigate to new Root 'Command'
+  const loader = await this.appController.presentLoadingDefault();
     const scannedObj = await this.handleQrCode();
     
     if(scannedObj) { // foi setado pelo HandleQr
-
       const resp = await this.googleService.getDistance(Number(scannedObj.lat), Number(scannedObj.lng));
       const distanceInMeters = Number(resp['distance'].toFixed(1)) * 1000;
 
-      if(distanceInMeters <= 70) { // Se a distância q o cara tá for menor q 70m, JUST DO IT!
+      // depois trocar para <=70
+      if(distanceInMeters >= 70) { // Se a distância q o cara tá for menor q 70m, JUST DO IT!
         // obtém o estabelecimento pelo id e navega para Mesa passando a entidade Estabelecimento como parametro.
         const { id } = scannedObj;
         const establishment = await this.establishmentService.getById(id);
-        this.navCtrl.navigateRoot('command', establishment);
+        this.navCtrl.navigateRoot('command', {queryParams: establishment});
       }
     }
+
+    loader.dismiss();
   }
 
   handleQrCode(): Promise<any> {
@@ -70,7 +75,6 @@ export class HomeComponent {
             this.appController.exibirErro('QRCode Inválido!');
             resolve(false);
           }
-          
         }
       }, catchError((err, caught) => {
         reject(err);

@@ -28,7 +28,7 @@ export class AppComponent {
       this.checkGPSPermission();
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      // this.statusBar.overlaysWebView(false);
+      this.statusBar.overlaysWebView(false);
     });
   }
 

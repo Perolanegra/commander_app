@@ -13,7 +13,7 @@ export class CommandComponent implements OnInit {
   private route: ActivatedRoute) { }
 
   ngOnInit() {
-    console.log('CommandComponent Works: ', this.route.snapshot.paramMap.keys);
+    console.log('CommandComponent Works: ', this.route.snapshot.queryParams);
   }
 
 }
