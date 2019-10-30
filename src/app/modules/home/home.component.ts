@@ -35,7 +35,7 @@ export class HomeComponent {
   }
 
   async startCommand() { // open QrCode, validate QrCode, then if success navigate to new Root 'Command'
-  const loader = await this.appController.presentLoadingDefault();
+    const loader = await this.appController.presentLoadingDefault();
     const scannedObj = await this.handleQrCode();
     
     if(scannedObj) { // foi setado pelo HandleQr
