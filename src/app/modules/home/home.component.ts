@@ -6,6 +6,7 @@ import { GoogleService } from 'src/app/shared/services/google.service';
 import { catchError } from 'rxjs/operators';
 import { EstablishmentService } from '../establishment/establishment.service';
 import { Router } from '@angular/router';
+import { ProductService } from 'src/app/shared/services/product.service';
 
 @Component({
   selector: 'app-home',
@@ -19,11 +20,12 @@ export class HomeComponent {
   //   "name": "To em Belle",
   //   "lat": "-12.969229",
   //   "lng": "-38.436642",
+  //   "mesa": "3"
   // };
 
   constructor(public appController: AppController,
   private navCtrl: NavController,
-  private router: Router,
+  private productService: ProductService,
   private establishmentService: EstablishmentService,
   private barcodeScanner: BarcodeScanner,
   private googleService: GoogleService) {
@@ -40,15 +42,17 @@ export class HomeComponent {
     
     if(scannedObj) { // foi setado pelo HandleQr
       const resp = await this.googleService.getDistance(Number(scannedObj.lat), Number(scannedObj.lng));
+      // calcula a distância em metros
       const distanceInMeters = Number(resp['distance'].toFixed(1)) * 1000;
 
-      // depois trocar para <=70
-      if(distanceInMeters >= 70) { // Se a distância q o cara tá for menor q 70m, JUST DO IT!
-        // obtém o estabelecimento pelo id e navega para Mesa passando a entidade Estabelecimento como parametro.
-        const { id } = scannedObj;
-        const establishment = await this.establishmentService.getById(id);
-        this.navCtrl.navigateRoot('command', {queryParams: establishment});
+      if(distanceInMeters >= 70) { // Se a distância for maior q 70m, ele está muito longe.
+        this.appController.exibirErro("Muito Longe. Tente se aproximar do estabelecimento " + scannedObj.name);
+        return;
       }
+
+      const { id } = scannedObj; // Id do estabelecimento
+      const products = await this.productService.getById(id);
+      this.navCtrl.navigateRoot('command', {queryParams: products});
     }
 
     loader.dismiss();

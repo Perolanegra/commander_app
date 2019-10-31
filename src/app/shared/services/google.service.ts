@@ -67,6 +67,15 @@ export class GoogleService {
 
     }
 
+
+    /**
+     * @description Método que calcula a distância e retorna em KM uma promise.
+     * @author igor.alves
+     * @param currentLat current Latitude
+     * @param currentLng current Longitude
+     * @param destinationLat Destination Latitude
+     * @param destinationLng Destination Longitude
+     */
     private calculateDistance(currentLat: number, currentLng: number, destinationLat: number, destinationLng: number): Promise<any> {
 
         return new Promise((resolve, reject) => {
