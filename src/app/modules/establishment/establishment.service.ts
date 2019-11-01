@@ -6,9 +6,6 @@ import { Geoposition } from '@ionic-native/geolocation/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { GoogleService } from 'src/app/shared/services/google.service';
 
-
-declare var google;
-
 @Injectable()
 export class EstablishmentService {
 
