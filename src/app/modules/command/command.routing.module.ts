@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommandComponent } from './command.component';
+import { GetProductsByIdResolver } from 'src/app/shared/services/getProductsByIdResolver.service';
 
 const routes: Routes = [
   {
@@ -9,8 +10,10 @@ const routes: Routes = [
   {
     path: 'command',
     component: CommandComponent,
+    resolve: {
+      products: GetProductsByIdResolver
+    }
     // canActivate: NoAuth
-    // runGuardsAndResolvers: 'always'
   },
 ];
 
@@ -20,7 +23,7 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
   providers: [
-    // resolvers
+    GetProductsByIdResolver
   ]
 })
 export class CommandRoutingModule {}

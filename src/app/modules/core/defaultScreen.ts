@@ -1,7 +1,7 @@
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup } from '@angular/forms';
 
-export abstract class TelaPadrao {
+export abstract class DefaultScreen {
 
     private _respResolvers;
     public maskConfig = {

@@ -6,5 +6,5 @@ export abstract class ResolverDefault implements Resolve<any | string> {
     return this.resolver(route.params);
   }
 
-  abstract resolver(pParams);
+  abstract async resolver(pParams);
 }

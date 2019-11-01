@@ -7,7 +7,7 @@ export class ProductService {
 
     constructor(private restService: RestService) { }
 
-    public getById(_id: String): Promise<Object> {
+    public getById(_id: string): Promise<Object> {
         return new Promise((resolve, reject) => {
 
             const products = [

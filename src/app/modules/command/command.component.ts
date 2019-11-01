@@ -1,19 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import { AppController } from '../core/appController';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { DefaultScreen } from '../core/defaultScreen';
 
 @Component({
   selector: 'app-command',
   templateUrl: './command.component.html',
   styleUrls: ['./command.component.scss'],
 })
-export class CommandComponent implements OnInit {
+export class CommandComponent extends DefaultScreen {
+  switchVar: string = 'menu';
 
-  constructor(public appController: AppController,
-  private route: ActivatedRoute) { }
+  constructor(protected route: ActivatedRoute) {
+    super(route);
+  }
 
-  ngOnInit() {
-    console.log('CommandComponent Works: ', this.route.snapshot.queryParams);
+  handleSwitch(newSwitch: string) {
+    this.switchVar = newSwitch;
+  }
+
+  public get products() {
+    return this.respResolvers.products;
   }
 
 }

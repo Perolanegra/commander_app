@@ -41,9 +41,10 @@ export class HomeComponent {
       const resp = await this.googleService.getDistance(Number(scannedObj.lat), Number(scannedObj.lng));
       // calcula a distância em metros
       const distanceInMeters = Number(resp['distance'].toFixed(1)) * 1000;
-
-      if(distanceInMeters >= 70) { // Se a distância for maior q 70m, ele está muito longe.
+      // mudar dps para >=
+      if(distanceInMeters <= 70) { // Se a distância for maior q 70m, ele está muito longe.
         this.appController.exibirErro("Muito Longe. Tente se aproximar do estabelecimento " + scannedObj.name);
+        loader.dismiss();
         return;
       }
 
