@@ -2,11 +2,9 @@ import { Injectable } from '@angular/core';
 import { RestService } from '../core/rest.service';
 import { map } from 'rxjs/operators';
 import { AppController } from '../core/appController';
-import { NativeGeocoder, NativeGeocoderOptions, NativeGeocoderReverseResult } from '@ionic-native/native-geocoder/ngx';
 import { Geoposition } from '@ionic-native/geolocation/ngx';
-import { GoogleService } from 'src/app/shared/services/google.service';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
-import { Platform } from '@ionic/angular';
+import { GoogleService } from 'src/app/shared/services/google.service';
 
 
 declare var google;
@@ -15,11 +13,9 @@ declare var google;
 export class EstablishmentService {
 
     constructor(private appController: AppController,
-        private geolocation: Geolocation,
-        private platform: Platform,
-        private restService: RestService,
-        private googleService: GoogleService,
-        private nativeGeocoder: NativeGeocoder) { }
+    private geolocation: Geolocation,
+    private restService: RestService,
+    private googleService: GoogleService) { }
 
     public getAll(): Promise<any> {
         return new Promise((resolve, reject) => {

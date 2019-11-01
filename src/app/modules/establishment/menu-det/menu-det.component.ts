@@ -8,7 +8,6 @@ import { ProductModel } from 'src/app/shared/models/classes/product.model';
     selector: 'app-establishment-det-menu',
     templateUrl: './menu-det.component.html',
     styleUrls: ['./menu-det.component.scss'],
-    providers: [ProductService]
 })
 export class MenuDetComponent implements AfterViewInit {
     products: ProductModel;

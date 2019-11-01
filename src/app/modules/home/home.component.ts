@@ -4,8 +4,6 @@ import { NavController } from '@ionic/angular';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner/ngx';
 import { GoogleService } from 'src/app/shared/services/google.service';
 import { catchError } from 'rxjs/operators';
-import { EstablishmentService } from '../establishment/establishment.service';
-import { Router } from '@angular/router';
 import { ProductService } from 'src/app/shared/services/product.service';
 
 @Component({
@@ -26,7 +24,6 @@ export class HomeComponent {
   constructor(public appController: AppController,
   private navCtrl: NavController,
   private productService: ProductService,
-  private establishmentService: EstablishmentService,
   private barcodeScanner: BarcodeScanner,
   private googleService: GoogleService) {
     // this.qrDataFill = JSON.stringify(this.qrDataFill);

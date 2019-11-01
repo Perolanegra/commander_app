@@ -7,10 +7,10 @@ import { EstablishmentDetComponent } from '../establishment-det/establishment-de
 
 @Component({
     selector: 'app-list-establishment',
-    templateUrl: './list-establishment.component.html',
-    styleUrls: ['./list-establishment.component.scss'],
+    templateUrl: './establishment-list.component.html',
+    styleUrls: ['./establishment-list.component.scss'],
 })
-export class ListEstablishmentComponent implements OnInit {
+export class EstablismentListComponent implements OnInit {
     bars: any;
 
     constructor(public appController: AppController,

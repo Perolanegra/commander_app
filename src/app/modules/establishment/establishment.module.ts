@@ -9,6 +9,7 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 import { GoogleService } from 'src/app/shared/services/google.service';
 import { EstablishmentDetComponent } from './establishment-det/establishment-det.component';
 import { MenuDetComponent } from './menu-det/menu-det.component';
+import { ProductService } from 'src/app/shared/services/product.service';
 
 const modules = [
   CommonModule,
@@ -20,7 +21,7 @@ const providers = [
   Geolocation,
   NativeGeocoder,
   GoogleService,
-  // ModalController
+  ProductService
 ];
 @NgModule({
   imports: [...modules],
