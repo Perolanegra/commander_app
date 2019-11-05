@@ -35,7 +35,7 @@ export class MenuDetComponent implements AfterViewInit {
 
     async getProducts(id: string) {
         const loader = await this.appController.presentLoadingDefault();
-        this.productService.getById(id).then((resp: ProductModel) => {
+        this.productService.getByEstablishmentId(id).then((resp: ProductModel) => {
             this.products = resp;
         }).finally(() => loader.dismiss());
     }

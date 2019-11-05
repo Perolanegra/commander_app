@@ -1,3 +1,41 @@
 <div>
-    <p>Componente de Menu</p>
+    <ion-card *ngFor="let p of products">
+        <ion-item>
+            <div class="menu-content">
+                <div class="menu-main-content">
+                    <div class="img-container">
+                        <img class="pic" [src]="p?.img" alt="">
+                    </div>
+
+                    <strong class="title"> {{ p?.title }} - {{ p?.price }} </strong>
+                </div>
+
+                <div class="btn-container">
+                    <button class="btn-item" (click)="removeItem(p);">
+                        <ion-icon class="add-remove-btn" ios="ios-remove" md="md-remove">
+                        </ion-icon>
+                    </button>
+                    <button class="btn-item" (click)="addItem(p);">
+                        <ion-icon class="add-remove-btn" ios="ios-add" md="md-add"></ion-icon>
+                    </button>
+                </div>
+            </div>
+
+        </ion-item>
+
+        <ion-card-content>{{ p?.description }}</ion-card-content>
+    </ion-card>
+
+
 </div>
+
+<ion-footer class="footer">
+    <ion-toolbar>
+        <ion-buttons class="footer-container" end>
+            <ion-button (click)="addToTable()" ion-button icon-right>
+                ADICIONAR A MESA
+            </ion-button>
+            <ion-icon name="send"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-footer>

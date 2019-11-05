@@ -26,6 +26,10 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 
+    * {
+        font-family: 'Roboto-Regular',sans-serif;
+    }
+
     .modal-footer .modal-wrapper {
         --background: transparent;
         pointer-events: none;

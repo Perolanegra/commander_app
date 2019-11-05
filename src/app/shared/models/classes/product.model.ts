@@ -3,4 +3,6 @@ export class ProductModel {
     img: string;
     description: string;
     price: string;
+    id: number;
+    qtd: number;
 }

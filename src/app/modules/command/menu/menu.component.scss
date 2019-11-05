@@ -1,0 +1,80 @@
+.btn-container {
+    width: 18.248vw;
+    height: auto;
+    display: flex;
+    max-width: 18.248vw;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.btn-item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 0;
+    background-color: blue;
+}
+
+.btn-item:first-child {
+    border-right: 1px solid #fff;
+}
+
+.add-remove-btn {
+    color: #fff;
+    font-size: 1.2em;
+}
+
+.img-container {
+    margin-top: 5px;
+    border-radius: 8px;
+    max-width: 80px;
+    overflow: hidden;
+    margin-right: 8px;
+}
+
+.pic {
+    width: 100%;
+    height: 100%;
+}
+
+.title {
+    position: relative;
+    // left: 5px;
+    flex: 1;
+    font-weight: bold;
+    letter-spacing: -0.1px;
+    font-family: "Roboto-Black",sans-serif;
+}
+
+.price {
+    
+}
+
+.menu-content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu-main-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin-right: 12px;
+}
+
+.footer {
+    background-color: #000000;
+}
+
+.fonte-rodape {
+    font-weight: 350px;
+    margin-left: 10px;    
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+}

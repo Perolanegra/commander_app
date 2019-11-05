@@ -34,26 +34,28 @@ export class HomeComponent {
   }
 
   async startCommand() { // open QrCode, validate QrCode, then if success navigate to new Root 'Command'
-    const loader = await this.appController.presentLoadingDefault();
-    const scannedObj = await this.handleQrCode();
+    const products = await this.productService.getByEstablishmentId('1');
+    this.navCtrl.navigateRoot('command', {queryParams: products});
+    // const loader = await this.appController.presentLoadingDefault();
+    // const scannedObj = await this.handleQrCode();
     
-    if(scannedObj) { // foi setado pelo HandleQr
-      const resp = await this.googleService.getDistance(Number(scannedObj.lat), Number(scannedObj.lng));
-      // calcula a distância em metros
-      const distanceInMeters = Number(resp['distance'].toFixed(1)) * 1000;
-      // mudar dps para >=
-      if(distanceInMeters <= 70) { // Se a distância for maior q 70m, ele está muito longe.
-        this.appController.exibirErro("Muito Longe. Tente se aproximar do estabelecimento " + scannedObj.name);
-        loader.dismiss();
-        return;
-      }
+    // if(scannedObj) { // foi setado pelo HandleQr
+    //   const resp = await this.googleService.getDistance(Number(scannedObj.lat), Number(scannedObj.lng));
+    //   // calcula a distância em metros
+    //   const distanceInMeters = Number(resp['distance'].toFixed(1)) * 1000;
+    //   // Se a distância for maior q 70m, ele está muito longe.
+    //   if(distanceInMeters >= 70) { 
+    //     this.appController.exibirErro("Muito Longe. Tente se aproximar do estabelecimento " + scannedObj.name);
+    //     loader.dismiss();
+    //     return;
+    //   }
 
-      const { id } = scannedObj; // Id do estabelecimento
-      const products = await this.productService.getById(id);
-      this.navCtrl.navigateRoot('command', {queryParams: products});
-    }
+    //   const { id } = scannedObj; // Id do estabelecimento
+    //   const products = await this.productService.getById(id);
+    //   this.navCtrl.navigateRoot('command', {queryParams: products});
+    // }
 
-    loader.dismiss();
+    // loader.dismiss();
   }
 
   handleQrCode(): Promise<any> {
