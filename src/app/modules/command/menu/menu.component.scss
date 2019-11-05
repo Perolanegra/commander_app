@@ -66,15 +66,22 @@
 }
 
 .footer {
-    background-color: #000000;
-}
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+ }
 
-.fonte-rodape {
-    font-weight: 350px;
-    margin-left: 10px;    
-}
+ .btn-add-to-table {
+    font-family: 'Roboto-Regular', sans-serif;
+    font-size: large;
+    text-transform: uppercase;
+ }
 
-.footer-container {
-    display: flex;
-    justify-content: center;
-}
+ .disabled-content {
+    pointer-events: none;
+    opacity: 0.4;
+  }

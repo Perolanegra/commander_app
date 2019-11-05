@@ -24,7 +24,7 @@ export class MenuComponent {
       this.productsID.add(product);
     }
 
-    this.footerDisplayTotal += product['price'];
+    this.footerDisplayTotal += Number(product['price'].replace(",", "."));
   }
 
   removeItem(product) {
@@ -33,7 +33,7 @@ export class MenuComponent {
       this.productsID.delete(product);
     }
 
-    this.footerDisplayTotal -= product['price'];
+    this.footerDisplayTotal -= Number(product['price'].replace(",", "."));
   }
 
 
