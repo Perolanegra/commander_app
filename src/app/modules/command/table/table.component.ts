@@ -15,15 +15,14 @@ export class TableComponent implements OnInit {
     
   }
 
-  /**Para esta tela, vou precisar obter os dados que hoje eu 
-   * obtenho pelo localStorage, pela requisição, e verificar alguma var q tb vai estar no banco
-   * indicando que a mesa ainda está ativa, isso antes do cara ler o QRCode
-   * quando ele entrar no componente da comanda, ele ja faz a requisição para obter a mesa até o momento,
-   * e passa esse cara como input para esse componente aqui.
+  /** Antes de validar o QRCode, fazer uma requisição para saber se a mesa está ativa,
+   * caso esteja, eu obtenho em outra requisição, já dentro do componente comanda os itens pedidos da mesa,
+   * que são persistidos toda vez que o cara adiciona um item a mesa.
+   * Caso a mesa n esteja ativa, eu n realizo requisição pra buscar itens da mesa.
    */
 
   ngOnInit() {
-    // console.log('items table: ', this.itemsTable);    
+    console.log('items table: ', this.itemsTable);
   }
 
   public get itemsTable(): Array<any> {

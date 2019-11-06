@@ -4,7 +4,6 @@ import { NavController } from '@ionic/angular';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner/ngx';
 import { GoogleService } from 'src/app/shared/services/google.service';
 import { catchError } from 'rxjs/operators';
-import { ProductService } from 'src/app/shared/services/product.service';
 
 @Component({
   selector: 'app-home',
@@ -24,7 +23,6 @@ export class HomeComponent {
 
   constructor(public appController: AppController,
   private navCtrl: NavController,
-  private productService: ProductService,
   private barcodeScanner: BarcodeScanner,
   private googleService: GoogleService) {
     // this.qrDataFill = JSON.stringify(this.qrDataFill);
@@ -36,7 +34,6 @@ export class HomeComponent {
 
   async startCommand() { // open QrCode, validate QrCode, then if success navigate to new Root 'Command'
     this.navCtrl.navigateRoot('command', {queryParams: this.qrDataFill});
-    
     // const loader = await this.appController.presentLoadingDefault();
     // const scannedObj = await this.handleQrCode();
     
