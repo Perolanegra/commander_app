@@ -2,16 +2,17 @@ import { Injectable } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 import { debounceTime, tap } from "rxjs/operators";
 import { Router } from '@angular/router';
-import { ModalController, LoadingController, ToastController } from '@ionic/angular';
+import { ModalController, LoadingController, ToastController, AlertController } from '@ionic/angular';
 
 @Injectable()
 export class AppController {
     private msg = "";
 
     constructor(private toastCtrl: ToastController,
-        private router: Router,
-        public modalCtrl: ModalController,
-        private loadingController: LoadingController) { }
+    private router: Router,
+    public modalCtrl: ModalController,
+    private alertCtrl: AlertController,
+    private loadingController: LoadingController) { }
 
     tratarErro(err): void {
         //Mensagem a ser exibida
@@ -174,7 +175,7 @@ export class AppController {
         return localStorage.getItem(value);
     }
 
-    public getTableStorage(): JSON {
+    public getTableStorage(): Array<any> {
         return JSON.parse(localStorage.getItem('tableProducts'));
     }
 
@@ -280,7 +281,36 @@ export class AppController {
         return lRetorno;
     }
 
-    public async abrirModal(pPage, pParams) {
+    public presentAlertConfirm(header: string = null, msg: string = null, cssClass: string = 'secondary'): Promise<any> {
+       return new Promise(async (resolve, reject) => {
+           msg = msg ? msg : 'Deseja confirmar a operação ?';
+           const alert = await this.alertCtrl.create({
+             header: header,
+             message: `<strong>${msg}</strong>`,
+             buttons: [
+               {
+                 text: 'Cancelar',
+                 role: 'cancel',
+                 cssClass: cssClass,
+                 handler: (blah) => {
+                   console.log('Usuário clicou em cancelar.');
+                   resolve(false);
+                 }
+               }, {
+                 text: 'Sim',
+                 handler: () => {
+                   console.log('Usuário clicou em confirmar');
+                   resolve(true);
+                 }
+               }
+             ]
+           });
+           
+           return await alert.present();
+       });
+    }
+
+    public async openModal(pPage, pParams) {
         const modal = await this.modalCtrl.create({
             component: pPage,
             componentProps: pParams

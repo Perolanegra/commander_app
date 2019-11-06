@@ -19,7 +19,7 @@ export class TableComponent implements OnInit {
     console.log('items table: ', this.itemsTable);    
   }
 
-  public get itemsTable() {
+  public get itemsTable(): Array<any> {
     return this.appController.getTableStorage();
   }
 
@@ -27,9 +27,12 @@ export class TableComponent implements OnInit {
     return this.globalVars.getUserLoggedIn().name;
   }
 
-  checkout() {
+  async checkout() {
     console.log('implementar lógica que faz pagamento');
-    // leva o cara pra tela de pagamento
+    const alert = await this.appController.presentAlertConfirm('Efetuar Pagamento', 'Deseja finalizar a mesa e realizar pagamento?');
+    if(alert) { // leva o cara pra tela de pagamento
+
+    }
   }
 
 }
