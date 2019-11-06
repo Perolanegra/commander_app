@@ -35,4 +35,15 @@ export class TableComponent implements OnInit {
     }
   }
 
+  public get total() {
+    let total: number = 0;
+    if(this.itemsTable) {
+      this.itemsTable.forEach(item => {
+        total += (item['qtd'] * item['price']);
+      });
+    }
+
+    return total;
+  }
+
 }
