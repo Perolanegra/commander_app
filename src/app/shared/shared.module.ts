@@ -7,6 +7,7 @@ import { AutofocusDirective } from './directives/autoFocus.directive';
 import { MaterialModule } from './material/material.module';
 import { GlobalVars } from './globalVars';
 import { IonicModule } from '@ionic/angular';
+import { RealPipe } from '../modules/core/pipes/real.pipe';
 
 const modules = [
     CommonModule,
@@ -29,11 +30,13 @@ const modules = [
     declarations: [
         AppMaskDirective,
         AutofocusDirective,
+        RealPipe
     ],  
     exports: [ 
         ...modules,
         AppMaskDirective,
-        AutofocusDirective
+        AutofocusDirective,
+        RealPipe
         // NgxMaskModule,
     ],
     providers:[

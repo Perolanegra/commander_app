@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { AppController } from '../../core/appController';
 
 @Component({
   selector: 'app-menu',
@@ -10,7 +11,7 @@ export class MenuComponent {
   footerDisplayTotal = 0;
   productsID;
 
-  constructor() {
+  constructor(private appController: AppController) {
     this.productsID = new Set();
   }
 
@@ -20,7 +21,7 @@ export class MenuComponent {
 
   addItem(product) {
     product['qtd']++;
-    if(!this.productsID.has(product.id)) {
+    if(!this.productsID.has(product)) {
       this.productsID.add(product);
     }
 
@@ -28,14 +29,22 @@ export class MenuComponent {
   }
 
   removeItem(product) {
-    product['qtd']--;
-    if(this.productsID.has(product.id)) {
-      this.productsID.delete(product);
+    if(product['qtd'] > 0) {
+
+      if(this.productsID.has(product) && product['qtd'] == 1) {
+        this.productsID.delete(product);
+      }
+
+      product['qtd']--;
+      if(this.footerDisplayTotal > 0) {
+        this.footerDisplayTotal -= Number(product['price'].replace(",", "."));
+      }
+    }
+    else {
+      this.appController.showWarning('Item já não está presente no carrinho.');
     }
 
-    this.footerDisplayTotal -= Number(product['price'].replace(",", "."));
   }
-
 
   addToTable() {
     const tableProducts = Array.from(this.productsID);

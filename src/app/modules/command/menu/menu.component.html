@@ -1,5 +1,4 @@
 <ion-content>
-
     <ion-card *ngFor="let p of products">
         <ion-item>
             <div class="menu-content">
@@ -9,7 +8,9 @@
                     </div>
 
                     <strong class="title"> {{ p?.title }} - {{ p?.price }} </strong>
+                    x{{ p?.qtd }}
                 </div>
+
 
                 <div class="btn-container">
                     <button class="btn-item" (click)="removeItem(p);">
@@ -28,10 +29,9 @@
     </ion-card>
 </ion-content>
 
-<div class="footer" [class.disabled-content]="!footerDisplayTotal">
-    <p class="btn-add-to-table">Adicionar a mesa
-        <i class="fa fa-money" *ngIf="footerDisplayTotal" aria-hidden="true">{{ footerDisplayTotal }}</i> 
-        
-    </p>
-    
+<div class="footer" (click)="addToTable();" [class.disabled-content]="!footerDisplayTotal || footerDisplayTotal < '0'">
+    <div class="container-footer-items">
+        <p class="btn-add-to-table">Adicionar a mesa</p>
+        <p style="font-weight: bold;" *ngIf="footerDisplayTotal > '0'">R$ {{ footerDisplayTotal | real }}</p>
+    </div>
 </div>

@@ -84,4 +84,17 @@
  .disabled-content {
     pointer-events: none;
     opacity: 0.4;
-  }
+}
+
+.container-footer-items {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer-svg {
+    max-width: 10%;
+    min-width: 10%;
+    position: relative;
+    left: 38px;
+}

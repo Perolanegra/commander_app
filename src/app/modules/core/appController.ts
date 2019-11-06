@@ -99,9 +99,19 @@ export class AppController {
         toast.present();
     }
 
-    // public exibirWarning(msg: string) {
-    //     setTimeout(() => this.toastr.warning(msg, ''));
-    // }
+    public async showWarning(msg: string) {
+        const toast = await this.toastCtrl.create({
+            message: msg.length >= 85 ? "Operação Indisponível no Momento" : msg,
+            position: 'bottom',
+            color: "warning",
+            duration: 2500,
+            showCloseButton: true,
+            closeButtonText: 'OK',
+            cssClass: 'toast-warning'
+        });
+
+        toast.present();
+    }
 
     // public exibirInformacao(msg: string) {
     //     setTimeout(() => this.toastr.info(msg, ''));
