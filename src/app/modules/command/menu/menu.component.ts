@@ -1,6 +1,5 @@
 import { Component, Input, EventEmitter, Output, OnDestroy, HostListener } from '@angular/core';
 import { AppController } from '../../core/appController';
-
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -12,10 +11,6 @@ export class MenuComponent  {
   @Output() setTable = new EventEmitter<any>();
   @Input() products;
 
-  // teste:Array<any> = new Array();
-
-  
-
   constructor(private appController: AppController) {
     this.productsAdded = new Set();
   }
@@ -26,7 +21,6 @@ export class MenuComponent  {
     });
 
     console.log('lista original: ', this.products);
-    
   }
  
   addItem(product) {
@@ -59,7 +53,6 @@ export class MenuComponent  {
     o switchVar muda para a tab de Mesa passando os produtos por @Input() no seletor 
    */
   addToTable() {
-    // const tableProducts = Array.from(this.productsAdded);
     this.setTable.emit(this.productsAdded);
   }
 
