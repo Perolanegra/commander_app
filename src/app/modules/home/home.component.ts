@@ -34,7 +34,8 @@ export class HomeComponent {
   }
 
   async startCommand() { // open QrCode, validate QrCode, then if success navigate to new Root 'Command'
-    this.navCtrl.navigateRoot('command', this.qrDataFill);
+    this.navCtrl.navigateRoot('command', {queryParams: this.qrDataFill});
+    
     // const loader = await this.appController.presentLoadingDefault();
     // const scannedObj = await this.handleQrCode();
     
@@ -49,7 +50,7 @@ export class HomeComponent {
     //     return;
     //   }
 
-    //   this.navCtrl.navigateRoot('command', scannedObj);
+    //   this.navCtrl.navigateRoot('command', { queryParams: scannedObj });
     // }
 
     // loader.dismiss();

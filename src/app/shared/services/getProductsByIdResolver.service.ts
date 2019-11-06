@@ -10,7 +10,7 @@ export class GetProductsByIdResolver extends ResolverDefault {
     }
     
     resolver(pParams: any) {
-        return this.productService.getByEstablishmentId(pParams.id).then(resp => resp);
+        return this.productService.getByEstablishmentId(pParams.id_establishment).then(resp => resp);
     }
 
 }

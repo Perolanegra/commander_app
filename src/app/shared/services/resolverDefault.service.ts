@@ -3,7 +3,7 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/r
 export abstract class ResolverDefault implements Resolve<any | string> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    return this.resolver(route.params);
+    return this.resolver(route.queryParams);
   }
 
   abstract async resolver(pParams);

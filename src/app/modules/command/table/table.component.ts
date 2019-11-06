@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AppController } from '../../core/appController';
 
 @Component({
@@ -6,8 +6,19 @@ import { AppController } from '../../core/appController';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
 })
-export class TableComponent {
+export class TableComponent implements OnInit {
 
-  constructor(public appController: AppController) { }
+  constructor(public appController: AppController) { 
+    
+  }
+
+  ngOnInit() {
+    console.log('items table: ', this.itemsTable);
+    
+  }
+
+  public get itemsTable() {
+    return JSON.parse(localStorage.getItem('tableProducts'));
+  }
 
 }
