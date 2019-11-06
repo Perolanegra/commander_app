@@ -14,11 +14,12 @@ import { ProductService } from 'src/app/shared/services/product.service';
 export class HomeComponent {
   switchVar: string = 'command';
   qrDataFill: Object = {
-    "id": "3",
-    "name": "Zurca",
-    "lat": "-12.969416",
-    "lng": "-38.436602",
-    "mesa": "25"
+    "id": "2",
+    "name": "Bar Terapia",
+    "lat": "-12.969360",
+    "lng": "-38.436841",
+    "tableNumber": "17",
+    "isActive": false
   };
 
   constructor(public appController: AppController,
