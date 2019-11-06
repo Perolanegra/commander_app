@@ -1,21 +1,3 @@
-.btn-container {
-    width: 18.248vw;
-    height: auto;
-    display: flex;
-    max-width: 18.248vw;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.btn-item {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 7px 0;
-    background-color: blue;
-}
-
 .btn-item:first-child {
     border-right: 1px solid #fff;
 }
@@ -23,14 +5,6 @@
 .add-remove-btn {
     color: #fff;
     font-size: 1.2em;
-}
-
-.img-container {
-    margin-top: 5px;
-    border-radius: 8px;
-    max-width: 80px;
-    overflow: hidden;
-    margin-right: 8px;
 }
 
 .pic {
@@ -47,54 +21,14 @@
     font-family: "Roboto-Black",sans-serif;
 }
 
-.price {
-    
-}
-
-.menu-content {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.menu-main-content {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    margin-right: 12px;
-}
-
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: red;
-    color: white;
-    text-align: center;
- }
-
  .btn-add-to-table {
     font-family: 'Roboto-Regular', sans-serif;
     font-size: large;
     text-transform: uppercase;
- }
-
- .disabled-content {
-    pointer-events: none;
-    opacity: 0.4;
-}
+ } 
 
 .container-footer-items {
     display: flex;
     justify-content: space-around;
     align-items: center;
-}
-
-.footer-svg {
-    max-width: 10%;
-    min-width: 10%;
-    position: relative;
-    left: 38px;
 }

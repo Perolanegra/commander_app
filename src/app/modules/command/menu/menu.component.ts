@@ -1,9 +1,9 @@
-import { Component, Input, EventEmitter, Output, OnDestroy, HostListener } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { AppController } from '../../core/appController';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss'],
+  styleUrls: ['./menu.component.scss', '../command.component.scss'],
 })
 export class MenuComponent  {
   footerDisplayTotal = 0;

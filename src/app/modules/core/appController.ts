@@ -170,24 +170,13 @@ export class AppController {
             ).subscribe();
     }
 
-    // public openDialogAguarde(): MatDialogRef<DialogAguardeComponent> {
-    //     const dialogRef = this.dialog.open(DialogAguardeComponent, {
-    //         width: '250px',
-    //         data: { msg: '' }
-    //     });
+    public getStringStorage(value: string): string {
+        return localStorage.getItem(value);
+    }
 
-    //     return dialogRef;
-    // }
-
-    // public openDialogConfirmacao(pMsg): MatDialogRef<DialogConfirmacaoComponent> {
-    //     const dialogRef = this.dialog.open(DialogConfirmacaoComponent, {
-    //         width: '250px',
-    //         data: { msg: pMsg },
-    //         autoFocus: true
-    //     });
-
-    //     return dialogRef;
-    // }
+    public getTableStorage(): JSON {
+        return JSON.parse(localStorage.getItem('tableProducts'));
+    }
 
     /**
     * Retorna para uma nova rota de navegação.
