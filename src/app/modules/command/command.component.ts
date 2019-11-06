@@ -1,25 +1,27 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DefaultScreen } from '../core/defaultScreen';
 
 @Component({
   selector: 'app-command',
   templateUrl: './command.component.html',
   styleUrls: ['./command.component.scss'],
 })
-export class CommandComponent extends DefaultScreen {
+export class CommandComponent {
   switchVar: string = 'menu';
 
-  constructor(protected route: ActivatedRoute) {
-    super(route);
-  }
+  constructor(protected route: ActivatedRoute) { }
 
   handleSwitch(newSwitch: string) {
     this.switchVar = newSwitch;
   }
 
-  public get products() {
-    return this.respResolvers.products;
+  addToTable(items) {
+    console.log('event: ', items);
+    this.switchVar = 'table';
+  }
+
+  public get QRCodeData() {
+    return this.route.snapshot.queryParams;
   }
 
 }

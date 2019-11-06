@@ -1,22 +1,30 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, EventEmitter, Output, OnDestroy, HostListener } from '@angular/core';
 import { AppController } from '../../core/appController';
+import { DefaultScreen } from '../../core/defaultScreen';
+import { ActivatedRoute } from '@angular/router';
+import { ProductService } from 'src/app/shared/services/product.service';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
 })
-export class MenuComponent {
-  @Input() products;
+export class MenuComponent implements OnDestroy {
   footerDisplayTotal = 0;
   productsID;
+  @Output() setTable = new EventEmitter<any>();
+  @Input() QRCodeData;
+  products;
 
-  constructor(private appController: AppController) {
+  constructor(private appController: AppController, 
+  private productService: ProductService) {
     this.productsID = new Set();
+    
   }
-
-  ngOnInit() {
-    console.log('produtos: ', this.products);
+ 
+  async ngOnInit() {
+    this.products = await this.getProducts();
+    console.log('nova request produts: ', this.products);
   }
 
   addItem(product) {
@@ -46,9 +54,23 @@ export class MenuComponent {
 
   }
 
+   /* Emito um evento passando os itens selecionados, e quando for capturado
+    o switchVar muda para a tab de Mesa passando os produtos por @Input() no seletor 
+   */
   addToTable() {
     const tableProducts = Array.from(this.productsID);
-    console.log('tableProducts: ', tableProducts);
+    this.setTable.emit(tableProducts);
   }
+
+  @HostListener('setTable')
+  ngOnDestroy() {
+    console.log('fui chamado.');
+  }
+
+  public async getProducts() {
+    const { id } = this.QRCodeData;
+    return await this.productService.getByEstablishmentId(id);
+  }
+
 
 }

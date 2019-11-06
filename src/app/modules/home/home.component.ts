@@ -13,13 +13,13 @@ import { ProductService } from 'src/app/shared/services/product.service';
 })
 export class HomeComponent {
   switchVar: string = 'command';
-  // qrDataFill: Object = {
-  //   "id": "3",
-  //   "name": "Zurca",
-  //   "lat": "-12.969416",
-  //   "lng": "-38.436602",
-  //   "mesa": "25"
-  // };
+  qrDataFill: Object = {
+    "id": "3",
+    "name": "Zurca",
+    "lat": "-12.969416",
+    "lng": "-38.436602",
+    "mesa": "25"
+  };
 
   constructor(public appController: AppController,
   private navCtrl: NavController,
@@ -34,8 +34,7 @@ export class HomeComponent {
   }
 
   async startCommand() { // open QrCode, validate QrCode, then if success navigate to new Root 'Command'
-    const products = await this.productService.getByEstablishmentId('1');
-    this.navCtrl.navigateRoot('command', {queryParams: products});
+    this.navCtrl.navigateRoot('command', this.qrDataFill);
     // const loader = await this.appController.presentLoadingDefault();
     // const scannedObj = await this.handleQrCode();
     
@@ -50,9 +49,7 @@ export class HomeComponent {
     //     return;
     //   }
 
-    //   const { id } = scannedObj; // Id do estabelecimento
-    //   const products = await this.productService.getById(id);
-    //   this.navCtrl.navigateRoot('command', {queryParams: products});
+    //   this.navCtrl.navigateRoot('command', scannedObj);
     // }
 
     // loader.dismiss();

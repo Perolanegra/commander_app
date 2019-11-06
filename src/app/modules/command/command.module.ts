@@ -20,7 +20,7 @@ const modules = [
   declarations: [CommandComponent, MenuComponent, TableComponent],
   entryComponents:[MenuComponent, TableComponent],
   providers: [
-    ProductService
+    ProductService,
   ],
 })
 export class CommandModule {}
