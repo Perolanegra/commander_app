@@ -29,9 +29,9 @@
     </ion-card>
 </ion-content>
 
-<div class="footer" (click)="addToTable();" [class.disabled-content]="!footerDisplayTotal || footerDisplayTotal < '0'">
+<div class="footer" (click)="addToTable();" [class.disabled-content]="!footerDisplayTotal || footerDisplayTotal < 0">
     <div class="container-footer-items">
         <p class="btn-add-to-table">Adicionar a mesa</p>
-        <p style="font-weight: bold;" *ngIf="footerDisplayTotal > '0'">R$ {{ footerDisplayTotal | real }}</p>
+        <p style="font-weight: bold;" *ngIf="footerDisplayTotal > 0">R$ {{ footerDisplayTotal | real }}</p>
     </div>
 </div>
