@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppController } from '../../core/appController';
 import { GlobalVars } from 'src/app/shared/globalVars';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 import { ModalCheckoutComponent } from './modal-checkout/modal-checkout.component';
 
 @Component({
@@ -15,6 +15,7 @@ export class TableComponent implements OnInit {
 
   constructor(public appController: AppController,
   private globalVars: GlobalVars,
+  private navCtrl: NavController,
   public modalCtrl: ModalController) { 
     
   }
@@ -48,12 +49,17 @@ export class TableComponent implements OnInit {
 
     await modal.present();
 
-    modal.onWillDismiss().then(resp => {
+    modal.onWillDismiss().then(async (resp) => {
       if(resp.data) {
-        this.appController.presentCustomLoading('Aguardando Confirmação...');
-        // Faço uma requisição mandando pro banco método escolhido.
+        // Faço uma requisição mandando pro banco o método de pagamento escolhido.
         // console.log('método escolido, log na tab de Table: ', resp.data);
-        this.textPaymentBtn = 'Pagamento Solicitado'
+        this.textPaymentBtn = 'Pagamento Solicitado';
+        const customLoader = await this.appController.presentCustomLoading('Aguardando Confirmação...', 2500);
+        customLoader.onWillDismiss().then(() => {
+          this.appController.presentAlertInfo('Mesa Encerrada', 'Curtiu o nosso app ?<br> Aqui você comanda! <br> Te vejo em breveee =)', 'Valeeeu', 'align-text-alert-info');
+          localStorage.removeItem('tableProducts');
+          this.navCtrl.navigateRoot('home');
+        });
       }
     });
   }

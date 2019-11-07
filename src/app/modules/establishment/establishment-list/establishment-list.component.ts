@@ -38,7 +38,6 @@ export class EstablismentListComponent implements OnInit {
         });
         
         loader.dismiss();
-
         // obtenho a lista dos restaurantes proximos
         // const nearBy = await this.establishmentService.getEstablishmentsNearBy();
         // console.log('nearBy: ', nearBy);

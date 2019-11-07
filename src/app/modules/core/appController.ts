@@ -3,6 +3,7 @@ import { AbstractControl } from '@angular/forms';
 import { debounceTime, tap } from "rxjs/operators";
 import { Router } from '@angular/router';
 import { ModalController, LoadingController, ToastController, AlertController } from '@ionic/angular';
+import { duration } from 'moment';
 
 @Injectable()
 export class AppController {
@@ -310,6 +311,17 @@ export class AppController {
        });
     }
 
+    public async presentAlertInfo(header: string = null, msg: string = null, textBtn: string = 'OK', cssClassText: string = null, cssClassBtn: string = 'secondary'): Promise<any> {
+        const alert = await this.alertCtrl.create({
+            header: header,
+            message: `<strong>${msg}</strong>`,
+            cssClass: cssClassText,
+            buttons: [ { text: textBtn, cssClass: cssClassBtn, role: 'cancel'} ]
+        });
+        
+        return await alert.present();
+     }
+
     public async openModal(pPage, pParams) {
         const modal = await this.modalCtrl.create({
             component: pPage,
@@ -333,11 +345,12 @@ export class AppController {
         return loading;
     }
 
-    async presentCustomLoading(msg: string) {
+    async presentCustomLoading(msg: string, duration = null) {
         const loading = await this.loadingController.create({
             spinner: 'dots',
             message: msg,
             translucent: true,
+            duration: duration,
             //   showBackdrop: true,
             // cssClass: 'custom-class custom-loading'
         });
