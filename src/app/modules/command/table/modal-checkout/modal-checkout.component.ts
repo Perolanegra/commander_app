@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NavParams, ModalController } from '@ionic/angular';
-
-
 @Component({
     selector: 'app-modal-checkout',
     templateUrl: './modal-checkout.component.html',

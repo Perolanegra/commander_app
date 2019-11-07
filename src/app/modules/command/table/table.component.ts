@@ -11,6 +11,7 @@ import { ModalCheckoutComponent } from './modal-checkout/modal-checkout.componen
 })
 export class TableComponent implements OnInit {
   btnPaymentActive: boolean = false;
+  textPaymentBtn: string = 'Pagar';
 
   constructor(public appController: AppController,
   private globalVars: GlobalVars,
@@ -50,7 +51,9 @@ export class TableComponent implements OnInit {
     modal.onWillDismiss().then(resp => {
       if(resp) {
         this.appController.presentCustomLoading('Aguardando Confirmação...');
-        console.log('método escolido, log na tab de Table: ', resp);
+        // Faço uma requisição mandando pro banco método escolhido.
+        // console.log('método escolido, log na tab de Table: ', resp.data);
+        this.textPaymentBtn = 'Pagamento Solicitado'
       }
     });
   }

@@ -8,7 +8,7 @@ import { NavController } from '@ionic/angular';
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss'],
 })
-export class SettingsComponent implements OnInit {
+export class SettingsComponent {
   
   arrayModules = [
     { name: 'account', displayTitle: 'Conta', displaySubTitle: 'Privacidade, segurança, pagamento', icon: 'vpn_key' },
@@ -19,11 +19,6 @@ export class SettingsComponent implements OnInit {
   constructor(public appController: AppController,
   private globalVars: GlobalVars,
   public navCtrl: NavController) {}
-
-  ngOnInit(): void {
-    console.log('blz');
-    
-  }
 
   exit() {
     console.log('AcessToken: ', this.globalVars.getAccessToken());

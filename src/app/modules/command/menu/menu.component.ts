@@ -20,7 +20,7 @@ export class MenuComponent  {
       val['qtd'] = 0;
     });
 
-    console.log('lista original: ', this.products);
+    // console.log('lista original: ', this.products);
   }
  
   addItem(product) {

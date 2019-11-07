@@ -74,7 +74,7 @@ export class AppController {
         toast.present();
     }
 
-    public async exibirSucesso(msg: string) {
+    public async showSuccess(msg: string) {
         const toast = await this.toastCtrl.create({
             header: 'Toast header',
             message: 'Click to Close',
@@ -85,13 +85,13 @@ export class AppController {
                     icon: 'star',
                     text: 'Favorite',
                     handler: () => {
-                        console.log('Favorite clicked');
+                        // console.log('Favorite clicked');
                     }
                 }, {
                     text: 'Done',
                     role: 'cancel',
                     handler: () => {
-                        console.log('Cancel clicked');
+                        // console.log('Cancel clicked');
                     }
                 }
             ]
@@ -187,7 +187,7 @@ export class AppController {
     public async navigate(pPage: string, pParams = {}) {
         await this.router.navigate(['/' + pPage, pParams]).catch(err => {
             this.tratarErro(err);
-            console.log('erro navigate: ', err);
+            // console.log('erro navigate: ', err);
         });
     }
 
@@ -293,13 +293,13 @@ export class AppController {
                  role: 'cancel',
                  cssClass: cssClass,
                  handler: (blah) => {
-                   console.log('Usuário clicou em cancelar.');
+                //    console.log('Usuário clicou em cancelar.');
                    resolve(false);
                  }
                }, {
                  text: 'Sim',
                  handler: () => {
-                   console.log('Usuário clicou em confirmar');
+                //    console.log('Usuário clicou em confirmar');
                    resolve(true);
                  }
                }

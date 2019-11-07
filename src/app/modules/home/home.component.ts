@@ -78,7 +78,7 @@ export class HomeComponent {
         }
       }, catchError((err, caught) => {
         reject(err);
-        console.log('caught is: ', caught);
+        console.log('QRCode caught is: ', caught);
         throw new Error(err);
       })
       );
