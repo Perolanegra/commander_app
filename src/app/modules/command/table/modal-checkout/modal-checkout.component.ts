@@ -64,7 +64,7 @@ export class ModalCheckoutComponent implements OnInit {
             return;
         }
 
-        this.appController.showWarning('O método de pagamento é inválido.');
+        this.appController.showWarning('O método selecionado não se encontra disponível.');
     }
 
 }
