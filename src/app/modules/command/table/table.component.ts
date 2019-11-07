@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AppController } from '../../core/appController';
 import { GlobalVars } from 'src/app/shared/globalVars';
+import { ModalController } from '@ionic/angular';
+import { ModalCheckoutComponent } from './modal-checkout/modal-checkout.component';
 
 @Component({
   selector: 'app-table',
@@ -11,7 +13,8 @@ export class TableComponent implements OnInit {
   btnPaymentActive: boolean = false;
 
   constructor(public appController: AppController,
-  private globalVars: GlobalVars) { 
+  private globalVars: GlobalVars,
+  public modalCtrl: ModalController) { 
     
   }
 
@@ -33,11 +36,23 @@ export class TableComponent implements OnInit {
     return this.globalVars.getUserLoggedIn().name;
   }
 
-  async checkout() {
-    const alert = await this.appController.presentAlertConfirm('Efetuar Pagamento', 'Deseja finalizar a mesa e realizar pagamento?');
-    if(alert) { // leva o cara pra tela de pagamento
+  async presentModalCheckout() { // abre modal-footer com formas de pagamento
+    const modal = await this.modalCtrl.create({
+      component: ModalCheckoutComponent,
+      componentProps: {
+        'total': this.total
+      },
+      cssClass: 'modal-footer',
+    });
 
-    }
+    await modal.present();
+
+    modal.onWillDismiss().then(resp => {
+      if(resp) {
+        this.appController.presentCustomLoading('Aguardando Confirmação...');
+        console.log('método escolido, log na tab de Table: ', resp);
+      }
+    });
   }
 
   public get total() {

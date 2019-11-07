@@ -7,6 +7,7 @@ import { CommandRoutingModule } from './command.routing.module';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { MenuComponent } from './menu/menu.component';
 import { TableComponent } from './table/table.component';
+import { ModalCheckoutComponent } from './table/modal-checkout/modal-checkout.component';
 
 const modules = [
   CommonModule,
@@ -17,8 +18,8 @@ const modules = [
 
 @NgModule({
   imports: [...modules],
-  declarations: [CommandComponent, MenuComponent, TableComponent],
-  entryComponents:[MenuComponent, TableComponent],
+  declarations: [CommandComponent, MenuComponent, TableComponent, ModalCheckoutComponent],
+  entryComponents:[MenuComponent, TableComponent, ModalCheckoutComponent],
   providers: [
     ProductService,
   ],

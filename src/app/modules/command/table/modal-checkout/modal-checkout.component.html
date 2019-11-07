@@ -1,0 +1,23 @@
+<div class="action-sheet-default">
+    <ion-toolbar>
+        <ion-title size="small">Escolha a forma de pagamento</ion-title>
+    </ion-toolbar>
+
+
+    <ion-item>
+        <ion-label>Selecione: </ion-label>
+        <ion-select interface="action-sheet" cancelText="Cancelar" (ionChange)="selectMethod($event)">
+            <ion-select-option *ngFor="let pay of paymentMethods" [value]="pay?.value">
+                {{ pay?.method }} </ion-select-option>
+        </ion-select>
+    </ion-item>
+
+    <div class="footer" (click)="addToTable();"
+        [class.disabled-content]="!chosenPaymentMethod">
+        <div class="container-footer-items">
+            <p class="btn-add-to-table" (click)="modalCtrl.dismiss(chosenPaymentMethod);">Solicitar Pagamento</p>
+            <p style="font-weight: bold;">R$ {{ total | real }}</p>
+        </div>
+    </div>
+
+</div>

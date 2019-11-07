@@ -333,4 +333,18 @@ export class AppController {
         return loading;
     }
 
+    async presentCustomLoading(msg: string) {
+        const loading = await this.loadingController.create({
+            spinner: 'dots',
+            message: msg,
+            translucent: true,
+            //   showBackdrop: true,
+            // cssClass: 'custom-class custom-loading'
+        });
+
+        await loading.present();
+
+        return loading;
+    }
+
 }
