@@ -32,25 +32,25 @@ export class HomeComponent {
   }
 
   async startCommand() { // open QrCode, validate QrCode, then if success navigate to new Root 'Command'
-    this.navCtrl.navigateRoot('command', {queryParams: this.qrDataFill});
-    // const loader = await this.appController.presentLoadingDefault();
-    // const scannedObj = await this.handleQrCode();
+    // this.navCtrl.navigateRoot('command', {queryParams: this.qrDataFill});
+    const loader = await this.appController.presentLoadingDefault();
+    const scannedObj = await this.handleQrCode();
     
-    // if(scannedObj) { // foi setado pelo HandleQr
-    //   const resp = await this.googleService.getDistance(Number(scannedObj.lat), Number(scannedObj.lng));
-    //   // calcula a distância em metros
-    //   const distanceInMeters = Number(resp['distance'].toFixed(1)) * 1000;
-    //   // Se a distância for maior q 70m, ele está muito longe.
-    //   if(distanceInMeters >= 70) { 
-    //     this.appController.exibirErro("Muito Longe. Tente se aproximar do estabelecimento " + scannedObj.name);
-    //     loader.dismiss();
-    //     return;
-    //   }
+    if(scannedObj) { // foi setado pelo HandleQr
+      const resp = await this.googleService.getDistance(Number(scannedObj.lat), Number(scannedObj.lng));
+      // calcula a distância em metros
+      const distanceInMeters = Number(resp['distance'].toFixed(1)) * 1000;
+      // Se a distância for maior q 70m, ele está muito longe.
+      if(distanceInMeters >= 70) { 
+        this.appController.exibirErro("Muito Longe. Tente se aproximar do estabelecimento " + scannedObj.name);
+        loader.dismiss();
+        return;
+      }
 
-    //   this.navCtrl.navigateRoot('command', { queryParams: scannedObj });
-    // }
+      this.navCtrl.navigateRoot('command', { queryParams: scannedObj });
+    }
 
-    // loader.dismiss();
+    loader.dismiss();
   }
 
   handleQrCode(): Promise<any> {

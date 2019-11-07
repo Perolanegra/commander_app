@@ -8,7 +8,7 @@ import { AppController } from 'src/app/modules/core/appController';
 })
 export class ModalCheckoutComponent implements OnInit {
     chosenPaymentMethod;
-    total: Number;
+    total: number;
 
     constructor(private navParams: NavParams,
         private modalCtrl: ModalController,
