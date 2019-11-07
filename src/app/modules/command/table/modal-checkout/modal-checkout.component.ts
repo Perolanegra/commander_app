@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavParams, ModalController } from '@ionic/angular';
+import { AppController } from 'src/app/modules/core/appController';
 @Component({
     selector: 'app-modal-checkout',
     templateUrl: './modal-checkout.component.html',
@@ -9,7 +10,9 @@ export class ModalCheckoutComponent implements OnInit {
     chosenPaymentMethod;
     total: Number;
 
-    constructor(private navParams: NavParams, private modalCtrl: ModalController,) { }
+    constructor(private navParams: NavParams,
+        private modalCtrl: ModalController,
+        private appController: AppController) { }
 
     ngOnInit() {
         this.total = this.navParams.get('total');
@@ -51,6 +54,17 @@ export class ModalCheckoutComponent implements OnInit {
     selectMethod(event) {
         const [{ method }] = this.paymentMethods.filter(val => val.value == event.target.value);
         this.chosenPaymentMethod = method;
+    }
+
+    requestPayment() {
+        if(this.chosenPaymentMethod === 'Crédito' || 
+            this.chosenPaymentMethod === 'Débito' || 
+            this.chosenPaymentMethod === 'Dinheiro') {
+            this.modalCtrl.dismiss(this.chosenPaymentMethod);
+            return;
+        }
+
+        this.appController.showWarning('O método de pagamento é inválido.');
     }
 
 }

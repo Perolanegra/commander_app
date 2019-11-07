@@ -49,7 +49,7 @@ export class TableComponent implements OnInit {
     await modal.present();
 
     modal.onWillDismiss().then(resp => {
-      if(resp) {
+      if(resp.data) {
         this.appController.presentCustomLoading('Aguardando Confirmação...');
         // Faço uma requisição mandando pro banco método escolhido.
         // console.log('método escolido, log na tab de Table: ', resp.data);
