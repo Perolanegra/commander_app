@@ -47,8 +47,6 @@ export class MenuComponent  {
     else {
       this.appController.showWarning('Item já não está presente no carrinho.');
     }
-    console.log('cole : ', this.footerDisplayTotal);
-    
   }
 
    /* Emito um evento passando os itens selecionados, e quando for capturado
