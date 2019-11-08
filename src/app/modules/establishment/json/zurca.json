@@ -1,5 +1,4 @@
 {
-    "_id": 3,
     "name": "Zurca Boteco",
     "description": "Bar e Restaurante",
     "distance": "",
@@ -7,7 +6,7 @@
     "lat": -12.969416,
     "lng": -38.436602,
     "rating": "4.3",
-    "img": "http://culpadaconfesso.com.br/wp-content/uploads/2013/03/Zurca-Boteco.jpg",
+    "img": "assets/imgs/establishments/zurca-logo.jpg",
     "feedback": "Some text here...",
     "schedule": "15:00 às 01:00",
     "address": "Av. Jorge Amado, Box 12 - Imbuí, Salvador - BA, 41720-010"

@@ -1,5 +1,4 @@
 {
-    "_id": 2,
     "name": "Terapia Restaurante e Bar",
     "description": "Bar e Restaurante",
     "distance": "",
@@ -7,7 +6,7 @@
     "lat": -12.969360,
     "lng": -38.436841,
     "rating": "4.3",
-    "img": "https://images.evisos.com.br/2013/01/18/terapia-bar-restaurante-canal-do-imbui_3f1ffccd_3.jpg",
+    "img": "assets/imgs/establishments/terapia-logo.jpg",
     "feedback": "Some text here...",
     "schedule": "10:00 às 00:00",
     "address": "Av. Jorge Amado, 16 - Imbuí, Salvador - BA, 41720-110"

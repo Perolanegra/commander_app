@@ -13,7 +13,7 @@ import { catchError } from 'rxjs/operators';
 export class HomeComponent {
   switchVar: string = 'command';
   qrDataFill: Object = {
-    "id": "1",
+    "table_id": "1",
     "name": "Quiosque do Galego",
     "lat": "-12.969220",
     "lng": "-38.436758",
