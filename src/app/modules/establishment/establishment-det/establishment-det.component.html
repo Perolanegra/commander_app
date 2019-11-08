@@ -21,7 +21,7 @@
     <ion-item>
         <ion-icon name="pin" slot="start"></ion-icon>
         <ion-label>{{ bar?.distance }} km </ion-label>
-        <ion-button fill="outline" slot="end" (click)="pushToMenuDetails(bar?.id);">Cardápio</ion-button>
+        <ion-button fill="outline" slot="end" (click)="pushToMenuDetails(bar?._id);">Cardápio</ion-button>
     </ion-item>
     <ion-card-content style="padding-top: 5px;">
         <ion-card-subtitle style="max-width: 50vh; bottom: 4px;">

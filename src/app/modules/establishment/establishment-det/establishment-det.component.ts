@@ -27,7 +27,7 @@ export class EstablishmentDetComponent {
         const modal = await this.modalCtrl.create({
             component: MenuDetComponent,
             componentProps: {
-                "_id": id
+                "id": id
             },
             cssClass: 'modal-center'
         });

@@ -2,26 +2,27 @@ import { Injectable } from "@angular/core";
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { AppController } from './appController';
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
+// import { GlobalVars } from 'src/app/shared/globalVars';
 
 @Injectable()
 export class HttpConfigInterceptor implements HttpInterceptor {
 
-    constructor(private appController: AppController) { }
+    constructor(private appController: AppController, ) { } // private globalVars: GlobalVars
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const loader = this.appController.presentLoadingDefault();
-        const token: string = ''; // implementar getAcessToken
+        const token: string = ''; // this.globalVars.getAccessToken();
 
-        if(token) {
-            request = request.clone({ headers: request.headers.set('Authorization', 'Bearer ' + token) });
-        }
+        const headers = request.headers.set('Content-Type', 'application/json');
 
-        if(!request.headers.has('Content-Type')) {
-            request = request.clone({ headers: request.headers.set('Content-Type', 'application/json') });
-        }
+        if(token) headers.append('Authorization', 'Bearer ' + token);
 
-        request = request.clone({ headers: request.headers.set('Accept', 'application/json') });
+        headers.append('Accept', 'application/json');
+        headers.append('Access-Control-Allow-Origin', '*');
+        headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
+
+        request = request.clone({ headers: headers });
 
         try {
             return next.handle(request).pipe(

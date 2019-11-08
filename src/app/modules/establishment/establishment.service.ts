@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { RestService } from '../core/rest.service';
 import { map } from 'rxjs/operators';
 import { AppController } from '../core/appController';
-import { Geoposition } from '@ionic-native/geolocation/ngx';
-import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { Geoposition, Geolocation } from '@ionic-native/geolocation/ngx';
 import { GoogleService } from 'src/app/shared/services/google.service';
 
 @Injectable()
@@ -16,26 +15,12 @@ export class EstablishmentService {
 
     public getAll(): Promise<any> {
         return new Promise((resolve, reject) => {
-            resolve([{
-                "_id": 1,
-                "name": "Quiosque do Galego",
-                "description": "Bar e Restaurante",
-                "distance": "",
-                "duration": "",
-                "lat": -12.969220,
-                "lng": -38.436758,
-                "rating": "4.3",
-                "img": "https://s3-media4.fl.yelpcdn.com/bphoto/Ia7nxDwEVYPL27tt21z70A/ls.jpg",
-                "feedback": 'Some text here...',
-                "schedule": "11:00 às 02:00",
-                "address": "Avenida Jorge Amado, s/nº, Canal do Imbuí, Salvador - BA"
-            }]);
-            // this.restService.get('establishments', null).pipe(map(resp => resp))
-            // .subscribe(value => {
-            //     resolve(value); // colchetes por enquanto
-            // }), (err) => {
-            //     reject(err);
-            // }
+            this.restService.get('establishments', null).pipe(map(resp => resp))
+                .subscribe(value => {
+                    resolve(value); // colchetes por enquanto
+                }), (err) => {
+                    reject(err);
+                }
         });
     }
 
@@ -43,14 +28,14 @@ export class EstablishmentService {
 
         return new Promise((resolve, reject) => {
             this.geolocation.getCurrentPosition({ enableHighAccuracy: true })
-            .then((pos: Geoposition) => {
+                .then((pos: Geoposition) => {
 
-                resolve(this.googleService.getEstablishments(pos.coords.latitude, pos.coords.longitude));
-            }
-                , (err: PositionError) => {
-                    // reject(err);
-                    console.log("colé de pan : " + err.message);
-                })
+                    resolve(this.googleService.getEstablishments(pos.coords.latitude, pos.coords.longitude));
+                }
+                    , (err: PositionError) => {
+                        // reject(err);
+                        console.log("colé de pan : " + err.message);
+                    })
                 .catch(error => {
                     reject(error);
                 });

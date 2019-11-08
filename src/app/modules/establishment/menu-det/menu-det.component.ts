@@ -30,7 +30,7 @@ export class MenuDetComponent implements AfterViewInit {
     }
 
     ngAfterViewInit(): void {
-        this.getProducts(this.navParams.get('_id'));
+        this.getProducts(this.navParams.get('id'));
     }
 
     async getProducts(id: string) {

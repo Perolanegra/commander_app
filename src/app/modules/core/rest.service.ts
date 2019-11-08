@@ -21,15 +21,20 @@ export class RestService {
     }
 
     let headers: HttpHeaders = new HttpHeaders().set('Content-type', 'application/json');
+    headers.append('Access-Control-Allow-Origin', '*');
 
     return this.httpClient.post(this.url + pEndpoint, pData, { headers: headers });
   }
 
-  public get(pEndpoint: string, pParams: any) {
+  public get(pEndpoint: string, ...params: any) {
+
+    this.createQueryString(...params); // consertar isso aqui
+    
     // seta o headers
     let headers: HttpHeaders = new HttpHeaders().set('Content-type', 'application/json');
+    headers.append('Access-Control-Allow-Origin', '*');
 
-    return this.httpClient.get(this.url + pEndpoint, { headers: headers, params: pParams });
+    return this.httpClient.get(this.url + pEndpoint, { headers: headers, params: params });
   }
 
   postBlob(pUrl: string, pEndpoint: string, pData: any) {
@@ -39,7 +44,7 @@ export class RestService {
     }
 
     let headers: HttpHeaders = new HttpHeaders().set('Content-type', 'application/json');
-  
+    headers.append('Access-Control-Allow-Origin', '*'); 
     //Se tem accesstoken, inclui o parametro
     // if (this.globalVars.getAccessToken() != null && this.globalVars.getAccessToken() != undefined) {
     //   headers = headers.set('Authorization', 'Bearer ' + this.globalVars.getAccessToken());  
