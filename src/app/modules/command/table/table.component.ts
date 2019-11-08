@@ -56,7 +56,7 @@ export class TableComponent implements OnInit {
         this.textPaymentBtn = 'Pagamento Solicitado';
         const customLoader = await this.appController.presentCustomLoading('Aguardando Confirmação...', 2500);
         customLoader.onWillDismiss().then(() => {
-          this.appController.presentAlertInfo('Mesa Encerrada', 'Curtiu o nosso app ?<br> Aqui você comanda! <br> Te vejo em breveee =)', 'Valeeeu', 'align-text-alert-info');
+          this.appController.presentAlertInfo('Comanda Encerrada', 'Curtiu o nosso app ?<br> Aqui você comanda! <br> Te vejo em breveee =)', 'Valeeeu', 'align-text-alert-info');
           localStorage.removeItem('tableProducts');
           this.navCtrl.navigateRoot('home');
         });

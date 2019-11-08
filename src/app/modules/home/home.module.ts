@@ -10,6 +10,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { Base64ToGallery } from '@ionic-native/base64-to-gallery/ngx';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { EstablismentListComponent } from '../establishment/establishment-list/establishment-list.component';
+import { OrderComponent } from '../order/order.component';
+import { OrderModule } from '../order/order.module';
 
 @NgModule({
   imports: [
@@ -19,10 +21,11 @@ import { EstablismentListComponent } from '../establishment/establishment-list/e
     HomeRoutingModule,
     SharedModule,
     EstablishmentModule,
+    OrderModule,
     NgxQRCodeModule
   ],
-  declarations: [HomeComponent, EstablismentListComponent],
-  entryComponents:[EstablismentListComponent],
+  declarations: [HomeComponent, EstablismentListComponent, OrderComponent],
+  entryComponents:[EstablismentListComponent, OrderComponent],
   providers: [
     BarcodeScanner,
     Base64ToGallery
