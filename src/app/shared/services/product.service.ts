@@ -9,7 +9,7 @@ export class ProductService {
 
     public getByEstablishmentId(id_establishment: string): Promise<Object> {
         return new Promise((resolve, reject) => {
-            this.restService.get('products/getByEstablishmentId', id_establishment).pipe(map(resp => resp))
+            this.restService.get('products/getByEstablishmentId', {id_establishment}).pipe(map(resp => resp))
                 .subscribe(value => {
                     resolve(value);
                 }), (err) => {

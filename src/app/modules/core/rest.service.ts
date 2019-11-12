@@ -26,10 +26,7 @@ export class RestService {
     return this.httpClient.post(this.url + pEndpoint, pData, { headers: headers });
   }
 
-  public get(pEndpoint: string, ...params: any) {
-
-    this.createQueryString(...params); // consertar isso aqui
-    
+  public get(pEndpoint: string, params: {}) {
     // seta o headers
     let headers: HttpHeaders = new HttpHeaders().set('Content-type', 'application/json');
     headers.append('Access-Control-Allow-Origin', '*');
