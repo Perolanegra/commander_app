@@ -38,5 +38,45 @@
         "price": "5,50",
         "establishment": "Quiosque do Galego",
         "id_establishment": "5dc5be21e3ae253cfdb84cfd"
+    },
+    {
+        "title": "Carne do Sol",
+        "img": "assets/imgs/products/carne-sol-belle.jpeg",
+        "description": "Carne do sol, batata frita e salada",
+        "price": "34,90",
+        "establishment": "Tô em Belle",
+        "id_establishment": "5dc5bf96e3ae253cfdb84cfe"
+    },
+    {
+        "title": "Porção Cupim",
+        "img": "assets/imgs/products/cupim-belle.jpeg",
+        "description": "Cupim, aimpim e salda vinagrete",
+        "price": "29,90",
+        "establishment": "Tô em Belle",
+        "id_establishment": "5dc5bf96e3ae253cfdb84cfe"
+    },
+    {
+        "title": "Carne com Aimpim",
+        "img": "assets/imgs/products/carne-sol-aimpim-frito-belle.jpg",
+        "description": "Carne do sol com aimpim frito",
+        "price": "35,40",
+        "establishment": "Tô em Belle",
+        "id_establishment": "5dc5bf96e3ae253cfdb84cfe"
+    },
+    {
+        "title": "Arrumadinho de Fumeiro",
+        "img": "assets/imgs/products/arrumadinho-fumeiro-belle.jpg",
+        "description": "Feijão tropeiro, charque, salada de vinagrete e farofa",
+        "price": "38,90",
+        "establishment": "Tô em Belle",
+        "id_establishment": "5dc5bf96e3ae253cfdb84cfe"
+    },
+    {
+        "title": "Salgadinhos de Bacalhau",
+        "img": "assets/imgs/products/salgadinhos-bacalhau-belle.jpeg",
+        "description": "12 unidades de bolinho de bacalhau, acompanhado de salada e 2 unidades de limão",
+        "price": "14,90",
+        "establishment": "Tô em Belle",
+        "id_establishment": "5dc5bf96e3ae253cfdb84cfe"
     }
 ]
