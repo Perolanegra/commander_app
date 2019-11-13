@@ -13,7 +13,7 @@ import { catchError } from 'rxjs/operators';
 export class HomeComponent {
   switchVar: string = 'command';
   qrDataFill: Object = {
-    "table_id": "1", // logo após cadastrar as mesas jogar aqui pq preciso enviar esse cara
+    "table_id": "5dcbd8d8718232550d6ae35e", // refazer todos os qrCodes com os ids da mesa e estabelecimentos.
     "name": "Quiosque do Galego",
     "lat": "-12.969220",
     "lng": "-38.436758",
