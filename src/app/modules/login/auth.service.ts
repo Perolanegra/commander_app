@@ -5,15 +5,20 @@ import { map } from 'rxjs/operators';
 
 @Injectable()
 export class AuthService {
-    clientId;
-    clientSecret;
-    server: string;
+    // clientId;
+    // clientSecret;
+    // server: string;
 
     constructor(private restService: RestService) { }
 
     authenticate({ email, password }): Promise<any> {
         return new Promise((resolve, reject) => {
-            resolve('AccessToken1234');
+            this.restService.post('/user/authenticate', {email, password}).pipe(map(resp => resp))
+            .subscribe((user: UserModel) => {
+                resolve(user);
+            }), (err => {
+                reject(err);
+            })
         });
     }
     // getAccessToken() { Não é necessário implementar este método pois a aplicação não pode jogar o usuário pra fora da mesa nunca.
@@ -22,7 +27,7 @@ export class AuthService {
 
     register({ email, password }): Promise<UserModel> {
         return new Promise( (resolve, reject) => {
-            this.restService.post('/user/store', {email, password}).pipe(map(resp => resp))
+            this.restService.post('/user/register', {email, password}).pipe(map(resp => resp))
             .subscribe((user: UserModel) => {
                 resolve(user);
             }), (err => {
