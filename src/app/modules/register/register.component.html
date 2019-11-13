@@ -1,0 +1,60 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons left>
+            <ion-button color="dark" (click)="navCtrl.pop();">
+                <ion-icon name="arrow-back"></ion-icon>
+            </ion-button>
+            <ion-title>Registrar</ion-title>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+    <form [formGroup]="forms" novalidate>
+
+        <ion-item>
+            <ion-label color="primary" position="stacked">Nome*</ion-label>
+            <ion-input id="name" type="text" formControlName="name" placeholder="Ex: Igor">
+            </ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="primary" position="stacked">Email*</ion-label>
+            <ion-input id="email" type="email" formControlName="email" placeholder="Ex: gabriel@gmail.com">
+            </ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="primary" position="stacked">Senha*</ion-label>
+            <ion-input id="pass" type="password" formControlName="password">
+            </ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="primary" position="stacked">Nº Celular*</ion-label>
+            <ion-input id="pass" type="tel" formControlName="phone">
+            </ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="primary" position="stacked">Senha*</ion-label>
+            <ion-input id="pass" type="password" formControlName="password">
+            </ion-input>
+        </ion-item>
+
+    </form>
+
+</ion-content>
+
+<ion-footer class="footer">
+    <ion-toolbar>
+        <ion-buttons class="footer-container" end>
+            <ion-button (click)="presentModalPass()" [disabled]="!forms.valid" ion-button icon-right>
+                Cadastrar
+            </ion-button>
+            <ion-icon name="send"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-footer>
