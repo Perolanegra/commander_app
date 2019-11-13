@@ -36,6 +36,10 @@ export class CommandComponent extends DefaultScreen {
     return this.respResolvers.products;
   }
 
+  public get visit() {
+    return this.respResolvers.visit;
+  }
+
   public get QRCodeData() {
     return this.route.snapshot.queryParams;
   }

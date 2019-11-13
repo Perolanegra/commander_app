@@ -20,12 +20,6 @@ export class TableComponent implements OnInit {
     
   }
 
-  /** Antes de validar o QRCode, fazer uma requisição para saber se a mesa está ativa,
-   * caso esteja, eu obtenho em outra requisição, já dentro do componente comanda os itens pedidos da mesa,
-   * que são persistidos toda vez que o cara adiciona um item a mesa.
-   * Caso a mesa n esteja ativa, eu n realizo requisição pra buscar itens da mesa.
-   */
-
   ngOnInit() {
     console.log('items table: ', this.itemsTable);
   }

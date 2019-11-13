@@ -8,6 +8,7 @@ import { ProductService } from 'src/app/shared/services/product.service';
 import { MenuComponent } from './menu/menu.component';
 import { TableComponent } from './table/table.component';
 import { ModalCheckoutComponent } from './table/modal-checkout/modal-checkout.component';
+import { VisitService } from '../core/visit.service';
 
 const modules = [
   CommonModule,
@@ -22,6 +23,7 @@ const modules = [
   entryComponents:[MenuComponent, TableComponent, ModalCheckoutComponent],
   providers: [
     ProductService,
+    VisitService
   ],
 })
 export class CommandModule {}

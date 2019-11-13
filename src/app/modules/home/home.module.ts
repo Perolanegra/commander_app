@@ -28,7 +28,7 @@ import { OrderModule } from '../order/order.module';
   entryComponents:[EstablismentListComponent, OrderComponent],
   providers: [
     BarcodeScanner,
-    Base64ToGallery
+    Base64ToGallery,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

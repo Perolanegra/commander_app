@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommandComponent } from './command.component';
 import { GetProductsByIdResolver } from 'src/app/shared/services/getProductsByIdResolver.service';
+import { GetVisitByTableIdResolver } from 'src/app/shared/services/getVisitByTableIdResolver.service';
 
 const routes: Routes = [
   {
@@ -11,7 +12,8 @@ const routes: Routes = [
     path: 'command',
     component: CommandComponent,
     resolve: {
-      products: GetProductsByIdResolver
+      products: GetProductsByIdResolver,
+      visit: GetVisitByTableIdResolver
     }
     // canActivate: NoAuth
   },
@@ -23,7 +25,8 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
   providers: [
-    GetProductsByIdResolver
+    GetProductsByIdResolver,
+    GetVisitByTableIdResolver
   ]
 })
 export class CommandRoutingModule {}
