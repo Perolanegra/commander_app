@@ -12,11 +12,8 @@ export class HttpConfigInterceptor implements HttpInterceptor {
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const loader = this.appController.presentLoadingDefault();
-        const token: string = ''; // this.globalVars.getAccessToken();
 
         const headers = request.headers.set('Content-Type', 'application/json');
-
-        if(token) headers.append('Authorization', 'Bearer ' + token);
 
         headers.append('Accept', 'application/json');
         headers.append('Access-Control-Allow-Origin', '*');
