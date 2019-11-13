@@ -13,7 +13,6 @@
 <ion-content>
 
     <form [formGroup]="forms" novalidate>
-
         <ion-item>
             <ion-label color="primary" position="stacked">Nome*</ion-label>
             <ion-input id="name" type="text" formControlName="name" placeholder="Ex: Igor">
@@ -34,16 +33,13 @@
 
         <ion-item>
             <ion-label color="primary" position="stacked">Nº Celular*</ion-label>
-            <ion-input id="pass" type="tel" formControlName="phone">
+            <ion-input id="phone" type="tel" formControlName="phone" placeholder="999999999">
             </ion-input>
         </ion-item>
 
-        <ion-item>
-            <ion-label color="primary" position="stacked">Senha*</ion-label>
-            <ion-input id="pass" type="password" formControlName="password">
-            </ion-input>
-        </ion-item>
-
+        <ion-button class="login" expand="block" (click)="showDatePicker();" fill="outline">
+            Nascimento
+        </ion-button>
     </form>
 
 </ion-content>

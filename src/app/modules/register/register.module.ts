@@ -5,6 +5,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { AuthService } from '../login/auth.service';
 import { RegisterRoutingModule } from './register.routing.module';
 import { RegisterComponent } from './register.component';
+import { DatePicker } from '@ionic-native/date-picker/ngx';
 
 const modules = [
     CommonModule,
@@ -18,7 +19,8 @@ const modules = [
     ],
     imports: [...modules],
     providers: [
-        AuthService
+        AuthService,
+        DatePicker
     ],
     entryComponents: []
 })

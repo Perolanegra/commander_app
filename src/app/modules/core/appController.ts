@@ -18,7 +18,8 @@ export class AppController {
     tratarErro(err): void {
         //Mensagem a ser exibida
         this.msg = err.message;
-
+        console.log('colé de pan: ', err);
+        
         //Erros de Response(possuem status)
         if (err.status != undefined && err.status != null) {
             if (err.status == 401) {
