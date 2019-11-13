@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
 import { Location } from '@angular/common';
 import { ModalController, NavController } from '@ionic/angular';

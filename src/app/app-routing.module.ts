@@ -16,13 +16,17 @@ const routes: Routes = [
     loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule)
   },
   {
+    path: 'register',
+    loadChildren: () => import('./modules/register/register.module').then(m => m.RegisterModule)
+  },
+  {
     path: 'settings',
     loadChildren: () => import('./modules/settings/settings.module').then(m => m.SettingsModule)
   },
   {
     path: 'command',
     loadChildren: () => import('./modules/command/command.module').then(m => m.CommandModule)
-  },
+  }
  
 ];
 
