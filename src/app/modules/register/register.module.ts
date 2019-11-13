@@ -6,12 +6,14 @@ import { AuthService } from '../login/auth.service';
 import { RegisterRoutingModule } from './register.routing.module';
 import { RegisterComponent } from './register.component';
 import { DatePicker } from '@ionic-native/date-picker/ngx';
+import { BrMaskerModule } from 'br-mask';
 
 const modules = [
     CommonModule,
     SharedModule,
     IonicModule,
-    RegisterRoutingModule
+    RegisterRoutingModule,
+    BrMaskerModule
 ]
 @NgModule({
     declarations: [

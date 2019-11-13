@@ -24,10 +24,10 @@
 
 </ion-content>
 
-<ion-footer class="footer">
-    <ion-toolbar>
+<ion-footer [class.disabled-content]="!inputEmail" class="footer">
+    <ion-toolbar (click)="inputEmail ? presentModalPass() : null">
         <ion-buttons class="footer-container" end>
-            <ion-button (click)="presentModalPass()" [disabled]="!inputEmail" ion-button icon-right>
+            <ion-button  ion-button icon-right>
                 AVANÇAR
             </ion-button>
             <ion-icon name="send"></ion-icon>

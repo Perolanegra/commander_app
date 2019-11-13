@@ -25,7 +25,7 @@ export class AuthService {
         
     // }
 
-    register({ email, password }): Promise<UserModel> {
+    register(email: string, password: string): Promise<UserModel> {
         return new Promise( (resolve, reject) => {
             this.restService.post('/user/register', {email, password}).pipe(map(resp => resp))
             .subscribe((user: UserModel) => {

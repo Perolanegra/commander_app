@@ -15,7 +15,7 @@
     <form [formGroup]="forms" novalidate>
         <ion-item>
             <ion-label color="primary" position="stacked">Nome*</ion-label>
-            <ion-input id="name" type="text" formControlName="name" placeholder="Ex: Igor">
+            <ion-input id="name" type="text" maxLength="150" formControlName="name" placeholder="Ex: Igor">
             </ion-input>
         </ion-item>
 
@@ -27,27 +27,32 @@
 
         <ion-item>
             <ion-label color="primary" position="stacked">Senha*</ion-label>
-            <ion-input id="pass" type="password" formControlName="password">
-            </ion-input>
+            <div style="display: flex; flex: 1; flex-direction: row-reverse; margin-left: -20px;">
+                <ion-input id="pass" minLength="8" maxLength="12" [type]="hide ? 'password' : 'text'" formControlName="password">
+                </ion-input>
+                <mat-icon style="position: relative; left: 80vw;" matSuffix (click)="hide = !hide">
+                    {{ hide ? 'visibility' : 'visibility_off' }}
+                </mat-icon>
+            </div>
         </ion-item>
 
         <ion-item>
-            <ion-label color="primary" position="stacked">Nº Celular*</ion-label>
-            <ion-input id="phone" type="tel" formControlName="phone" placeholder="999999999">
+            <ion-label color="primary" position="stacked">Nº Celular</ion-label>
+            <ion-input id="phone" type="tel" [brmasker]="{phone: true}" formControlName="phone" placeholder="(99) 99999-9999">
             </ion-input>
         </ion-item>
 
-        <ion-button class="login" expand="block" (click)="showDatePicker();" fill="outline">
-            Nascimento
+        <ion-button class="login" expand="block" (click)="showDatePicker();">
+            Data de Nascimento
         </ion-button>
     </form>
 
 </ion-content>
 
-<ion-footer class="footer">
-    <ion-toolbar>
+<ion-footer [class.disabled-content]="!forms.valid" class="footer">
+    <ion-toolbar (click)="forms.valid ? register() : null">
         <ion-buttons class="footer-container" end>
-            <ion-button (click)="presentModalPass()" [disabled]="!forms.valid" ion-button icon-right>
+            <ion-button ion-button icon-right>
                 Cadastrar
             </ion-button>
             <ion-icon name="send"></ion-icon>

@@ -92,6 +92,11 @@
         text-align: center;
     }
 
+    .footer-container {
+        display: flex;
+        justify-content: center;
+    }
+
     .disabled-content {
         pointer-events: none;
         opacity: 0.4;
