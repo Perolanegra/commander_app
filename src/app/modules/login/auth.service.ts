@@ -1,5 +1,7 @@
 import { Injectable } from "@angular/core";
 import { UserModel } from 'src/app/shared/models/classes/user.model';
+import { RestService } from '../core/rest.service';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class AuthService {
@@ -7,29 +9,25 @@ export class AuthService {
     clientSecret;
     server: string;
 
-    constructor() { }
+    constructor(private restService: RestService) { }
 
-    getAccessToken({ email, password }): Promise<any> {
-        return new Promise((resolve, reject) => {       
-            console.log('email e senha passei no AuthService: ', email, password);
-            resolve("AcessToken1234");
+    authenticate({ email, password }): Promise<any> {
+        return new Promise((resolve, reject) => {
+            resolve('AccessToken1234');
         });
     }
-
-    refreshAccessToken() {
+    // getAccessToken() { Não é necessário implementar este método pois a aplicação não pode jogar o usuário pra fora da mesa nunca.
         
-    }
+    // }
 
-    getUserLoggedIn(): Promise<UserModel> {
+    register({ email, password }): Promise<UserModel> {
         return new Promise( (resolve, reject) => {
-            console.log('requisição que traz os dados do usuário logado');
-            resolve({ 
-                name: "Igor Alves", 
-                statusMsg: "She wanna hang wit the Starboy*",
-                email: "pedratto3@gmail.com", 
-                password: "123", 
-                phone: "993337275",
-                img: "https://material.angular.io/assets/img/examples/shiba1.jpg" });
+            this.restService.post('/user/store', {email, password}).pipe(map(resp => resp))
+            .subscribe((user: UserModel) => {
+                resolve(user);
+            }), (err => {
+                reject(err);
+            })
         });
     }
 }

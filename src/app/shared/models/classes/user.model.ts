@@ -6,4 +6,8 @@ export class UserModel {
     email: string;
     password: string;
     img: string;
+    birthDate: Date;
+    created_at: Date;
+    deleted_at: Date;
+    updated_at: Date;
 }

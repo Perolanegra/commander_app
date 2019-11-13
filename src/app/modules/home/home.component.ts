@@ -13,12 +13,12 @@ import { catchError } from 'rxjs/operators';
 export class HomeComponent {
   switchVar: string = 'command';
   qrDataFill: Object = {
-    "table_id": "5dcbd8d8718232550d6ae35e", // refazer todos os qrCodes com os ids da mesa e estabelecimentos.
-    "name": "Quiosque do Galego",
-    "lat": "-12.969220",
-    "lng": "-38.436758",
-    "tableNumber": "14",
-    "id_establishment" : "5dc5be21e3ae253cfdb84cfd"
+    "table_id": "5dcbd98b718232550d6ae367", // refazer todos os qrCodes com os ids da mesa e estabelecimentos.
+    "name": "Terapia Restaurante e Bar",
+    "lat": "-12.96936",
+    "lng": "-38.436841",
+    "tableNumber": "4",
+    "id_establishment" : "5dc5c0a4e3ae253cfdb84d00"
   };
 
   constructor(public appController: AppController,

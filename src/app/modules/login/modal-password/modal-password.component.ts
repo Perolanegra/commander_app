@@ -1,10 +1,10 @@
-import { Component, Renderer2, OnInit, ViewChild, ElementRef, } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, } from '@angular/core';
 import { ModalController, NavParams, NavController, LoadingController } from '@ionic/angular';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { AppController } from '../../core/appController';
 import { AuthService } from '../auth.service';
 import { GlobalVars } from 'src/app/shared/globalVars';
-
+import { Md5 } from "md5-typescript";
 @Component({
     selector: 'app-modal-password',
     templateUrl: './modal-password.component.html',
@@ -24,7 +24,7 @@ export class ModalPasswordComponent implements OnInit {
   private navParams: NavParams) { }
   public inputValidate: boolean[] = [false,false,false,false,false,false];
 
-  ngOnInit() {
+  ngOnInit() {    
     this.forms = this.createForm();
   }
 
@@ -39,12 +39,18 @@ export class ModalPasswordComponent implements OnInit {
     // call request service to get the data
     const loader = await this.appController.presentLoadingDefault();
     try {
-      const accessToken = await this.authService.getAccessToken(this.forms.value);
-      this.globalVars.setAccessToken(accessToken);
-  
-      const user = await this.authService.getUserLoggedIn();
-  
-      this.globalVars.setUserLoggedIn(user);
+      this.forms.controls['password'].setValue(Md5.init(this.forms.value.password));
+
+      const userAuthenticated = await this.authService.authenticate(this.forms.value);
+      const { password } = userAuthenticated;
+      console.log('MD5 / digitado: ',  Md5.init(this.forms.value.password), password);
+
+      if(password !== Md5.init(this.forms.value.password)) {
+        this.appController.showWarning('Usuário ou senha inválidos!');
+        return;
+      }
+
+      this.globalVars.setUserLoggedIn(userAuthenticated);
       this.navCtrl.navigateRoot('home');
       
     } catch(err) {

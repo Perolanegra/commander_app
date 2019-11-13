@@ -39,10 +39,10 @@ export class GlobalVars {
     return window.localStorage.getItem(KEY_REFRESH);
   }
 
-  setAccessToken(str: string) {
-    this.accessToken = str;
-    return window.localStorage.setItem(KEY, str);
-  }
+  // setAccessToken(str: string) { // não será usado
+  //   this.accessToken = str;
+  //   return window.localStorage.setItem(KEY, str);
+  // }
 
   setRefreshToken = (str: string) => {
     this.refreshToken = str;
