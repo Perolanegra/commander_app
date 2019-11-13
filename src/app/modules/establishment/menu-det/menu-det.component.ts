@@ -1,7 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { NavParams } from '@ionic/angular';
 import { AppController } from '../../core/appController';
-import { ProductService } from 'src/app/shared/services/product.service';
 import { ProductModel } from 'src/app/shared/models/classes/product.model';
 
 @Component({
@@ -10,11 +9,10 @@ import { ProductModel } from 'src/app/shared/models/classes/product.model';
     styleUrls: ['./menu-det.component.scss'],
 })
 export class MenuDetComponent implements AfterViewInit {
-    products: ProductModel;
+    products: ProductModel
     slideOpts;
 
     constructor(public appController: AppController,
-    private productService: ProductService,
     private navParams: NavParams) {
         this.slideOpts = {
             initialSlide: 0,
@@ -30,14 +28,7 @@ export class MenuDetComponent implements AfterViewInit {
     }
 
     ngAfterViewInit(): void {
-        this.getProducts(this.navParams.get('id'));
-    }
-
-    async getProducts(id: string) {
-        const loader = await this.appController.presentLoadingDefault();
-        this.productService.getByEstablishmentId(id).then((resp: ProductModel) => {
-            this.products = resp;
-        }).finally(() => loader.dismiss());
+        this.products = this.navParams.get('products');
     }
 
     private generateProgressBar(current: number, total: number): string {

@@ -24,11 +24,9 @@ export class EstablismentListComponent implements OnInit {
 
     async getBars() { // mudar essa lógica
         // lista dos cadastrados
-        const loader = await this.appController.presentLoadingDefault();
         this.bars = await this.establishmentService.getAll();
         // pesquisar os bares com base no nearBy e trazer os cadastrados
         // depois fazer o foreach abaixo
-        // hoje estou trazendo todos, porém estático no service pq ainda n fiz a implementacao do front com o back e nem cadastrei os bares no banco.
 
         this.bars.forEach(async (bar) => {
             this.googleService.getDistance(bar.lat, bar.lng).then(resp => {
@@ -37,10 +35,8 @@ export class EstablismentListComponent implements OnInit {
             });
         });
         
-        loader.dismiss();
-        // obtenho a lista dos restaurantes proximos
+        // obtenho a lista dos restaurantes proximos <OLD> maybe next something
         // const nearBy = await this.establishmentService.getEstablishmentsNearBy();
-        // console.log('nearBy: ', nearBy);
     }
 
     async pushToDetails(bar) {

@@ -71,7 +71,7 @@ export class HomeComponent {
             resolve(JSON.parse(text));
           }
           else {
-            this.appController.exibirErro('QRCode Inválido!');
+            this.appController.showError('QRCode Inválido!');
             resolve(false);
           }
         }

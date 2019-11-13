@@ -15,8 +15,12 @@
     margin-right: 5.5vw;
 }
 
-:host ::ng-deep .mat-list-base .mat-list-item .mat-list-item-content {
+:host ::ng-deep .mat-list-base .mat-list-item {
     flex-direction: row-reverse;
+}
+
+.mat-list .mat-list-item {
+    height: 85px; /* default is 72px */
 }
 
 .minutes {
