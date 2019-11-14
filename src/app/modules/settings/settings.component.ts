@@ -20,8 +20,14 @@ export class SettingsComponent {
   private globalVars: GlobalVars,
   public navCtrl: NavController) {}
 
-  exit() {
-    console.log('AcessToken: ', this.globalVars.getAccessToken());
+  async exit() {
+    const loader = await this.appController.presentLoadingDefault();
+    if(this.globalVars.isLogged()) {
+      this.globalVars.removeUserLoggedIn();
+    }
+
+    this.navCtrl.navigateRoot('login');
+    loader.dismiss();
   }
 
   public get user(): UserModel {

@@ -17,46 +17,50 @@ export class GlobalVars {
   }
 
   getUserLoggedIn(): UserModel {
-    return JSON.parse(window.localStorage.getItem(KEY_USER_LOGGED_IN));
+    return JSON.parse(localStorage.getItem(KEY_USER_LOGGED_IN));
   }
 
   setUserLoggedIn(userLogged: UserModel) {
     this.user = new UserModel();
     this.user = userLogged;
-    window.localStorage.setItem(KEY_USER_LOGGED_IN, JSON.stringify(userLogged));
+    localStorage.setItem(KEY_USER_LOGGED_IN, JSON.stringify(userLogged));
   }
 
  //Verifica se existe token
-  hasAccess_token() {
-    return !!this.getAccessToken();
+  hasAccess(): Boolean {
+    return !!this.getAccess();
   }
 
-  getAccessToken(): string {
-    return window.localStorage.getItem(KEY);
+  getAccess(): Object {
+    return this.getUserLoggedIn();
   }
 
   getRefreshToken(): string {
-    return window.localStorage.getItem(KEY_REFRESH);
+    return localStorage.getItem(KEY_REFRESH);
   }
 
   // setAccessToken(str: string) { // não será usado
   //   this.accessToken = str;
-  //   return window.localStorage.setItem(KEY, str);
+  //   return localStorage.setItem(KEY, str);
   // }
 
   setRefreshToken = (str: string) => {
     this.refreshToken = str;
-    return window.localStorage.setItem(KEY_REFRESH, str);
+    return localStorage.setItem(KEY_REFRESH, str);
   }
 
   //Remove o token, utilizado para efetuar logout
   removeToken() {
-    window.localStorage.removeItem(KEY);
+    localStorage.removeItem(KEY);
+  }
+
+  removeUserLoggedIn() {
+    localStorage.removeItem(KEY_USER_LOGGED_IN);
   }
 
   //Verifica se tem alguém logado
-  isLogged() {
-    return this.hasAccess_token();
+  isLogged(): Boolean {
+    return this.hasAccess();
   }
 
   

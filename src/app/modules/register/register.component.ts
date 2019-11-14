@@ -52,14 +52,14 @@ export class RegisterComponent implements OnInit {
   }
 
   async register() {
-    if(this.forms.value.password.length < 8) {
-      this.appController.showWarning('Senha precisa de no mínimo 8 caracteres.');
+    if(this.forms.value.password.length < 6) {
+      this.appController.showWarning('O PIN precisa de no mínimo 6 dígitos.');
       return;
     }
     
     const userAuthenticated = await this.auth.register(
-      this.forms.value.email, Md5.init(this.forms.value.password), 
-      this.forms.value.name, this.forms.value.phone, this.forms.value.birthDate);
+      this.forms.value.name, this.forms.value.email,Md5.init(this.forms.value.password), 
+      this.forms.value.phone, this.forms.value.birthDate);
 
     if(userAuthenticated) {
       this.globalVars.setUserLoggedIn(userAuthenticated);
