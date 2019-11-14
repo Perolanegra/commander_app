@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
         Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
       ])],
       password: ["", Validators.required],
-      birthDate: [""],
+      birthDate: [null],
       phone: [""],
     });
   }
@@ -57,7 +57,9 @@ export class RegisterComponent implements OnInit {
       return;
     }
     
-    const userAuthenticated = await this.auth.register(this.forms.value.email, Md5.init(this.forms.value.password));
+    const userAuthenticated = await this.auth.register(
+      this.forms.value.email, Md5.init(this.forms.value.password), 
+      this.forms.value.name, this.forms.value.phone, this.forms.value.birthDate);
 
     if(userAuthenticated) {
       this.globalVars.setUserLoggedIn(userAuthenticated);
