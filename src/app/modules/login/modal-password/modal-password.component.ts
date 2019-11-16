@@ -43,11 +43,12 @@ export class ModalPasswordComponent implements OnInit, AfterViewInit {
     // call request service to get the data
     const loader = await this.appController.presentLoadingDefault();
     try {
+      const encryptedPass = Md5.init(this.forms.value.password);
 
-      const userAuthenticated = await this.authService.authenticate(this.forms.value);
+      const userAuthenticated = await this.authService.authenticate(this.forms.value.email, encryptedPass);
       const { password, email } = userAuthenticated;
 
-      if(password !== Md5.init(this.forms.value.password) || email !== this.forms.value.email) {
+      if(password !== encryptedPass || email !== this.forms.value.email) {
         this.appController.showWarning('Usuário ou senha inválidos!');
         return;
       }

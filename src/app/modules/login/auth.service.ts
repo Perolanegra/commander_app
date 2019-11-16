@@ -11,7 +11,7 @@ export class AuthService {
 
     constructor(private restService: RestService) { }
 
-    authenticate({ email, password }): Promise<any> {
+    authenticate(email: string, password: string): Promise<any> {
         return new Promise((resolve, reject) => {
             this.restService.get('user/authenticate', {email, password}).pipe(map(resp => resp))
             .subscribe((user: UserModel) => {
