@@ -21,18 +21,21 @@ export class CommandComponent extends DefaultScreen implements OnInit {
     this.switchVar = newSwitch;
   }
 
-  addToTable(items) {
-    let tableProducts = JSON.parse(localStorage.getItem('tableProducts'));
+  addToTable(event: boolean) { // preciso emitir outro evento aqui para o restante da mesa quando um cara adicionar algum item.
+    // let tableProducts = JSON.parse(localStorage.getItem('tableProducts'));
     
-    if(tableProducts == null) {
-      tableProducts = new Array();
-    }
+    // if(tableProducts == null) {
+    //   tableProducts = new Array();
+    // }
 
-    for (let [key] of items.entries()) {
-      tableProducts.push(key);
-    }
+    // for (let [key] of items.entries()) {
+    //   tableProducts.push(key);
+    // }
 
-    localStorage.setItem('tableProducts', JSON.stringify(tableProducts));
+    // localStorage.setItem('tableProducts', JSON.stringify(tableProducts));
+    if(event) {
+      
+    }
     this.switchVar = 'table';
   }
 

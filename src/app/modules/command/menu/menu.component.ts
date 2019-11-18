@@ -1,5 +1,9 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { AppController } from '../../core/appController';
+import { OrderService } from '../../order/order.service';
+import { ProductModel } from 'src/app/shared/models/classes/product.model';
+import { GlobalVars } from 'src/app/shared/globalVars';
+import { ItemsModel } from 'src/app/shared/models/classes/items.model';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -11,7 +15,9 @@ export class MenuComponent  {
   @Output() setTable = new EventEmitter<any>();
   @Input() products;
 
-  constructor(private appController: AppController) {
+  constructor(private appController: AppController,
+  private globalVars: GlobalVars,
+  private orderService: OrderService) {
     this.productsAdded = new Set();
   }
 
@@ -51,7 +57,15 @@ export class MenuComponent  {
     o switchVar muda para a tab de Mesa passando os produtos por @Input() no seletor 
    */
   addToTable() {
-    this.setTable.emit(this.productsAdded);
+    this.setTable.emit(true);
+    const itemsModels: ItemsModel[] = Array.from(this.productsAdded).map((p: ProductModel) => {
+      return {
+        id_product: p._id.toString(),
+        qtd_product: p.qtd
+      }
+    });
+
+    // this.orderService.store(itemsModels, this.globalVars.getUserLoggedIn().id_user, );
   }
 
 

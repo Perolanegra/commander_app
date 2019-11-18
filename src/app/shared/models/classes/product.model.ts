@@ -3,6 +3,11 @@ export class ProductModel {
     img: string;
     description: string;
     price: string;
-    id: number;
+    _id: number;
     qtd: number;
+    created_at: any;
+    deleted_at: any;
+    updated_at: any;
+    establishment: string;
+    id_establishment: string;
 }

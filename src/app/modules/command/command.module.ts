@@ -9,6 +9,7 @@ import { MenuComponent } from './menu/menu.component';
 import { TableComponent } from './table/table.component';
 import { ModalCheckoutComponent } from './table/modal-checkout/modal-checkout.component';
 import { VisitService } from '../core/visit.service';
+import { OrderService } from '../order/order.service';
 
 const modules = [
   CommonModule,
@@ -23,7 +24,8 @@ const modules = [
   entryComponents:[MenuComponent, TableComponent, ModalCheckoutComponent],
   providers: [
     ProductService,
-    VisitService
+    VisitService,
+    OrderService
   ],
 })
 export class CommandModule {}

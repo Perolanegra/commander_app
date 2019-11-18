@@ -23,7 +23,7 @@ export class TableComponent implements OnInit {
 
   ngOnInit() {
     console.log('items table: ', this.itemsTable);
-    console.log(' viists: ', this.visit);
+    console.log('visit: ', this.visit);
     if(this.visit) {
       // faço requisição trazendo os produtos pedidos até o momento.
     }
