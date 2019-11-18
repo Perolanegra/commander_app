@@ -9,9 +9,9 @@ export class VisitService {
     constructor(private appController: AppController,
     private restService: RestService) { }
 
-    public getByTableId(id_table: string, id_user: string, id_establishment: string): Promise<any> {
+    public getByTableId(id_table: string, id_user: string): Promise<any> {
         return new Promise((resolve, reject) => {
-            this.restService.get('visit/getByTableId', {id_table, id_user, id_establishment}).pipe(map(resp => resp))
+            this.restService.get('visit/getByTableId', {id_table, id_user}).pipe(map(resp => resp))
             .subscribe(visit => {
                 resolve(visit);
             }), (err) => {

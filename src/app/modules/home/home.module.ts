@@ -12,6 +12,7 @@ import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { EstablismentListComponent } from '../establishment/establishment-list/establishment-list.component';
 import { OrderComponent } from '../order/order.component';
 import { OrderModule } from '../order/order.module';
+import { VisitService } from '../core/visit.service';
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import { OrderModule } from '../order/order.module';
   providers: [
     BarcodeScanner,
     Base64ToGallery,
+    VisitService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

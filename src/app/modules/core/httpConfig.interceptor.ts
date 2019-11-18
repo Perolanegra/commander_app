@@ -16,7 +16,6 @@ export class HttpConfigInterceptor implements HttpInterceptor {
 
         headers.append('Accept', 'application/json');
         headers.append('Access-Control-Allow-Origin', '*');
-        headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
 
         request = request.clone({ headers: headers });
 

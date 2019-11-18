@@ -19,8 +19,6 @@ export class MenuComponent  {
     this.products.forEach(val => {
       val['qtd'] = 0;
     });
-
-    // console.log('lista original: ', this.products);
   }
  
   addItem(product) {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AppController } from '../../core/appController';
 import { GlobalVars } from 'src/app/shared/globalVars';
 import { ModalController, NavController } from '@ionic/angular';
@@ -12,6 +12,7 @@ import { ModalCheckoutComponent } from './modal-checkout/modal-checkout.componen
 export class TableComponent implements OnInit {
   btnPaymentActive: boolean = false;
   textPaymentBtn: string = 'Pagar';
+  @Input() visit;
 
   constructor(public appController: AppController,
   private globalVars: GlobalVars,
@@ -22,6 +23,10 @@ export class TableComponent implements OnInit {
 
   ngOnInit() {
     console.log('items table: ', this.itemsTable);
+    console.log(' viists: ', this.visit);
+    if(this.visit) {
+      // faço requisição trazendo os produtos pedidos até o momento.
+    }
   }
 
   public get itemsTable(): Array<any> {

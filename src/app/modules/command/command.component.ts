@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DefaultScreen } from '../core/defaultScreen';
 @Component({
@@ -6,11 +6,15 @@ import { DefaultScreen } from '../core/defaultScreen';
   templateUrl: './command.component.html',
   styleUrls: ['./command.component.scss'],
 })
-export class CommandComponent extends DefaultScreen {
+export class CommandComponent extends DefaultScreen implements OnInit {
   switchVar: string = 'menu';
 
   constructor(protected route: ActivatedRoute) {
     super(route);
+  }
+
+  ngOnInit() {
+    
   }
 
   handleSwitch(newSwitch: string) {
@@ -36,7 +40,7 @@ export class CommandComponent extends DefaultScreen {
     return this.respResolvers.products;
   }
 
-  public get visit() {
+  public get visit(): Boolean {
     return this.respResolvers.visit;
   }
 
