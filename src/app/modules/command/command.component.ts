@@ -43,7 +43,7 @@ export class CommandComponent extends DefaultScreen implements OnInit {
     return this.respResolvers.products;
   }
 
-  public get visit(): Boolean {
+  public get visit() {
     return this.respResolvers.visit;
   }
 
