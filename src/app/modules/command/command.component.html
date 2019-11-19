@@ -12,11 +12,11 @@
 
   <ng-container [ngSwitch]="switchVar">
     <div *ngSwitchCase="'menu'" style="flex: 1;">
-      <app-menu [products]="products" (setTable)="addToTable($event)"></app-menu>
+      <app-menu [products]="products" [visit]="visit" (setTable)="addToTable($event)"></app-menu>
     </div>
 
     <div *ngSwitchCase="'table'" style="flex: 1;">
-      <app-table [visit]="visit"></app-table>
+      <app-table></app-table>
     </div>
   </ng-container>
 </div>

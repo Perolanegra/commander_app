@@ -9,15 +9,16 @@ import { ItemsModel } from 'src/app/shared/models/classes/items.model';
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss', '../command.component.scss'],
 })
-export class MenuComponent  {
+export class MenuComponent {
   footerDisplayTotal = 0;
   productsAdded;
   @Output() setTable = new EventEmitter<any>();
   @Input() products;
+  @Input() visit;
 
   constructor(private appController: AppController,
-  private globalVars: GlobalVars,
-  private orderService: OrderService) {
+    private globalVars: GlobalVars,
+    private orderService: OrderService) {
     this.productsAdded = new Set();
   }
 
@@ -26,10 +27,10 @@ export class MenuComponent  {
       val['qtd'] = 0;
     });
   }
- 
+
   addItem(product) {
     product['qtd']++;
-    if(!this.productsAdded.has(product)) {
+    if (!this.productsAdded.has(product)) {
       this.productsAdded.add(product);
     }
 
@@ -37,14 +38,14 @@ export class MenuComponent  {
   }
 
   removeItem(product) {
-    if(product['qtd'] > 0) {
+    if (product['qtd'] > 0) {
 
-      if(this.productsAdded.has(product) && product['qtd'] == 1) {
+      if (this.productsAdded.has(product) && product['qtd'] == 1) {
         this.productsAdded.delete(product);
       }
 
       product['qtd']--;
-      if(this.footerDisplayTotal > 0) {
+      if (this.footerDisplayTotal > 0) {
         this.footerDisplayTotal -= Number(product['price'].replace(",", "."));
       }
     }
@@ -53,19 +54,30 @@ export class MenuComponent  {
     }
   }
 
-   /* Emito um evento passando os itens selecionados, e quando for capturado
-    o switchVar muda para a tab de Mesa passando os produtos por @Input() no seletor 
-   */
-  addToTable() {
-    this.setTable.emit(true);
-    const itemsModels: ItemsModel[] = Array.from(this.productsAdded).map((p: ProductModel) => {
-      return {
-        id_product: p._id.toString(),
-        qtd_product: p.qtd
-      }
-    });
+  /* Emito um evento passando os itens selecionados, e quando for capturado
+   o switchVar muda para a tab de Mesa passando os produtos por @Input() no seletor 
+  */
+  async addToTable() {
+    const loader = await this.appController.presentLoadingDefault();
+    let products;
 
-    // this.orderService.store(itemsModels, this.globalVars.getUserLoggedIn().id_user, );
+    try {
+      const itemsModels: ItemsModel[] = Array.from(this.productsAdded).map((p: ProductModel) => {
+        return {
+          id_product: p._id.toString(),
+          qtd_product: p.qtd
+        }
+      });
+
+      products = await this.orderService.store(itemsModels, this.globalVars.getUserLoggedIn().id_user, this.visit._id);
+    } catch (e) {
+      this.appController.showError(e);
+      console.log('colé de pan: ', e);
+
+    } finally {
+      this.setTable.emit(products);
+      loader.dismiss();
+    }
   }
 
 

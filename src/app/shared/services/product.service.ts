@@ -19,6 +19,18 @@ export class ProductService {
 
     }
 
+    public getByVisitId(id_visit: string): Promise<Object> {
+        return new Promise((resolve, reject) => {
+            this.restService.get('products/getByVisitId', {id_visit}).pipe(map(resp => resp))
+                .subscribe(value => {
+                    resolve(value);
+                }), (err) => {
+                    reject(err);
+                }            
+        });
+
+    }
+
 
 
 }

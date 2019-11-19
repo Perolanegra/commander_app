@@ -9,10 +9,10 @@ import { ModalCheckoutComponent } from './modal-checkout/modal-checkout.componen
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss', '../command.component.scss'],
 })
-export class TableComponent implements OnInit {
+export class TableComponent {
   btnPaymentActive: boolean = false;
   textPaymentBtn: string = 'Pagar';
-  @Input() visit;
+  private productsAdded;
 
   constructor(public appController: AppController,
   private globalVars: GlobalVars,
@@ -21,16 +21,20 @@ export class TableComponent implements OnInit {
     
   }
 
-  ngOnInit() {
-    console.log('items table: ', this.itemsTable);
-    console.log('visit: ', this.visit);
-    if(this.visit) {
-      // faço requisição trazendo os produtos pedidos até o momento.
-    }
+  public get itemsTable(): Array<any> {
+    return this.productsAdded;
   }
 
-  public get itemsTable(): Array<any> {
-    return this.appController.getTableStorage();
+  public set itemsTable(items) {
+    this.productsAdded = items;
+  }
+
+  reloadProductRequest(products) { // emitido quando o cara adiciona novos pedidos.
+    this.itemsTable = products;
+  }
+
+  loadProductsFirstSwitch(products) { // emitido quando o cara swita pra table pela primeira vez e já existem pedidos.
+    this.itemsTable = products;
   }
 
   public get currentUsername() {
@@ -51,10 +55,12 @@ export class TableComponent implements OnInit {
     modal.onWillDismiss().then(async (resp) => {
       if(resp.data) {
         // Faço uma requisição mandando pro banco o método de pagamento escolhido.
-        // console.log('método escolido, log na tab de Table: ', resp.data);
         this.textPaymentBtn = 'Pagamento Solicitado';
         const customLoader = await this.appController.presentCustomLoading('Aguardando Confirmação...', 2500);
         customLoader.onWillDismiss().then(() => {
+
+          // requisição para encerrar a comanda.
+
           this.appController.presentAlertInfo('Comanda Encerrada', 'Curtiu o nosso app ?<br> Aqui você comanda! <br> Te vejo em breveee =)', 'Valeeeu', 'align-text-alert-info');
           localStorage.removeItem('tableProducts');
           this.navCtrl.navigateRoot('home');
