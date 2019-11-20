@@ -20,6 +20,17 @@ export class VisitService {
         });
     }
 
+    public closeByIdTable(id_table: string): Promise<any> {
+        return new Promise((resolve, reject) => {
+            this.restService.post('visit/closeByIdTable', {id_table}).pipe(map(resp => resp))
+            .subscribe(resp => {
+                resolve(resp);
+            }), (err) => {
+                reject(err);
+            }
+        });
+    }
+
     public getByIds(): Promise<any> {
         return new Promise((resolve, reject) => {
             resolve([{

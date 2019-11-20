@@ -3,6 +3,8 @@ import { AppController } from '../../core/appController';
 import { GlobalVars } from 'src/app/shared/globalVars';
 import { ModalController, NavController } from '@ionic/angular';
 import { ModalCheckoutComponent } from './modal-checkout/modal-checkout.component';
+import { ActivatedRoute } from '@angular/router';
+import { VisitService } from '../../core/visit.service';
 
 @Component({
   selector: 'app-table',
@@ -17,6 +19,8 @@ export class TableComponent {
   constructor(public appController: AppController,
   private globalVars: GlobalVars,
   private navCtrl: NavController,
+  protected route: ActivatedRoute,
+  private visitService: VisitService,
   public modalCtrl: ModalController) { 
     
   }
@@ -56,14 +60,18 @@ export class TableComponent {
       if(resp.data) {
         // Faço uma requisição mandando pro banco o método de pagamento escolhido.
         this.textPaymentBtn = 'Pagamento Solicitado';
-        const customLoader = await this.appController.presentCustomLoading('Aguardando Confirmação...', 2500);
-        customLoader.onWillDismiss().then(() => {
-
-          // requisição para encerrar a comanda.
-
-          this.appController.presentAlertInfo('Comanda Encerrada', 'Curtiu o nosso app ?<br> Aqui você comanda! <br> Te vejo em breveee =)', 'Valeeeu', 'align-text-alert-info');
-          localStorage.removeItem('tableProducts');
-          this.navCtrl.navigateRoot('home');
+        const loader = await this.appController.presentLoadingDefault();
+        loader.onWillDismiss().then(async () => {
+          // requisição para encerrar a visita e a comanda.
+          try {
+            await this.visitService.closeByIdTable(this.route.params['id_table']);
+          } catch (e) {
+            this.appController.showError(e);
+          } finally {
+            this.appController.presentAlertInfo('Comanda Encerrada', 'Curtiu o nosso app ?<br> Aqui você comanda! <br> Te vejo em breveee =)', 'Valeeeu', 'align-text-alert-info');
+            this.navCtrl.navigateRoot('home');
+            loader.dismiss();
+          }
         });
       }
     });
