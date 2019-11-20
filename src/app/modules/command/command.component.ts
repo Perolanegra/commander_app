@@ -2,6 +2,8 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DefaultScreen } from '../core/defaultScreen';
 import { ProductService } from 'src/app/shared/services/product.service';
+import { CommandService } from './command.service';
+import { AppController } from '../core/appController';
 @Component({
   selector: 'app-command',
   templateUrl: './command.component.html',
@@ -9,12 +11,13 @@ import { ProductService } from 'src/app/shared/services/product.service';
 })
 export class CommandComponent extends DefaultScreen implements OnInit {
   switchVar: string = 'menu';
-  isFirstSwitchTable: boolean = false;
   @Output() notifyProductsAdded = new EventEmitter<any>();
-  @Output() notifyFirstSwitch = new EventEmitter<any>();
+  @Output() tableSwitch = new EventEmitter<any>();
 
   constructor(protected route: ActivatedRoute,
-  private productService: ProductService) {
+  private productService: ProductService,
+  private appController: AppController,
+  private commandService: CommandService) {
     super(route);
   }
 
@@ -23,15 +26,21 @@ export class CommandComponent extends DefaultScreen implements OnInit {
   }
 
   async handleSwitch(newSwitch: string) {
-    // verifico se ele switou pela primeira vez e foi table, e verifico se tem ja comanda aberta.
-    if(!this.isFirstSwitchTable && this.command && newSwitch == 'table') {
-      // emito um evento só a primeira vez pra ele realizar a requisição trazendo os produtos
-      const products = await this.productService.getByVisitId(this.visit._id);
-      this.notifyFirstSwitch.emit(products);
-      this.isFirstSwitchTable = true;
+    const loader = await this.appController.presentLoadingDefault();
+    try {
+      if(newSwitch == 'table') {
+        const command = await this.getCommand();
+        if(command) {
+          const products = await this.productService.getByVisitId(this.visit._id);
+          this.tableSwitch.emit(products);
+        }
+      }
+    } catch (e) {
+      this.appController.showError(e);
+    } finally {
+      loader.dismiss();
+      this.switchVar = newSwitch;
     }
-
-    this.switchVar = newSwitch;
   }
 
   addToTable(productsAdded) { // preciso emitir outro evento aqui para o restante da mesa quando um cara adicionar algum item.
@@ -51,9 +60,9 @@ export class CommandComponent extends DefaultScreen implements OnInit {
     return this.route.snapshot.queryParams;
   }
 
-  public get command() {
-    return '';
-    // preciso retornar a comanda no resolver.
+  public getCommand(): Promise<any> {
+    return this.commandService.getByVisitId(this.visit._id).then(resp => resp);
   }
+
 
 }

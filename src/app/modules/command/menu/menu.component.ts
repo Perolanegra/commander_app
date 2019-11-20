@@ -72,8 +72,6 @@ export class MenuComponent {
       products = await this.orderService.store(itemsModels, this.globalVars.getUserLoggedIn().id_user, this.visit._id);
     } catch (e) {
       this.appController.showError(e);
-      console.log('colé de pan: ', e);
-
     } finally {
       this.setTable.emit(products);
       loader.dismiss();

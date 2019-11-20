@@ -1,4 +1,4 @@
-<ion-content (notifyProductsAdded)="reloadProductRequest($event);" (notifyFirstSwitch)="loadProductsFirstSwitch($event);">
+<ion-content (notifyProductsAdded)="addedProducts($event);" (tableSwitch)="reloadProductRequest($event);">
     <ion-card *ngFor="let p of itemsTable">
         <ion-item>
             <div class="menu-content">

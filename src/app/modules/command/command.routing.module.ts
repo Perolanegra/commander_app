@@ -13,7 +13,7 @@ const routes: Routes = [
     component: CommandComponent,
     resolve: {
       products: GetProductsByIdResolver,
-      visit: GetVisitByTableIdResolver
+      visit: GetVisitByTableIdResolver,
     }
     // canActivate: NoAuth
   },
@@ -26,7 +26,7 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: [
     GetProductsByIdResolver,
-    GetVisitByTableIdResolver
+    GetVisitByTableIdResolver,
   ]
 })
 export class CommandRoutingModule {}

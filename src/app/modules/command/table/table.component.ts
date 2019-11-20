@@ -29,11 +29,11 @@ export class TableComponent {
     this.productsAdded = items;
   }
 
-  reloadProductRequest(products) { // emitido quando o cara adiciona novos pedidos.
+  addedProducts(products) { // emitido quando o cara adiciona novos pedidos.
     this.itemsTable = products;
   }
 
-  loadProductsFirstSwitch(products) { // emitido quando o cara swita pra table pela primeira vez e já existem pedidos.
+  reloadProductRequest(products) { // emitido quando o cara swita pra table e tem comanda.
     this.itemsTable = products;
   }
 
