@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DefaultScreen } from '../core/defaultScreen';
 import { ProductService } from 'src/app/shared/services/product.service';
@@ -9,20 +9,15 @@ import { AppController } from '../core/appController';
   templateUrl: './command.component.html',
   styleUrls: ['./command.component.scss'],
 })
-export class CommandComponent extends DefaultScreen implements OnInit {
+export class CommandComponent extends DefaultScreen {
   switchVar: string = 'menu';
-  @Output() notifyProductsAdded = new EventEmitter<any>();
-  @Output() tableSwitch = new EventEmitter<any>();
+  productsTable;
 
   constructor(protected route: ActivatedRoute,
   private productService: ProductService,
   private appController: AppController,
   private commandService: CommandService) {
     super(route);
-  }
-
-  ngOnInit() {
-    
   }
 
   async handleSwitch(newSwitch: string) {
@@ -32,7 +27,7 @@ export class CommandComponent extends DefaultScreen implements OnInit {
         const command = await this.getCommand();
         if(command) {
           const products = await this.productService.getByVisitId(this.visit._id);
-          this.tableSwitch.emit(products);
+          this.productsTable = products;
         }
       }
     } catch (e) {
@@ -43,9 +38,13 @@ export class CommandComponent extends DefaultScreen implements OnInit {
     }
   }
 
-  addToTable(productsAdded) { // preciso emitir outro evento aqui para o restante da mesa quando um cara adicionar algum item.
-    this.notifyProductsAdded.emit(productsAdded);
-    this.switchVar = 'table';
+  async addToTable(productsAdded) {
+    this.productsTable = productsAdded;
+    const loader = await this.appController.presentLoadingDefault();
+    loader.dismiss();
+    loader.onDidDismiss().then(() => {
+      this.switchVar = 'table';
+    });
   }
 
   public get products() {

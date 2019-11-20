@@ -69,7 +69,7 @@ export class MenuComponent {
         }
       });
 
-      products = await this.orderService.store(itemsModels, this.globalVars.getUserLoggedIn().id_user, this.visit._id);
+      products = await this.orderService.store(itemsModels, this.globalVars.getUserLoggedIn()._id, this.visit._id);
     } catch (e) {
       this.appController.showError(e);
     } finally {

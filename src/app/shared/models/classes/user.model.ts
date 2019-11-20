@@ -1,5 +1,5 @@
 export class UserModel {
-    id_user: string;
+    _id: string;
     name: string;
     statusMsg: string;
     phone: string;

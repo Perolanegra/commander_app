@@ -14,7 +14,7 @@ import { VisitService } from '../../core/visit.service';
 export class TableComponent {
   btnPaymentActive: boolean = false;
   textPaymentBtn: string = 'Pagar';
-  private productsAdded;
+  @Input() productsAdded;
 
   constructor(public appController: AppController,
   private globalVars: GlobalVars,
@@ -27,18 +27,6 @@ export class TableComponent {
 
   public get itemsTable(): Array<any> {
     return this.productsAdded;
-  }
-
-  public set itemsTable(items) {
-    this.productsAdded = items;
-  }
-
-  addedProducts(products) { // emitido quando o cara adiciona novos pedidos.
-    this.itemsTable = products;
-  }
-
-  reloadProductRequest(products) { // emitido quando o cara swita pra table e tem comanda.
-    this.itemsTable = products;
   }
 
   public get currentUsername() {
@@ -61,18 +49,17 @@ export class TableComponent {
         // Faço uma requisição mandando pro banco o método de pagamento escolhido.
         this.textPaymentBtn = 'Pagamento Solicitado';
         const loader = await this.appController.presentLoadingDefault();
-        loader.onWillDismiss().then(async () => {
-          // requisição para encerrar a visita e a comanda.
-          try {
-            await this.visitService.closeByIdTable(this.route.params['id_table']);
-          } catch (e) {
-            this.appController.showError(e);
-          } finally {
+        try {
+          await this.visitService.closeByIdTable(this.route.snapshot.queryParams.table_id);
+        } catch (e) {
+          this.appController.showError(e);
+        } finally {
+          loader.dismiss();
+          loader.onDidDismiss().then(() => {
             this.appController.presentAlertInfo('Comanda Encerrada', 'Curtiu o nosso app ?<br> Aqui você comanda! <br> Te vejo em breveee =)', 'Valeeeu', 'align-text-alert-info');
             this.navCtrl.navigateRoot('home');
-            loader.dismiss();
-          }
-        });
+          });
+        }
       }
     });
   }

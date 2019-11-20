@@ -12,8 +12,8 @@ export class GetVisitByTableIdResolver extends ResolverDefault {
     }
     
     resolver(params: any) {
-        const { id_user } =  this.globalVars.getUserLoggedIn();
-        return this.visitService.getByTableId(params.id_table, id_user).then(resp => resp);
+        const { _id } =  this.globalVars.getUserLoggedIn();
+        return this.visitService.getByTableId(params.table_id, _id).then(resp => resp);
     }
 
 }
