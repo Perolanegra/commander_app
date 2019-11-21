@@ -1,0 +1,77 @@
+[
+    {
+        "id_establishment": "5dc5be21e3ae253cfdb84cfd",
+        "number": "3",
+        "description": "Mesa referente ao bar Quiosque do Galego."
+    },
+    {
+        "id_establishment": "5dc5be21e3ae253cfdb84cfd",
+        "number": "5",
+        "description": "Mesa referente ao bar Quiosque do Galego."
+    },
+    {
+        "id_establishment": "5dc5be21e3ae253cfdb84cfd",
+        "number": "9",
+        "description": "Mesa referente ao bar Quiosque do Galego."
+    },
+    {
+        "id_establishment": "5dc5bf96e3ae253cfdb84cfe",
+        "number": "14",
+        "description": "Mesa referente ao bar Tô em Belle."
+    },
+    {
+        "id_establishment": "5dc5bf96e3ae253cfdb84cfe",
+        "number": "5",
+        "description": "Mesa referente ao bar Tô em Belle."
+    },
+    {
+        "id_establishment": "5dc5bf96e3ae253cfdb84cfe",
+        "number": "10",
+        "description": "Mesa referente ao bar Tô em Belle."
+    },
+    {
+        "id_establishment": "5dc5c024e3ae253cfdb84cff",
+        "number": "1",
+        "description": "Mesa referente ao bar Boteco do Barbudo."
+    },
+    {
+        "id_establishment": "5dc5c024e3ae253cfdb84cff",
+        "number": "2",
+        "description": "Mesa referente ao bar Boteco do Barbudo."
+    },
+    {
+        "id_establishment": "5dc5c024e3ae253cfdb84cff",
+        "number": "3",
+        "description": "Mesa referente ao bar Boteco do Barbudo."
+    },
+    {
+        "id_establishment": "5dc5c0a4e3ae253cfdb84d00",
+        "number": "4",
+        "description": "Mesa referente ao bar Terapia."
+    },
+    {
+        "id_establishment": "5dc5c0a4e3ae253cfdb84d00",
+        "number": "7",
+        "description": "Mesa referente ao bar Terapia."
+    },
+    {
+        "id_establishment": "5dc5c0a4e3ae253cfdb84d00",
+        "number": "13",
+        "description": "Mesa referente ao bar Terapia."
+    },
+    {
+        "id_establishment": "5dc5c110e3ae253cfdb84d01",
+        "number": "15",
+        "description": "Mesa referente ao bar Zurca."
+    },
+    {
+        "id_establishment": "5dc5c110e3ae253cfdb84d01",
+        "number": "8",
+        "description": "Mesa referente ao bar Zurca."
+    },
+    {
+        "id_establishment": "5dc5c110e3ae253cfdb84d01",
+        "number": "9",
+        "description": "Mesa referente ao bar Zurca."
+    }
+]

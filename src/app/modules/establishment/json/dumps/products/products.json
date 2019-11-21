@@ -1,0 +1,162 @@
+[
+    {
+        "title": "Mistão",
+        "img": "assets/imgs/products/mistao-quiosque-galego.jpg",
+        "description": "Carne mista (boi, frango, porco e calabresa), batata frita, cebola e cheddar",
+        "price": "46,80",
+        "establishment": "Quiosque do Galego",
+        "id_establishment": "5dc5be21e3ae253cfdb84cfd"
+    },
+    {
+        "title": "Arrumadinho Carne do Sol",
+        "img": "assets/imgs/products/arrumadinho-quiosque-galego.jpg",
+        "description": "Carne do sol, salada de alface, farofa e feijão verde",
+        "price": "38,90",
+        "establishment": "Quiosque do Galego",
+        "id_establishment": "5dc5be21e3ae253cfdb84cfd"
+    },
+    {
+        "title": "Escondidinho de Camarão",
+        "img": "assets/imgs/products/escondidinho-camarao-quiosque-galego.jpg",
+        "description": "Aimpim, coentro, cebola, azeitona, tomate e salsinha",
+        "price": "39,90",
+        "establishment": "Quiosque do Galego",
+        "id_establishment": "5dc5be21e3ae253cfdb84cfd"
+    },
+    {
+        "title": "Cerveja Devassa",
+        "img": "assets/imgs/products/devassa-quiosque-galego.png",
+        "description": "Cerveja Devassa 600ml",
+        "price": "5,50",
+        "establishment": "Quiosque do Galego",
+        "id_establishment": "5dc5be21e3ae253cfdb84cfd"
+    },
+    {
+        "title": "Cerveja Skol",
+        "img": "assets/imgs/products/skol-puro-malte-quiosque-galego.jpg",
+        "description": "Cerveja Skol Puro Malte 600ml",
+        "price": "5,50",
+        "establishment": "Quiosque do Galego",
+        "id_establishment": "5dc5be21e3ae253cfdb84cfd"
+    },
+    {
+        "title": "Carne do Sol",
+        "img": "assets/imgs/products/carne-sol-belle.jpeg",
+        "description": "Carne do sol, batata frita e salada",
+        "price": "34,90",
+        "establishment": "Tô em Belle",
+        "id_establishment": "5dc5bf96e3ae253cfdb84cfe"
+    },
+    {
+        "title": "Porção Cupim",
+        "img": "assets/imgs/products/cupim-belle.jpeg",
+        "description": "Cupim, aimpim e salda vinagrete",
+        "price": "29,90",
+        "establishment": "Tô em Belle",
+        "id_establishment": "5dc5bf96e3ae253cfdb84cfe"
+    },
+    {
+        "title": "Carne com Aimpim",
+        "img": "assets/imgs/products/carne-sol-aimpim-frito-belle.jpg",
+        "description": "Carne do sol com aimpim frito",
+        "price": "35,40",
+        "establishment": "Tô em Belle",
+        "id_establishment": "5dc5bf96e3ae253cfdb84cfe"
+    },
+    {
+        "title": "Arrumadinho de Fumeiro",
+        "img": "assets/imgs/products/arrumadinho-fumeiro-belle.jpg",
+        "description": "Feijão tropeiro, charque, salada de vinagrete e farofa",
+        "price": "38,90",
+        "establishment": "Tô em Belle",
+        "id_establishment": "5dc5bf96e3ae253cfdb84cfe"
+    },
+    {
+        "title": "Salgadinhos de Bacalhau",
+        "img": "assets/imgs/products/salgadinhos-bacalhau-belle.jpeg",
+        "description": "12 unidades de bolinho de bacalhau, acompanhado de salada e 2 unidades de limão",
+        "price": "14,90",
+        "establishment": "Tô em Belle",
+        "id_establishment": "5dc5bf96e3ae253cfdb84cfe"
+    },
+    {
+        "title": "Espetinho de Picanha",
+        "img": "assets/imgs/products/espeto-picanha-barbudo.jpg",
+        "description": "Carne de picanha gorda, farofa, salada picadinha e cebola",
+        "price": "25,90",
+        "establishment": "Boteco do Barbudo",
+        "id_establishment": "5dc5c024e3ae253cfdb84cff"
+    },
+    {
+        "title": "Coxa e Sobrecoxa",
+        "img": "assets/imgs/products/coxa-sobrecoxa-barbudo.jpg",
+        "description": "Coxa e sobrecoxa com tominho e mel",
+        "price": "29,90",
+        "establishment": "Boteco do Barbudo",
+        "id_establishment": "5dc5c024e3ae253cfdb84cff"
+    },
+    {
+        "title": "Porção Espeto de Coração",
+        "img": "assets/imgs/products/porcao-espeto-coracao-barbudo.jpg",
+        "description": "3 espetinhos de coração com 10 unidades cada",
+        "price": "32,90",
+        "establishment": "Boteco do Barbudo",
+        "id_establishment": "5dc5c024e3ae253cfdb84cff"
+    },
+    {
+        "title": "Porção Salgados de Queijo",
+        "img": "assets/imgs/products/porcao-salgados-queijo-barbudo.jpg",
+        "description": "15 unidades de bolinho de queijo acompanhado de molho rosé",
+        "price": "16,90",
+        "establishment": "Boteco do Barbudo",
+        "id_establishment": "5dc5c024e3ae253cfdb84cff"
+    },
+    {
+        "title": "Caldo de Sururu",
+        "img": "assets/imgs/products/caldo-sururu-barbudo.jpeg",
+        "description": "Caldo de sururu para 1 pessoa acompanhado de um pedaço de limão",
+        "price": "10,90",
+        "establishment": "Boteco do Barbudo",
+        "id_establishment": "5dc5c024e3ae253cfdb84cff"
+    },
+    {
+        "title": "Schweppes Tônica",
+        "img": "assets/imgs/products/schweppes-tonica-terapia.jpg",
+        "description": "Água tônica de Schweppes",
+        "price": "5,00",
+        "establishment": "Terapia Restaurante e Bar",
+        "id_establishment": "5dc5c0a4e3ae253cfdb84d00"
+    },
+    {
+        "title": "Vodka Absolut",
+        "img": "assets/imgs/products/drink-absolut-terapia.jpg",
+        "description": "Drink vodka absolut",
+        "price": "9,90",
+        "establishment": "Terapia Restaurante e Bar",
+        "id_establishment": "5dc5c0a4e3ae253cfdb84d00"
+    },
+    {
+        "title": "Batata Frita",
+        "img": "assets/imgs/products/porcao-batata-coracao-terapia.jpg",
+        "description": "Porção de batata frita com coração",
+        "price": "29,90",
+        "establishment": "Terapia Restaurante e Bar",
+        "id_establishment": "5dc5c0a4e3ae253cfdb84d00"
+    },
+    {
+        "title": "Pirão de Aimpim",
+        "img": "assets/imgs/products/pirao-aimpim-terapia.jpg",
+        "description": "Pirão de aimpim com carne do sol e salada para 4 pessoas",
+        "price": "37,90",
+        "establishment": "Terapia Restaurante e Bar",
+        "id_establishment": "5dc5c0a4e3ae253cfdb84d00"
+    },
+    {
+        "title": "Heineken",
+        "img": "assets/imgs/products/heineken-terapia.jpeg",
+        "description": "Cerveja heineken 600ml",
+        "price": "9,90",
+        "establishment": "Terapia Restaurante e Bar",
+        "id_establishment": "5dc5c0a4e3ae253cfdb84d00"
+    }
+]

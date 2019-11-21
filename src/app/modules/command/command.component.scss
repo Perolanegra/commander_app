@@ -1,0 +1,39 @@
+.menu-content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu-main-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin-right: 12px;
+}
+
+.img-container {
+    margin-top: 5px;
+    border-radius: 8px;
+    max-width: 80px;
+    overflow: hidden;
+    margin-right: 8px;
+}
+
+.btn-container {
+    width: 18.248vw;
+    height: auto;
+    display: flex;
+    max-width: 18.248vw;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.btn-item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 0;
+    background-color: blue;
+}

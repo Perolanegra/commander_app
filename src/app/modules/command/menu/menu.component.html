@@ -1,0 +1,37 @@
+<ion-content>
+    <ion-card *ngFor="let p of products">
+        <ion-item>
+            <div class="menu-content">
+                <div class="menu-main-content">
+                    <div class="img-container">
+                        <img class="pic" [src]="p?.img" alt="">
+                    </div>
+
+                    <strong class="title"> {{ p?.title }} - {{ p?.price }} </strong>
+                    x{{ p?.qtd }}
+                </div>
+
+
+                <div class="btn-container">
+                    <button class="btn-item" (click)="removeItem(p);">
+                        <ion-icon class="add-remove-btn" ios="ios-remove" md="md-remove">
+                        </ion-icon>
+                    </button>
+                    <button class="btn-item" (click)="addItem(p);">
+                        <ion-icon class="add-remove-btn" ios="ios-add" md="md-add"></ion-icon>
+                    </button>
+                </div>
+            </div>
+
+        </ion-item>
+
+        <ion-card-content>{{ p?.description }}</ion-card-content>
+    </ion-card>
+</ion-content>
+
+<div class="footer" (click)="addToTable();" [class.disabled-content]="!footerDisplayTotal || footerDisplayTotal < 0">
+    <div class="container-footer-items">
+        <p class="btn-add-to-table">Adicionar a mesa</p>
+        <p style="font-weight: bold;" *ngIf="footerDisplayTotal > 0">R$ {{ footerDisplayTotal | real }}</p>
+    </div>
+</div>

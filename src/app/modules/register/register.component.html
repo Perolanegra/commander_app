@@ -1,0 +1,64 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons left>
+            <ion-button color="dark" (click)="navCtrl.pop();">
+                <ion-icon name="arrow-back"></ion-icon>
+            </ion-button>
+            <ion-title>Registrar</ion-title>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+    <form [formGroup]="forms" novalidate>
+        <ion-item>
+            <ion-label color="primary" position="stacked">Nome*</ion-label>
+            <ion-input id="name" type="text" maxLength="150" formControlName="name" placeholder="Ex: Igor">
+            </ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="primary" position="stacked">Email*</ion-label>
+            <ion-input id="email" type="email" formControlName="email" placeholder="Ex: gabriel@gmail.com">
+            </ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="primary" position="stacked">PIN*</ion-label>
+            <div style="display: flex; flex: 1; flex-direction: row-reverse; margin-left: -20px;">
+                <ion-input id="pass" inputmode="numeric" maxlength="6" pattern="[0-9]{6}" [type]="hide ? 'password' : 'num'" formControlName="password">
+                </ion-input>
+                <mat-icon style="position: relative; left: 80vw;" matSuffix (click)="hide = !hide">
+                    {{ hide ? 'visibility' : 'visibility_off' }}
+                </mat-icon>
+            </div>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="primary" position="stacked">Nº Celular</ion-label>
+            <ion-input id="phone" type="tel" [brmasker]="{phone: true}" formControlName="phone" placeholder="(99) 99999-9999">
+            </ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="primary" position="stacked">Data de Nascimento</ion-label>
+            <ion-input id="birth" type="text" [brmasker]="{mask: '99/99/9999', len: '10', type: 'num'}" formControlName="birthDate" placeholder="25/10/1989">
+            </ion-input>
+        </ion-item>
+
+    </form>
+
+</ion-content>
+
+<ion-footer [class.disabled-content]="!forms.valid" class="footer">
+    <ion-toolbar (click)="forms.valid ? register() : null">
+        <ion-buttons class="footer-container" end>
+            <ion-button ion-button icon-right>
+                Cadastrar
+            </ion-button>
+            <ion-icon name="send"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-footer>

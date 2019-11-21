@@ -24,3 +24,90 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+    * {
+        font-family: 'Roboto-Regular',sans-serif;
+    }
+
+    .modal-footer .modal-wrapper {
+        --background: transparent;
+        pointer-events: none;
+    }
+
+    .modal-footer .modal-wrapper .ion-page {
+        pointer-events: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .modal-footer .modal-wrapper .ion-page > * {
+        pointer-events: all;
+    }
+
+    .action-sheet-default {
+        padding: 0 20px 50px 3px;
+        border-radius: 16px 16px 0 0;
+        background-color: #fff;
+        overflow: hidden;
+    }
+
+    .modal-center .modal-wrapper .ion-page {
+        pointer-events: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-center .modal-wrapper {
+        --background: transparent;
+        pointer-events: none;
+    }
+
+    .modal-center .modal-wrapper .ion-page > * {
+        pointer-events: all;
+    }
+
+    .modal-centering {
+        padding: 3px 5px 5px 5px;
+        border-radius: 16px;
+        background-color: #fff;
+        overflow: hidden;
+        width: 72.222vw;
+    }
+
+    .toast-warning {
+        color: #000;
+    }
+
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: red;
+        color: white;
+        text-align: center;
+    }
+
+    .footer-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .disabled-content {
+        pointer-events: none;
+        opacity: 0.4;
+    }
+
+    .container-footer-items {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .align-text-alert-info {
+        line-height: 1.4 !important;
+    }

@@ -1,0 +1,44 @@
+<ion-content>
+    <ion-card *ngFor="let p of itemsTable">
+        <ion-item>
+            <div class="menu-content">
+                <div class="menu-main-content">
+                    <div class="img-container">
+                        <img class="pic" [src]="p?.img" alt="">
+                    </div>
+
+                    <strong class="title"> {{ p?.title }} - {{ p?.price }} </strong>
+                    
+                </div>
+
+                <strong style="position: relative; right: 15px;">
+                    x{{ p?.qtd }}
+                </strong>
+
+                <div class="btn-container">
+                    <strong>R$ {{ p?.price }}</strong>
+                </div>
+
+            </div>
+
+        </ion-item>
+
+        <ion-card-content>Pedido realizado por: {{ currentUsername }}</ion-card-content>
+    </ion-card>
+
+</ion-content>
+
+<div class="footer">
+    <div class="display-total">
+        <div class="container-footer-items ">
+            <p class="text-footer-title">Total: </p>
+            <p style="font-weight: bold;">R$ {{ total | real }}</p>
+        </div>
+    </div>
+
+    <div class="container-footer-items payment" (click)="presentModalCheckout();" [class.disabled-content]="!itemsTable">
+        <div>
+            <p class="text-footer-title">{{ textPaymentBtn }}</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+
+<ion-content>
+    <div class="_25-top-verticaly-center">
+        <ion-img style="max-width: 120px;" [src]="'../../../assets/imgs/default.jpg'"></ion-img>
+    </div>
+
+    <ion-row style="justify-content: center; margin-top: 85%;">
+        <ion-button class="login" expand="block" (click)="appController.navigate('register');" fill="outline">Não tenho conta</ion-button>
+
+        <button ion-button block class="google btn" (click)="verifyUser();" routerDirection="forward">
+            Entrar
+        </button>
+    </ion-row>
+</ion-content>

@@ -1,0 +1,32 @@
+<ion-toolbar>
+    <ion-buttons left>
+        <ion-button color="dark" (click)="modalCtrl.dismiss();">
+            <ion-icon name="arrow-back"></ion-icon>
+        </ion-button>
+        <ion-title>Detalhes</ion-title>
+    </ion-buttons>
+</ion-toolbar>
+
+<ion-card style="flex: 1 !important;">
+
+    <div class="img-container">
+        <img class="establishment-pic" [src]="bar?.img"
+            alt="">
+    </div>
+
+    <ion-card-header>
+        <ion-card-subtitle>{{ bar?.description }}</ion-card-subtitle>
+        <ion-card-title>{{ bar?.name }}</ion-card-title>
+    </ion-card-header>
+    <ion-item>
+        <ion-icon name="pin" slot="start"></ion-icon>
+        <ion-label>{{ bar?.distance }} km </ion-label>
+        <ion-button fill="outline" slot="end" (click)="pushToMenuDetails(bar?._id);">Cardápio</ion-button>
+    </ion-item>
+    <ion-card-content style="padding-top: 5px;">
+        <ion-card-subtitle style="max-width: 50vh; bottom: 4px;">
+            Horário: {{ bar?.schedule }}
+            <br>
+            {{ bar?.address }}</ion-card-subtitle>
+    </ion-card-content>
+</ion-card>

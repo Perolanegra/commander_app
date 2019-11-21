@@ -1,0 +1,67 @@
+[
+    {
+        "name": "Tô em Belle",
+        "description": "Bar",
+        "distance": "",
+        "duration": "",
+        "lat": -12.969229,
+        "lng": -38.436642,
+        "rating": "4.2",
+        "img": "assets/imgs/establishments/belle-logo.jpg",
+        "feedback": "Some text here...",
+        "schedule": "09:00 às 03:00",
+        "address": "Av. Jorge Amado, 2464 - Imbuí, Salvador - BA, 41720-025"
+    },
+    {
+        "name": "Boteco do Barbudo",
+        "description": "Bar",
+        "distance": "",
+        "duration": "",
+        "lat": -12.969138,
+        "lng": -38.435874,
+        "rating": "4.1",
+        "img": "assets/imgs/establishments/barbudo-logo.jpeg",
+        "feedback": "Some text here...",
+        "schedule": "08:00 às 03:00",
+        "address": "Av. Jorge Amado - Imbuí, Salvador - BA, 41720-070"
+    },
+    {
+        "name": "Quiosque do Galego",
+        "description": "Bar e Restaurante",
+        "distance": "",
+        "duration": "",
+        "lat": -12.969220,
+        "lng": -38.436758,
+        "rating": "4.3",
+        "img": "assets/imgs/establishments/galego-logo.jpg",
+        "feedback": "Some text here...",
+        "schedule": "11:00 às 02:00",
+        "address": "Avenida Jorge Amado, s/nº, Canal do Imbuí, Salvador - BA"
+    },
+    {
+        "name": "Terapia Restaurante e Bar",
+        "description": "Bar e Restaurante",
+        "distance": "",
+        "duration": "",
+        "lat": -12.969360,
+        "lng": -38.436841,
+        "rating": "4.3",
+        "img": "assets/imgs/establishments/terapia-logo.jpg",
+        "feedback": "Some text here...",
+        "schedule": "10:00 às 00:00",
+        "address": "Av. Jorge Amado, 16 - Imbuí, Salvador - BA, 41720-110"
+    },
+    {
+        "name": "Zurca Boteco",
+        "description": "Bar e Restaurante",
+        "distance": "",
+        "duration": "",
+        "lat": -12.969416,
+        "lng": -38.436602,
+        "rating": "4.3",
+        "img": "assets/imgs/establishments/zurca-logo.jpg",
+        "feedback": "Some text here...",
+        "schedule": "15:00 às 01:00",
+        "address": "Av. Jorge Amado, Box 12 - Imbuí, Salvador - BA, 41720-010"
+    }
+]

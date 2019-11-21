@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons left>
+            <ion-button color="dark" (click)="navCtrl.pop();">
+                <ion-icon name="arrow-back"></ion-icon>
+            </ion-button>
+            <ion-title>Login</ion-title>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+    <form [formGroup]="forms" novalidate>
+        <ion-item>
+            <ion-label color="primary" position="stacked">Digite seu email*</ion-label>
+            <ion-input id="email" type="email" pattern="" formControlName="email" placeholder="Ex: gabriel@gmail.com">
+            </ion-input>
+        </ion-item>
+    </form>
+
+    <div class="recovery-pass">
+        <a style="color: #3a7dfa; font-family: sans-serif;">Esqueci a senha</a>
+    </div>
+
+</ion-content>
+
+<ion-footer [class.disabled-content]="!forms.valid" class="footer">
+    <ion-toolbar (click)="forms.valid ? presentModalPass() : null">
+        <ion-buttons class="footer-container" end>
+            <ion-button ion-button icon-right>
+                AVANÇAR
+            </ion-button>
+            <ion-icon name="send"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-footer>
