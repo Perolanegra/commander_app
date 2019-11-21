@@ -6,13 +6,15 @@ import { GoogleService } from 'src/app/shared/services/google.service';
 import { catchError } from 'rxjs/operators';
 import { VisitService } from '../core/visit.service';
 import { GlobalVars } from 'src/app/shared/globalVars';
+import { DefaultScreen } from '../core/defaultScreen';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.component.html',
   styleUrls: ['home.component.scss'],
 })
-export class HomeComponent {
+export class HomeComponent extends DefaultScreen {
   switchVar: string = 'command';
   qrDataFill: Object = {
     "table_id": "5dcbd98b718232550d6ae367",
@@ -25,10 +27,12 @@ export class HomeComponent {
 
   constructor(public appController: AppController,
   private navCtrl: NavController,
+  protected route: ActivatedRoute,
   private barcodeScanner: BarcodeScanner,
   private visitService: VisitService,
   private globalVars: GlobalVars,
   private googleService: GoogleService) {
+    super(route);
     // this.qrDataFill = JSON.stringify(this.qrDataFill);
   }
 
@@ -93,6 +97,10 @@ export class HomeComponent {
         throw new Error(err);
       }));
     });
+  }
+
+  public get orders() {
+    return this.respResolvers.myOrders;
   }
 
 }

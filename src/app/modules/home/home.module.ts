@@ -13,6 +13,7 @@ import { EstablismentListComponent } from '../establishment/establishment-list/e
 import { OrderComponent } from '../order/order.component';
 import { OrderModule } from '../order/order.module';
 import { VisitService } from '../core/visit.service';
+import { CommandService } from '../command/command.service';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import { VisitService } from '../core/visit.service';
   providers: [
     BarcodeScanner,
     Base64ToGallery,
-    VisitService
+    VisitService,
+    CommandService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

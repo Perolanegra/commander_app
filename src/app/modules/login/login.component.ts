@@ -17,7 +17,7 @@ export class LoginComponent {
   async verifyUser() {
     if(this.globalVars.isLogged()) {
       const loader = await this.appController.presentLoadingDefault();
-      this.navCtrl.navigateRoot('home');
+      this.navCtrl.navigateRoot('home', {queryParams: this.globalVars.getUserLoggedIn()});
       loader.dismiss();
     }
     else {
