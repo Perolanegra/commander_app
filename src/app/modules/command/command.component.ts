@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DefaultScreen } from '../core/defaultScreen';
 import { ProductService } from 'src/app/shared/services/product.service';
@@ -62,6 +62,5 @@ export class CommandComponent extends DefaultScreen {
   public getCommand(): Promise<any> {
     return this.commandService.getByVisitId(this.visit._id).then(resp => resp);
   }
-
 
 }
