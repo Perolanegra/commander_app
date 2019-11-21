@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
+import { GetCommandClosedByUserIdResolver } from 'src/app/shared/services/getCommandClosedByUserIdResolver.service';
 
 const routes: Routes = [
   {
@@ -9,8 +10,11 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    resolve: {
+      myOrders: GetCommandClosedByUserIdResolver
+    },
+    runGuardsAndResolvers: 'always'
     // canActivate: NoAuth
-    // runGuardsAndResolvers
   },
  
 ];
@@ -21,7 +25,8 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
   providers: [
-      // resolvers
+    // resolvers
+    GetCommandClosedByUserIdResolver
   ]
 })
 export class HomeRoutingModule {}

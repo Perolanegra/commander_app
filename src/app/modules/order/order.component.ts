@@ -7,10 +7,15 @@ import { AppController } from '../core/appController';
   styleUrls: ['./order.component.scss'],
 })
 export class OrderComponent {
+  public dataIsReady: boolean = false;
   
   constructor(public appController: AppController) { }
 
+  ngOnInit() {
+    setTimeout(() => {
+      this.dataIsReady = true;
+    }, 4000);
+  }
 
-  
 
 }

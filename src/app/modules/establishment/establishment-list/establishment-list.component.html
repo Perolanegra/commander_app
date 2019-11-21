@@ -1,4 +1,4 @@
-<mat-list>
+<mat-list *ngIf="dataIsReady">
 
     <mat-list-item *ngFor="let bar of bars;" (click)="pushToDetails(bar);">
         <ion-avatar class="bar-icon" slot="start">
@@ -14,16 +14,35 @@
                 </svg>
                 <a class="rating">{{ bar?.rating }}</a>
             </span>
-            • {{ bar?.description }} • {{ bar?.distance }} 
-            <ion-spinner *ngIf="!bar?.distance" name="crescent"></ion-spinner>
+            • {{ bar?.description }} • {{ bar?.distance }}
             km
             <br>
             <span *ngIf="bar?.duration" class="minutes">
-                • {{ bar?.duration }} • 
+                • {{ bar?.duration }} •
             </span>
-            <ion-spinner *ngIf="!bar?.duration" name="crescent"></ion-spinner>
-
         </p>
     </mat-list-item>
-    
+
 </mat-list>
+
+<div *ngIf="!dataIsReady">
+    <ion-list *ngFor="let i of [0,1,2,3,4,5];">
+        <ion-item>
+            <ion-avatar class="skeleton-icon" slot="start">
+                <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-avatar>
+            <ion-label>
+                <h3>
+                    <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+
+                </h3>
+                <p>
+                    <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                </p>
+                <p>
+                    <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                </p>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+</div>

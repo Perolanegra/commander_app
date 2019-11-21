@@ -12,6 +12,7 @@ import { EstablishmentDetComponent } from '../establishment-det/establishment-de
 })
 export class EstablismentListComponent implements OnInit {
     bars: any;
+    dataIsReady: boolean = false;
 
     constructor(public appController: AppController,
     private establishmentService: EstablishmentService,
@@ -32,6 +33,7 @@ export class EstablismentListComponent implements OnInit {
             this.googleService.getDistance(bar.lat, bar.lng).then(resp => {
                 bar.distance = resp['distance'].toFixed(1);
                 bar.duration = resp['duration'];
+                this.dataIsReady = true;
             });
         });
         
@@ -48,7 +50,7 @@ export class EstablismentListComponent implements OnInit {
           });
       
         await modal.present();
-        
+        this.dataIsReady = false;
         modal.onWillDismiss().then(() => this.getBars());
     }
 

@@ -97,6 +97,12 @@
         justify-content: center;
     }
 
+    .skeleton-icon {
+        height: 64px;
+        width: 64px;
+        margin-right: 5.5vw;
+    }
+
     .disabled-content {
         pointer-events: none;
         opacity: 0.4;
