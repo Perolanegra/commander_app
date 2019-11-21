@@ -10,20 +10,19 @@ import { GoogleService } from 'src/app/shared/services/google.service';
 export class OrderComponent {
   public dataIsReady: boolean = false;
   @Input() orders;
-  
+
   constructor(public appController: AppController,
-  private googleService: GoogleService) { }
+    private googleService: GoogleService) { }
 
   ngOnInit() {
-    if(this.myOrders) {
+    if (this.myOrders) {
       this.myOrders.forEach(async (bar) => {
-        console.log('cole desgraça: ', bar.establishment.lat);
         this.googleService.getDistance(bar.establishment.lat, bar.establishment.lng).then(resp => {
-            bar.establishment.distance = resp['distance'].toFixed(1);
-            bar.establishment.duration = resp['duration'];
-            this.dataIsReady = true;
+          bar.establishment.distance = resp['distance'].toFixed(1);
+          bar.establishment.duration = resp['duration'];
+          this.dataIsReady = true;
         });
-    });
+      });
     }
   }
 
