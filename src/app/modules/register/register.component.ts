@@ -20,8 +20,7 @@ export class RegisterComponent implements OnInit {
   private formBuilder: FormBuilder,
   public navCtrl: NavController,
   private auth: AuthService,
-  private globalVars: GlobalVars,
-  private datePicker: DatePicker) { }
+  private globalVars: GlobalVars) { }
 
   ngOnInit() {
     this.forms = this.createForm();
@@ -38,17 +37,6 @@ export class RegisterComponent implements OnInit {
       birthDate: [null],
       phone: [""],
     });
-  }
-
-  showDatePicker() {
-    this.datePicker.show({
-      date: new Date(),
-      mode: 'date',
-      androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_DARK
-    }).then(
-      date => this.forms.controls['birthDate'].setValue(date),
-      err => this.appController.showError(err)
-    );
   }
 
   async register() {

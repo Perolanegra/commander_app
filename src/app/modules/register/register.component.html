@@ -42,9 +42,12 @@
             </ion-input>
         </ion-item>
 
-        <ion-button class="login" expand="block" (click)="showDatePicker();">
-            Data de Nascimento
-        </ion-button>
+        <ion-item>
+            <ion-label color="primary" position="stacked">Data de Nascimento</ion-label>
+            <ion-input id="birth" type="text" [brmasker]="{mask: '99/99/9999', len: '10', type: 'num'}" formControlName="birthDate" placeholder="25/10/1989">
+            </ion-input>
+        </ion-item>
+
     </form>
 
 </ion-content>
