@@ -19,11 +19,13 @@ export class OrderComponent {
 
   ngOnInit() {
     if (this.myOrders) {
-      this.myOrders.forEach(async (bar) => {
-        this.googleService.getDistance(bar.establishment.lat, bar.establishment.lng).then(resp => {
-          bar.establishment.distance = resp['distance'].toFixed(1);
-          bar.establishment.duration = resp['duration'];
-          this.dataIsReady = true;
+      this.myOrders.forEach(async (command) => {
+        command.forEach(bar => {
+          this.googleService.getDistance(bar.establishment.lat, bar.establishment.lng).then(resp => {
+            bar.establishment.distance = resp['distance'].toFixed(1);
+            bar.establishment.duration = resp['duration'];
+            this.dataIsReady = true;
+          });
         });
       });
     }

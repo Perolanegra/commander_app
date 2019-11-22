@@ -60,7 +60,7 @@ export class ModalPasswordComponent implements OnInit, AfterViewInit {
       }
 
       this.globalVars.setUserLoggedIn(userAuthenticated);
-      this.navCtrl.navigateRoot('home');
+      this.navCtrl.navigateRoot('home', {queryParams: this.globalVars.getUserLoggedIn()});
       
     } catch(err) {
       this.appController.tratarErro(err);
