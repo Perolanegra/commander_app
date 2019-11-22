@@ -15,14 +15,23 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['home.component.scss'],
 })
 export class HomeComponent extends DefaultScreen {
+  fromTabSwitchTable: boolean = false;
   switchVar: string = 'command';
+  // qrDataFill: Object = {
+  //   "table_id": "5dcbd98b718232550d6ae367",
+  //   "name": "Terapia Restaurante e Bar",
+  //   "lat": "-12.96936",
+  //   "lng": "-38.436841",
+  //   "tableNumber": "4",
+  //   "id_establishment" : "5dc5c0a4e3ae253cfdb84d00"
+  // };
   qrDataFill: Object = {
-    "table_id": "5dcbd98b718232550d6ae367",
-    "name": "Terapia Restaurante e Bar",
-    "lat": "-12.96936",
-    "lng": "-38.436841",
-    "tableNumber": "4",
-    "id_establishment" : "5dc5c0a4e3ae253cfdb84d00"
+    "table_id": "5dcbd915718232550d6ae361",
+    "name": "Tô em Belle",
+    "lat": "-12.969229",
+    "lng": "-38.436642",
+    "tableNumber": "14",
+    "id_establishment" : "5dc5bf96e3ae253cfdb84cfe"
   };
 
   constructor(public appController: AppController,
@@ -39,6 +48,9 @@ export class HomeComponent extends DefaultScreen {
   handleSwitch(newSwitch: string, fab) {
     fab.close();
     this.switchVar = newSwitch;
+    if(newSwitch == 'table') {
+      this.fromTabSwitchTable = true;
+    }
   }
 
   async startCommand() { // open QrCode, validate QrCode, then if success navigate to new Root 'Command'

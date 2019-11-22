@@ -29,7 +29,7 @@
 
       <div *ngSwitchCase="'orders'" style="flex: 1;">
         <!-- <ngx-qrcode [qrc-value]="qrDataFill" [qrc-element-type]="'img'"></ngx-qrcode> -->
-        <app-my-orders [orders]="orders"></app-my-orders>
+        <app-my-orders [fromTabSwitchTable]="fromTabSwitchTable" [_orders]="orders"></app-my-orders>
       </div>
     </ng-container>
 
@@ -47,7 +47,6 @@
           <ion-icon name="play"></ion-icon>
         </ion-fab-button>
       </ion-fab-list>
-
     </ion-fab>
 
   </div>

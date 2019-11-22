@@ -3,6 +3,8 @@ import { AppController } from '../core/appController';
 import { GoogleService } from 'src/app/shared/services/google.service';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { ModalController } from '@ionic/angular';
+import { GlobalVars } from 'src/app/shared/globalVars';
+import { CommandService } from '../command/command.service';
 
 @Component({
   selector: 'app-my-orders',
@@ -11,28 +13,44 @@ import { ModalController } from '@ionic/angular';
 })
 export class OrderComponent {
   public dataIsReady: boolean = false;
-  @Input() orders;
+  @Input() fromTabSwitchTable;
+  @Input() _orders;
 
   constructor(public appController: AppController,
+  private globalVars: GlobalVars,
   private googleService: GoogleService,
+  private commandService: CommandService,
   private modalCtrl: ModalController) { }
 
-  ngOnInit() {
-    if (this.myOrders) {
-      this.myOrders.forEach(async (command) => {
-        command.forEach(bar => {
-          this.googleService.getDistance(bar.establishment.lat, bar.establishment.lng).then(resp => {
-            bar.establishment.distance = resp['distance'].toFixed(1);
-            bar.establishment.duration = resp['duration'];
-            this.dataIsReady = true;
-          });
+  async ngOnInit() {
+
+    if(this.fromTabSwitchTable) {
+      await this.getCommands();
+    }
+    
+    if(this.myOrders) {
+      console.log('orders: ', this.myOrders);
+      
+      this.myOrders.forEach(async (establishment) => {
+        this.googleService.getDistance(establishment.lat, establishment.lng).then(resp => {
+          establishment.distance = resp['distance'].toFixed(1);
+          establishment.duration = resp['duration'];
+          this.dataIsReady = true;
         });
       });
     }
   }
 
+  public async getCommands(): Promise<any> {
+    this.myOrders = await this.commandService.getClosedByUserId(this.globalVars.getUserLoggedIn()._id);
+  }
+
   public get myOrders() {
-    return this.orders;
+    return this._orders
+  }
+
+  public set myOrders(orders) {
+    this._orders = orders;
   }
 
   async pushToCommandProducts(products) {
