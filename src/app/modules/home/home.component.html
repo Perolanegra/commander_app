@@ -1,21 +1,16 @@
-<div class="toolbar">
-  <i class="material-icons" (click)="appController.navigate('settings');"
-    style="font-size: 45px !important;">account_circle</i>
-</div>
-
 <ion-content>
 
   <div style="width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
     <div style="width: 100%; height: 60px; display: flex;">
-      <div (click)="handleSwitch('command')"
+      <div (click)="handleSwitch('command', fab)"
         style="flex: 1; background-color: green; color: #fff; font-weight: bold; display: flex; align-items: center; justify-content: center;">
         Comanda
       </div>
-      <div (click)="handleSwitch('establishments')"
+      <div (click)="handleSwitch('establishments', fab)"
         style="flex: 1; background-color: green; border-left: 1px solid #fff; border-right: 1px solid #fff; color: #fff; font-weight: bold; display: flex; align-items: center; justify-content: center;">
         Restaurantes
       </div>
-      <div (click)="handleSwitch('orders')"
+      <div (click)="handleSwitch('orders', fab)"
         style="flex: 1; background-color: green; color: #fff; font-weight: bold; display: flex; align-items: center; justify-content: center;">
         Pedidos
       </div>
@@ -38,11 +33,23 @@
       </div>
     </ng-container>
 
-    <ion-fab *ngIf="switchVar !== 'command'" vertical="bottom" style="margin: 0 1vh 8vh 0;" horizontal="end" edge slot="fixed">
-      <ion-fab-button (click)="startCommand();">
-        <ion-icon name="play"></ion-icon>
+    <ion-fab #fab style="margin: 0 1vh 8vh 0;" vertical="bottom" horizontal="end" edge slot="fixed">
+      <ion-fab-button>
+        <ion-icon name="add"></ion-icon>
       </ion-fab-button>
+      <ion-fab-list side="start">
+        <ion-fab-button color="primary" (click)="appController.navigate('settings');">
+          <ion-icon name="settings"></ion-icon>
+        </ion-fab-button>
+      </ion-fab-list>
+      <ion-fab-list *ngIf="switchVar !== 'command'" side="top">
+        <ion-fab-button color="primary" (click)="startCommand();">
+          <ion-icon name="play"></ion-icon>
+        </ion-fab-button>
+      </ion-fab-list>
+
     </ion-fab>
+
   </div>
 
 

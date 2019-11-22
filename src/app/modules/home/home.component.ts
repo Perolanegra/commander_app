@@ -36,7 +36,8 @@ export class HomeComponent extends DefaultScreen {
     // this.qrDataFill = JSON.stringify(this.qrDataFill);
   }
 
-  handleSwitch(newSwitch: string) {
+  handleSwitch(newSwitch: string, fab) {
+    fab.close();
     this.switchVar = newSwitch;
   }
 

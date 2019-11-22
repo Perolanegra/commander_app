@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { AppController } from '../core/appController';
 import { GoogleService } from 'src/app/shared/services/google.service';
+import { OrderDetailsComponent } from './order-details/order-details.component';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-my-orders',
@@ -12,7 +14,8 @@ export class OrderComponent {
   @Input() orders;
 
   constructor(public appController: AppController,
-    private googleService: GoogleService) { }
+  private googleService: GoogleService,
+  private modalCtrl: ModalController) { }
 
   ngOnInit() {
     if (this.myOrders) {
@@ -30,8 +33,15 @@ export class OrderComponent {
     return this.orders;
   }
 
-  pushToCommandProducts(item) {
-    // implementar tela de detalhes de pedidos realizados.
+  async pushToCommandProducts(products) {
+    const modal = await this.modalCtrl.create({
+      component: OrderDetailsComponent,
+      componentProps: {
+        "products": products
+      },
+    });
+  
+    modal.present();
   }
 
 
