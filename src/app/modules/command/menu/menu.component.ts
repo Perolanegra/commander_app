@@ -70,7 +70,7 @@ export class MenuComponent {
           qtd_product: p.qtd
         }
       });
-
+      
       products = await this.orderService.store(itemsModels, this.globalVars.getUserLoggedIn()._id, this.visit._id, this.route.snapshot.queryParams.id_establishment);
     } catch (e) {
       this.appController.showError(e);

@@ -31,13 +31,13 @@ export class OrderComponent {
     if(this.myOrders) {
       console.log('orders: ', this.myOrders);
       
-      this.myOrders.forEach(async (establishment) => {
-        this.googleService.getDistance(establishment.lat, establishment.lng).then(resp => {
-          establishment.distance = resp['distance'].toFixed(1);
-          establishment.duration = resp['duration'];
-          this.dataIsReady = true;
-        });
-      });
+      // this.myOrders.forEach(async (establishment) => {
+      //   this.googleService.getDistance(establishment.lat, establishment.lng).then(resp => {
+      //     establishment.distance = resp['distance'].toFixed(1);
+      //     establishment.duration = resp['duration'];
+      //     this.dataIsReady = true;
+      //   });
+      // });
     }
   }
 
