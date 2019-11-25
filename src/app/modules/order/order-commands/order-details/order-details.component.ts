@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { AppController } from '../../core/appController';
+import { AppController } from '../../../core/appController';
 import { ModalController, NavParams } from '@ionic/angular';
 import { GlobalVars } from 'src/app/shared/globalVars';
 
 @Component({
     selector: 'app-my-orders-details',
     templateUrl: './order-details.component.html',
-    styleUrls: ['../../command/command.component.scss']
+    styleUrls: ['../../../command/command.component.scss']
 })
 export class OrderDetailsComponent {
     products;
@@ -15,7 +15,7 @@ export class OrderDetailsComponent {
     private navParams: NavParams,
     public globalVars: GlobalVars,
     public modalCtrl: ModalController) {
-        this.products = this.navParams.get('products');        
+        this.products = this.navParams.get('commandProds');    
     }
 
 
