@@ -269,6 +269,14 @@ export class AppController {
         return lObjRetorno;
     }
 
+    formatStringDate(date) {
+        var dia  = date.split("/")[0];
+        var mes  = date.split("/")[1];
+        var ano  = date.split("/")[2];
+      
+        return ano + '-' + ("0"+mes).slice(-2) + '-' + ("0"+dia).slice(-2);
+      }
+
     criarParamsEndpoint(pNomes: string[], pValores: any[]): string { // Encoda os params na URI para concatenar na QueryString.
         var lRetorno = '';
         for (let i = 0; i < pNomes.length; i++) {
