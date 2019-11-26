@@ -13,6 +13,7 @@
 .bar-icon {
     min-width: 64px;
     margin-right: 5.5vw;
+    border: 1px solid #ccc;
 }
 
 :host ::ng-deep .mat-list-base .mat-list-item {
@@ -28,4 +29,12 @@
     color: #717171;
     font-size: 0.875rem;
     line-height: 0.9375rem;
+}
+
+.visit-list .visit-list-item:first-child {
+    margin-top: 18vw;
+}
+
+.adjust-space-top {
+    margin-top: 18vw;
 }

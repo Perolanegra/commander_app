@@ -1,11 +1,11 @@
-<mat-list *ngIf="dataIsReady">
+<mat-list *ngIf="dataIsReady" class="visit-list">
 
-    <mat-list-item *ngFor="let bar of bars;" (click)="pushToDetails(bar);">
+    <mat-list-item *ngFor="let bar of bars;" (click)="pushToDetails(bar);" class="visit-list-item" >
         <ion-avatar class="bar-icon" slot="start">
             <img [src]="bar?.img">
         </ion-avatar>
         <h4 mat-line style="padding: 0 0 2px;">{{ bar?.name }}</h4>
-        <p mat-line style="line-height: 20px; color: #717171;">
+        <p mat-line style="line-height: 20px; color: #717171; max-width: 82%; white-space: normal;">
             <span class="svg-span">
                 <svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -25,7 +25,7 @@
 
 </mat-list>
 
-<div *ngIf="!dataIsReady">
+<div *ngIf="!dataIsReady" class="adjust-space-top">
     <ion-list *ngFor="let i of [0,1,2,3,4,5];">
         <ion-item>
             <ion-avatar class="skeleton-icon" slot="start">

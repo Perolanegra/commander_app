@@ -58,7 +58,6 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 9vh;
 }
 
 .commander-init-button svg {
@@ -82,8 +81,27 @@
 
 .svg-header-waves {
   transform: rotate(180deg);
+  min-width: 100vw;
+  min-height: 25.061vw;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .svg-header-waves * {
   fill: #6670e0;
+}
+
+.scroll-container-item {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.main-container-pos {
+  width: 100vw; 
+  height: 100vh; 
+  max-height: 100vh; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: space-between;
 }

@@ -1,3 +1,18 @@
 .menu-main-content {
     justify-content: space-between !important;
 }
+
+.avatar-item {
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+    margin-right: 12px;
+    border: 1px solid #ccc;
+}
+
+.title-item {
+    text-align: left;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1em;
+}
