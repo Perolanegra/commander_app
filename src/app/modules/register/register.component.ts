@@ -44,10 +44,12 @@ export class RegisterComponent implements OnInit {
       this.appController.showWarning('O PIN precisa de no mínimo 6 dígitos.');
       return;
     }
+
+    const dateFormatted = this.appController.formatStringDate(this.forms.value.birthDate);
     
     const userAuthenticated = await this.auth.register(
-      this.forms.value.name, this.forms.value.email,Md5.init(this.forms.value.password), 
-      this.forms.value.phone, this.forms.value.birthDate);
+      this.forms.value.name, this.forms.value.email, Md5.init(this.forms.value.password), 
+      this.forms.value.phone, dateFormatted);
 
     if(userAuthenticated) {
       this.globalVars.setUserLoggedIn(userAuthenticated);

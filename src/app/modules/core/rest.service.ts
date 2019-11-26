@@ -20,8 +20,9 @@ export class RestService {
       }
     }
 
-    let headers: HttpHeaders = new HttpHeaders().set('Content-type', 'application/json');
-    headers.append('Access-Control-Allow-Origin', '*');
+    let headers: HttpHeaders = new HttpHeaders(); // .set('Content-type', 'application/json');
+
+    // headers.append('Access-Control-Allow-Origin', '*');
 
     return this.httpClient.post(this.url + pEndpoint, pData, { headers: headers });
   }
