@@ -9,6 +9,7 @@ import { GlobalVars } from './globalVars';
 import { IonicModule } from '@ionic/angular';
 import { RealPipe } from '../modules/core/pipes/real.pipe';
 import { DatePipe } from '../modules/core/pipes/date.pipe';
+// import { TooltipsModule } from 'ionic-tooltips';
 
 const modules = [
     CommonModule,
@@ -20,7 +21,8 @@ const modules = [
 ]
 @NgModule({
     imports: [
-        ...modules
+        ...modules,
+        // TooltipsModule.forRoot()
         // MatAutocompleteModule,
         // MatTooltipModule,
         // NgxMaskModule.forRoot(),
