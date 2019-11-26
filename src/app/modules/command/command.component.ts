@@ -16,7 +16,7 @@ export class CommandComponent extends DefaultScreen {
   switchVar: string = 'menu';
   productsTable;
 
-  constructor(protected route: ActivatedRoute,
+  constructor(public route: ActivatedRoute,
   private productService: ProductService,
   private navCtrl: NavController,
   private visitService: VisitService,

@@ -34,7 +34,7 @@ export class HomeComponent extends DefaultScreen {
 
   constructor(public appController: AppController,
   private navCtrl: NavController,
-  public route: ActivatedRoute,
+  protected route: ActivatedRoute,
   private barcodeScanner: BarcodeScanner,
   private googleService: GoogleService) {
     super(route);
