@@ -33,7 +33,7 @@
         <ion-item>
             <ion-label color="primary" position="stacked">PIN*</ion-label>
             <div style="display: flex; flex: 1; flex-direction: row-reverse; margin-left: -20px;">
-                <ion-input id="pass" inputmode="numeric" maxlength="6" pattern="[0-9]{6}"
+                <ion-input id="pass" inputmode="numeric" maxlength="6" pattern="[0-9]{6}" placeholder="Ex: 157482"
                     [type]="hide ? 'password' : 'num'" formControlName="password">
                 </ion-input>
                 <mat-icon style="position: relative; left: 80vw;" matSuffix (click)="hide = !hide">
