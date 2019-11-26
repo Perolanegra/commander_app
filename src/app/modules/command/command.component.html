@@ -1,11 +1,28 @@
-<div style="width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+<ion-toolbar style="text-align: center;" color="primary">
+    <div style="display: flex; flex-direction: row;">
+        <svg *ngIf="!productsTable" (click)="exitCommand();" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="auto" height="40px"
+            viewBox="0 0 400.004 400.004"
+            style="enable-background:new 0 0 400.004 400.004; width: auto; height: 24px; margin-left: 16px;"
+            xml:space="preserve">
+            <g>
+                <path
+                    d="M382.688,182.686H59.116l77.209-77.214c6.764-6.76,6.764-17.726,0-24.485c-6.764-6.764-17.73-6.764-24.484,0L5.073,187.757 c-6.764,6.76-6.764,17.727,0,24.485l106.768,106.775c3.381,3.383,7.812,5.072,12.242,5.072c4.43,0,8.861-1.689,12.242-5.072 c6.764-6.76,6.764-17.726,0-24.484l-77.209-77.218h323.572c9.562,0,17.316-7.753,17.316-17.315 C400.004,190.438,392.251,182.686,382.688,182.686z"
+                    fill="#fff" />
+            </g>
+        </svg>
+        <ion-title size="large" class="title-item">Sua Comanda</ion-title>
+    </div>
+</ion-toolbar>
+
+<div style="width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: space-between;"> <!--style="width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: space-between;"-->
   <div style="width: 100%; height: 60px; display: flex;">
     <div (click)="handleSwitch('menu')"
-      style="flex: 1; background-color: green; color: #fff; font-weight: bold; display: flex; align-items: center; justify-content: center;">
+    style="border-color: #3a7dfa; flex: 1; background-color: transparent; color: #6670e0; border-top: 1px solid #6670e0; font-weight: bold; display: flex; align-items: center; justify-content: center; font-size: .8em; text-transform: uppercase; font-weight: bold;">
       Cardápio
     </div>
     <div (click)="handleSwitch('table')"
-      style="flex: 1; background-color: green; border-left: 1px solid #fff; border-right: 1px solid #fff; color: #fff; font-weight: bold; display: flex; align-items: center; justify-content: center;">
+    style="border-color: #3a7dfa; flex: 1; background-color: transparent; color: #6670e0; border-top: 1px solid #6670e0; font-weight: bold; display: flex; align-items: center; justify-content: center; font-size: .8em; text-transform: uppercase; font-weight: bold;">
       Mesa
     </div>
   </div>

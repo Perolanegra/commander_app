@@ -4,6 +4,9 @@ import { DefaultScreen } from '../core/defaultScreen';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { CommandService } from './command.service';
 import { AppController } from '../core/appController';
+import { NavController } from '@ionic/angular';
+import { GlobalVars } from 'src/app/shared/globalVars';
+import { VisitService } from '../core/visit.service';
 @Component({
   selector: 'app-command',
   templateUrl: './command.component.html',
@@ -15,6 +18,9 @@ export class CommandComponent extends DefaultScreen {
 
   constructor(protected route: ActivatedRoute,
   private productService: ProductService,
+  private navCtrl: NavController,
+  private visitService: VisitService,
+  private globalVars: GlobalVars,
   private appController: AppController,
   private commandService: CommandService) {
     super(route);
@@ -61,6 +67,11 @@ export class CommandComponent extends DefaultScreen {
 
   public getCommand(): Promise<any> {
     return this.commandService.getByVisitId(this.visit._id).then(resp => resp);
+  }
+
+  async exitCommand() {
+    await this.visitService.closeByIdTable(this.route.snapshot.queryParams.table_id);
+    this.navCtrl.navigateRoot('home', {queryParams: this.globalVars.getUserLoggedIn()});
   }
 
 }
