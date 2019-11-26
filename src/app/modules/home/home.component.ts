@@ -60,11 +60,11 @@ export class HomeComponent extends DefaultScreen {
         // calcula a distância em metros
         const distanceInMeters = Number(resp['distance'].toFixed(1)) * 1000;
         // Se a distância for maior q 70m, ele está muito longe.
-        // if(distanceInMeters >= 70) { 
-        //   this.appController.showError("Muito Longe. Tente se aproximar do estabelecimento " + scannedObj.name);
-        //   loader.dismiss();
-        //   return;
-        // }
+        if(distanceInMeters >= 70) { 
+          this.appController.showError("Muito Longe. Tente se aproximar do estabelecimento " + scannedObj.name);
+          loader.dismiss();
+          return;
+        }
 
         this.navCtrl.navigateRoot('command', { queryParams: scannedObj });
       }
