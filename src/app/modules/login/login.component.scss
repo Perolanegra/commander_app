@@ -52,5 +52,35 @@
     display: inline-block;
     font-size: 17px;
     line-height: 20px;
-    text-decoration: none; 
+    text-decoration: none;
+}
+
+.login-logo {
+    border: 5px solid #010101;
+    width: 29.197vw;
+    height: 29.197vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-logo span {
+    font-family: 'Roboto-Black',sans-serif;
+    font-size: 3.86em;
+    font-weight: bold;
+    color: #010101DD;
+    transform: scale(1.2, 1.29);
+}
+
+.login-first {
+    background-color: #6670e0;
+    color: #FFF;
+    font-weight: bold;
+}
+
+.login-second {
+    background-color: transparent;
+    color: #6670e0;
+    border: 1px solid #6670e0;
+    font-weight: bold;
 }

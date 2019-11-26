@@ -8,7 +8,7 @@
 
     <div class="profile-avatar" (click)="appController.navigate('profile');">
         <ion-avatar slot="start">
-            <img [src]="user?.img">
+            <img [src]="user?.img ? user?.img : profile">
         </ion-avatar>
         <h4 mat-line class="text text-h4">{{ user?.name }}</h4>
         <p mat-line class="text text-p"> {{ user?.statusMsg }} </p>

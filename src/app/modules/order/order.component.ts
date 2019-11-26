@@ -30,6 +30,7 @@ export class OrderComponent {
     if(this.fromTabSwitchTable) {
       await this.getCommands();
     }
+    console.log('colé de pan: ', this.myVisits);
     
     if(this.myVisits) {
       this.myVisits.forEach(async (bar) => {
