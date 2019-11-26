@@ -23,6 +23,10 @@
         </p>
     </mat-list-item>
 
+    <mat-list-item *ngIf="!hasData" class="visit-list-item" style="display: flex; justify-content: center;">
+        <strong> Nenhuma visita realizada.</strong>
+    </mat-list-item>
+
 </mat-list>
 
 <div *ngIf="!dataIsReady" class="adjust-space-top">

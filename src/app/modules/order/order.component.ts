@@ -13,6 +13,7 @@ import { OrderCommandsComponent } from './order-commands/order-commands.componen
 })
 export class OrderComponent {
   public dataIsReady: boolean = false;
+  public hasData: boolean = true;
   @Input() fromTabSwitchTable;
   @Input() _orders;
   arrayEstabs: Array<any>;
@@ -30,9 +31,8 @@ export class OrderComponent {
     if(this.fromTabSwitchTable) {
       await this.getCommands();
     }
-    console.log('colé de pan: ', this.myVisits);
     
-    if(this.myVisits) {
+    if(this.myVisits.length) {
       this.myVisits.forEach(async (bar) => {
         this.googleService.getDistance(bar.lat, bar.lng).then(resp => {
           bar.distance = resp['distance'].toFixed(1);
@@ -40,6 +40,9 @@ export class OrderComponent {
           this.dataIsReady = true;
         });
       });
+    } else {
+      this.dataIsReady = true;
+      this.hasData = false;
     }
   }
 
