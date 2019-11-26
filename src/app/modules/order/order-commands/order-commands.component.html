@@ -14,12 +14,12 @@
         <ion-card *ngFor="let command of barVisit.commands; let i = index;" style="padding: 14px 0; border-radius: 7px;" (click)="pushToCommandProducts(barVisit.commandProducts[i])"> 
             <ion-item lines="none">
                     <div class="menu-content"> 
-                         <div class="menu-main-content" style="justify-content: center !important;">
-                            <ion-avatar slot="start" class="avatar-item"> <!--class="bar-icon" -->
+                         <div class="menu-main-content" style="justify-content: unset;">
+                            <ion-avatar slot="start" class="avatar-item">
                                 <img [src]="barVisit?.img">
                             </ion-avatar>
     
-                            <strong > Comanda de: {{ command?.created_at | date }}</strong> <!--class="title"-->
+                            <strong style="display: flex; position: relative; left: -10px;"> Comanda de: {{ command?.created_at | date }}</strong>
                         </div>
                         <!---->
                         <div class="btn-container">

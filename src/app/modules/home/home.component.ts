@@ -4,8 +4,6 @@ import { NavController } from '@ionic/angular';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner/ngx';
 import { GoogleService } from 'src/app/shared/services/google.service';
 import { catchError } from 'rxjs/operators';
-import { VisitService } from '../core/visit.service';
-import { GlobalVars } from 'src/app/shared/globalVars';
 import { DefaultScreen } from '../core/defaultScreen';
 import { ActivatedRoute } from '@angular/router';
 
@@ -38,8 +36,6 @@ export class HomeComponent extends DefaultScreen {
   private navCtrl: NavController,
   protected route: ActivatedRoute,
   private barcodeScanner: BarcodeScanner,
-  private visitService: VisitService,
-  private globalVars: GlobalVars,
   private googleService: GoogleService) {
     super(route);
     // this.qrDataFill = JSON.stringify(this.qrDataFill);
@@ -54,30 +50,30 @@ export class HomeComponent extends DefaultScreen {
   }
 
   async startCommand() { // open QrCode, validate QrCode, then if success navigate to new Root 'Command'
-    this.navCtrl.navigateRoot('command', {queryParams: this.qrDataFill});
-    // const loader = await this.appController.presentLoadingDefault();
-    // try {
-    //   const scannedObj = await this.handleQrCode();
+    // this.navCtrl.navigateRoot('command', {queryParams: this.qrDataFill});
+    const loader = await this.appController.presentLoadingDefault();
+    try {
+      const scannedObj = await this.handleQrCode();
 
-    //   if(scannedObj) { // foi setado pelo HandleQr
-    //     const resp = await this.googleService.getDistance(Number(scannedObj.lat), Number(scannedObj.lng));
-    //     // calcula a distância em metros
-    //     const distanceInMeters = Number(resp['distance'].toFixed(1)) * 1000;
-    //     // Se a distância for maior q 70m, ele está muito longe.
-    //     if(distanceInMeters >= 70) { 
-    //       this.appController.showError("Muito Longe. Tente se aproximar do estabelecimento " + scannedObj.name);
-    //       loader.dismiss();
-    //       return;
-    //     }
+      if(scannedObj) { // foi setado pelo HandleQr
+        const resp = await this.googleService.getDistance(Number(scannedObj.lat), Number(scannedObj.lng));
+        // calcula a distância em metros
+        const distanceInMeters = Number(resp['distance'].toFixed(1)) * 1000;
+        // Se a distância for maior q 70m, ele está muito longe.
+        if(distanceInMeters >= 70) { 
+          this.appController.showError("Muito Longe. Tente se aproximar do estabelecimento " + scannedObj.name);
+          loader.dismiss();
+          return;
+        }
 
-    //     this.navCtrl.navigateRoot('command', { queryParams: scannedObj });
-    //   }
-    // } catch (e) {
-    //   this.appController.showError(e);
-    // }
-    // finally {
-    //   loader.dismiss();
-    // }
+        this.navCtrl.navigateRoot('command', { queryParams: scannedObj });
+      }
+    } catch (e) {
+      this.appController.showError(e);
+    }
+    finally {
+      loader.dismiss();
+    }
 
   }
 
