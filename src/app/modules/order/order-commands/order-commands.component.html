@@ -14,7 +14,7 @@
         <ion-card *ngFor="let command of barVisit.commands; let i = index;" style="padding: 14px 0; border-radius: 7px;" (click)="pushToCommandProducts(barVisit.commandProducts[i])"> 
             <ion-item lines="none">
                     <div class="menu-content"> 
-                         <div class="menu-main-content">
+                         <div class="menu-main-content" style="justify-content: center !important;">
                             <ion-avatar slot="start" class="avatar-item"> <!--class="bar-icon" -->
                                 <img [src]="barVisit?.img">
                             </ion-avatar>
