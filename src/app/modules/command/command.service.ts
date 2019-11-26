@@ -16,6 +16,18 @@ export class CommandService {
                     reject(err);
                 }            
         });
+    }
+
+    public getClosedByUserId(id_user: string): Promise<Object> {
+        return new Promise((resolve, reject) => {
+            this.restService.get('command/getClosedByUserId', {id_user}).pipe(map(resp => resp))
+                .subscribe(value => {
+                    resolve(value);
+                }), (err) => {
+                    reject(err);
+                }            
+        });
 
     }
+
 }

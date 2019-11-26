@@ -57,7 +57,7 @@ export class TableComponent {
           loader.dismiss();
           loader.onDidDismiss().then(() => {
             this.appController.presentAlertInfo('Comanda Encerrada', 'Curtiu o nosso app ?<br> Aqui você comanda! <br> Te vejo em breveee =)', 'Valeeeu', 'align-text-alert-info');
-            this.navCtrl.navigateRoot('home');
+            this.navCtrl.navigateRoot('home', {queryParams: this.globalVars.getUserLoggedIn()});
           });
         }
       }

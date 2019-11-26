@@ -1,14 +1,19 @@
-<ion-header>
-    <ion-toolbar>
-        <ion-buttons left>
-            <ion-button color="dark" (click)="navCtrl.pop();">
-                <ion-icon name="arrow-back"></ion-icon>
-            </ion-button>
-            <ion-title>Registrar</ion-title>
-        </ion-buttons>
-    </ion-toolbar>
-</ion-header>
-
+<ion-toolbar style="text-align: center;" color="primary">
+    <div style="display: flex; flex-direction: row;">
+        <svg (click)="navCtrl.pop();" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="auto" height="40px"
+            viewBox="0 0 400.004 400.004"
+            style="enable-background:new 0 0 400.004 400.004; width: auto; height: 24px; margin-left: 16px;"
+            xml:space="preserve">
+            <g>
+                <path
+                    d="M382.688,182.686H59.116l77.209-77.214c6.764-6.76,6.764-17.726,0-24.485c-6.764-6.764-17.73-6.764-24.484,0L5.073,187.757 c-6.764,6.76-6.764,17.727,0,24.485l106.768,106.775c3.381,3.383,7.812,5.072,12.242,5.072c4.43,0,8.861-1.689,12.242-5.072 c6.764-6.76,6.764-17.726,0-24.484l-77.209-77.218h323.572c9.562,0,17.316-7.753,17.316-17.315 C400.004,190.438,392.251,182.686,382.688,182.686z"
+                    fill="#fff" />
+            </g>
+        </svg>
+        <ion-title size="large" class="title-item">Registrar</ion-title>
+    </div>
+</ion-toolbar>
 
 <ion-content>
 
@@ -28,7 +33,8 @@
         <ion-item>
             <ion-label color="primary" position="stacked">PIN*</ion-label>
             <div style="display: flex; flex: 1; flex-direction: row-reverse; margin-left: -20px;">
-                <ion-input id="pass" inputmode="numeric" maxlength="6" pattern="[0-9]{6}" [type]="hide ? 'password' : 'num'" formControlName="password">
+                <ion-input id="pass" inputmode="numeric" maxlength="6" pattern="[0-9]{6}" placeholder="Ex: 157482"
+                    [type]="hide ? 'password' : 'num'" formControlName="password">
                 </ion-input>
                 <mat-icon style="position: relative; left: 80vw;" matSuffix (click)="hide = !hide">
                     {{ hide ? 'visibility' : 'visibility_off' }}
@@ -38,13 +44,15 @@
 
         <ion-item>
             <ion-label color="primary" position="stacked">Nº Celular</ion-label>
-            <ion-input id="phone" type="tel" [brmasker]="{phone: true}" formControlName="phone" placeholder="(99) 99999-9999">
+            <ion-input id="phone" type="tel" [brmasker]="{phone: true}" formControlName="phone"
+                placeholder="(99) 99999-9999">
             </ion-input>
         </ion-item>
 
         <ion-item>
             <ion-label color="primary" position="stacked">Data de Nascimento</ion-label>
-            <ion-input id="birth" type="text" [brmasker]="{mask: '99/99/9999', len: '10', type: 'num'}" formControlName="birthDate" placeholder="25/10/1989">
+            <ion-input id="birth" type="text" [brmasker]="{mask: '99/99/9999', len: '10', type: 'num'}"
+                formControlName="birthDate" placeholder="25/10/1989">
             </ion-input>
         </ion-item>
 
@@ -52,7 +60,7 @@
 
 </ion-content>
 
-<ion-footer [class.disabled-content]="!forms.valid" class="footer">
+<ion-footer style="background: #6670e0 !important;" [class.disabled-content]="!forms.valid" class="footer">
     <ion-toolbar (click)="forms.valid ? register() : null">
         <ion-buttons class="footer-container" end>
             <ion-button ion-button icon-right>

@@ -4,15 +4,16 @@ import { NavController } from '@ionic/angular';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner/ngx';
 import { GoogleService } from 'src/app/shared/services/google.service';
 import { catchError } from 'rxjs/operators';
-import { VisitService } from '../core/visit.service';
-import { GlobalVars } from 'src/app/shared/globalVars';
+import { DefaultScreen } from '../core/defaultScreen';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.component.html',
   styleUrls: ['home.component.scss'],
 })
-export class HomeComponent {
+export class HomeComponent extends DefaultScreen {
+  fromTabSwitchTable: boolean = false;
   switchVar: string = 'command';
   qrDataFill: Object = {
     "table_id": "5dcbd98b718232550d6ae367",
@@ -22,18 +23,30 @@ export class HomeComponent {
     "tableNumber": "4",
     "id_establishment" : "5dc5c0a4e3ae253cfdb84d00"
   };
+  // qrDataFill: Object = {
+  //   "table_id": "5dcbd915718232550d6ae361",
+  //   "name": "Tô em Belle",
+  //   "lat": "-12.969229",
+  //   "lng": "-38.436642",
+  //   "tableNumber": "14",
+  //   "id_establishment" : "5dc5bf96e3ae253cfdb84cfe"
+  // };
 
   constructor(public appController: AppController,
   private navCtrl: NavController,
+  protected route: ActivatedRoute,
   private barcodeScanner: BarcodeScanner,
-  private visitService: VisitService,
-  private globalVars: GlobalVars,
   private googleService: GoogleService) {
+    super(route);
     // this.qrDataFill = JSON.stringify(this.qrDataFill);
   }
 
-  handleSwitch(newSwitch: string) {
+  handleSwitch(newSwitch: string, fab) {
+    fab.close();
     this.switchVar = newSwitch;
+    if(newSwitch == 'table') {
+      this.fromTabSwitchTable = true;
+    }
   }
 
   async startCommand() { // open QrCode, validate QrCode, then if success navigate to new Root 'Command'
@@ -47,11 +60,11 @@ export class HomeComponent {
         // calcula a distância em metros
         const distanceInMeters = Number(resp['distance'].toFixed(1)) * 1000;
         // Se a distância for maior q 70m, ele está muito longe.
-        if(distanceInMeters >= 70) { 
-          this.appController.showError("Muito Longe. Tente se aproximar do estabelecimento " + scannedObj.name);
-          loader.dismiss();
-          return;
-        }
+        // if(distanceInMeters >= 70) { 
+        //   this.appController.showError("Muito Longe. Tente se aproximar do estabelecimento " + scannedObj.name);
+        //   loader.dismiss();
+        //   return;
+        // }
 
         this.navCtrl.navigateRoot('command', { queryParams: scannedObj });
       }
@@ -93,6 +106,10 @@ export class HomeComponent {
         throw new Error(err);
       }));
     });
+  }
+
+  public get orders() {
+    return this.respResolvers.myOrders;
   }
 
 }

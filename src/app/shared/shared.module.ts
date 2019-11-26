@@ -8,6 +8,7 @@ import { MaterialModule } from './material/material.module';
 import { GlobalVars } from './globalVars';
 import { IonicModule } from '@ionic/angular';
 import { RealPipe } from '../modules/core/pipes/real.pipe';
+import { DatePipe } from '../modules/core/pipes/date.pipe';
 
 const modules = [
     CommonModule,
@@ -30,13 +31,15 @@ const modules = [
     declarations: [
         AppMaskDirective,
         AutofocusDirective,
-        RealPipe
+        RealPipe,
+        DatePipe
     ],  
     exports: [ 
         ...modules,
         AppMaskDirective,
         AutofocusDirective,
-        RealPipe
+        RealPipe,
+        DatePipe
         // NgxMaskModule,
     ],
     providers:[

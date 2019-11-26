@@ -1,0 +1,46 @@
+<ion-content>
+    <ion-toolbar style="text-align: center;" color="primary">
+        <div style="display: flex; flex-direction: row;">
+            <svg (click)="modalCtrl.dismiss();" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="auto" height="40px" viewBox="0 0 400.004 400.004" style="enable-background:new 0 0 400.004 400.004; width: auto; height: 24px; margin-left: 16px;" xml:space="preserve">
+                <g>
+                    <path d="M382.688,182.686H59.116l77.209-77.214c6.764-6.76,6.764-17.726,0-24.485c-6.764-6.764-17.73-6.764-24.484,0L5.073,187.757 c-6.764,6.76-6.764,17.727,0,24.485l106.768,106.775c3.381,3.383,7.812,5.072,12.242,5.072c4.43,0,8.861-1.689,12.242-5.072 c6.764-6.76,6.764-17.726,0-24.484l-77.209-77.218h323.572c9.562,0,17.316-7.753,17.316-17.315 C400.004,190.438,392.251,182.686,382.688,182.686z" fill="#fff"/>
+                </g>
+            </svg>                
+            <ion-title size="large" class="title-item">{{ barVisit.name }}</ion-title>
+        </div>
+    </ion-toolbar>
+
+    <div *ngIf="barVisit" style="margin-top: 5px;">
+        <ion-card *ngFor="let command of barVisit.commands; let i = index;" style="padding: 14px 0; border-radius: 7px;" (click)="pushToCommandProducts(barVisit.commandProducts[i])"> 
+            <ion-item lines="none">
+                    <div class="menu-content"> 
+                         <div class="menu-main-content" style="justify-content: unset;">
+                            <ion-avatar slot="start" class="avatar-item">
+                                <img [src]="barVisit?.img">
+                            </ion-avatar>
+    
+                            <strong style="display: flex; position: relative; left: -10px;"> Comanda de: {{ command?.created_at | date }}</strong>
+                        </div>
+                        <!---->
+                        <div class="btn-container">
+                            <strong>Staus: Paga</strong>
+                        </div>
+                    </div>
+
+            </ion-item>
+            <!-- <ion-card-content>Pedido realizado por: {{ currentUsername }}</ion-card-content> -->
+        </ion-card>
+    </div>
+
+</ion-content>
+
+<div *ngIf="!barVisit">
+    <ion-list *ngFor="let i of [0,1,2,3,4,5];">
+        <div class="ion-padding custom-skeleton">
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+            <!-- <ion-skeleton-text animated></ion-skeleton-text> -->
+            <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </div>
+    </ion-list>
+</div>

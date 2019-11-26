@@ -4,6 +4,7 @@ import { OrderService } from '../../order/order.service';
 import { ProductModel } from 'src/app/shared/models/classes/product.model';
 import { GlobalVars } from 'src/app/shared/globalVars';
 import { ItemsModel } from 'src/app/shared/models/classes/items.model';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -18,6 +19,7 @@ export class MenuComponent {
 
   constructor(private appController: AppController,
     private globalVars: GlobalVars,
+    private route: ActivatedRoute,
     private orderService: OrderService) {
     this.productsAdded = new Set();
   }
@@ -68,8 +70,8 @@ export class MenuComponent {
           qtd_product: p.qtd
         }
       });
-
-      products = await this.orderService.store(itemsModels, this.globalVars.getUserLoggedIn()._id, this.visit._id);
+      
+      products = await this.orderService.store(itemsModels, this.globalVars.getUserLoggedIn()._id, this.visit._id, this.route.snapshot.queryParams.id_establishment);
     } catch (e) {
       this.appController.showError(e);
     } finally {
@@ -77,6 +79,8 @@ export class MenuComponent {
       loader.dismiss();
     }
   }
+
+  
 
 
 }

@@ -1,11 +1,11 @@
-<mat-list>
+<mat-list *ngIf="dataIsReady" class="visit-list">
 
-    <mat-list-item *ngFor="let bar of bars;" (click)="pushToDetails(bar);">
+    <mat-list-item *ngFor="let bar of bars;" (click)="pushToDetails(bar);" class="visit-list-item" >
         <ion-avatar class="bar-icon" slot="start">
             <img [src]="bar?.img">
         </ion-avatar>
         <h4 mat-line style="padding: 0 0 2px;">{{ bar?.name }}</h4>
-        <p mat-line style="line-height: 20px; color: #717171;">
+        <p mat-line style="line-height: 20px; color: #717171; max-width: 82%; white-space: normal;">
             <span class="svg-span">
                 <svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -14,16 +14,35 @@
                 </svg>
                 <a class="rating">{{ bar?.rating }}</a>
             </span>
-            • {{ bar?.description }} • {{ bar?.distance }} 
-            <ion-spinner *ngIf="!bar?.distance" name="crescent"></ion-spinner>
+            • {{ bar?.description }} • {{ bar?.distance }}
             km
             <br>
             <span *ngIf="bar?.duration" class="minutes">
-                • {{ bar?.duration }} • 
+                • {{ bar?.duration }} •
             </span>
-            <ion-spinner *ngIf="!bar?.duration" name="crescent"></ion-spinner>
-
         </p>
     </mat-list-item>
-    
+
 </mat-list>
+
+<div *ngIf="!dataIsReady" class="adjust-space-top">
+    <ion-list *ngFor="let i of [0,1,2,3,4,5];">
+        <ion-item>
+            <ion-avatar class="skeleton-icon" slot="start">
+                <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-avatar>
+            <ion-label>
+                <h3>
+                    <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+
+                </h3>
+                <p>
+                    <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                </p>
+                <p>
+                    <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                </p>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+</div>

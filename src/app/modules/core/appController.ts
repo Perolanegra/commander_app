@@ -64,7 +64,7 @@ export class AppController {
     public async showError(msg: string = "Operação Indisponível no Momento") {
         const toast = await this.toastCtrl.create({
             // header: 'Ops...',
-            message: msg.length >= 75 ? "Operação Indisponível no Momento" : msg,
+            message: msg,
             position: 'bottom',
             color: "danger",
             duration: 2500,

@@ -16,6 +16,8 @@ export class SettingsComponent {
     { name: 'joinUs', displayTitle: 'Adicionar o meu restaurante', displaySubTitle: 'Gerenciamento, escalabilidade, menor custo', icon: 'restaurant' },
   ];
 
+  profile = "../../../assets/imgs/profile-default.png";
+
   constructor(public appController: AppController,
   private globalVars: GlobalVars,
   public navCtrl: NavController) {}
