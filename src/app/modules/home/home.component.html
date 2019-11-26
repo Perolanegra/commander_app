@@ -28,16 +28,13 @@
     </ng-container>
 
     <div style="width: 100%; height: 50px; min-height: 50px; display: flex;">
-        <div (click)="handleSwitch('command', fab)"
-          style="flex: 1; background-color: transparent; color: #6670e0; border-top: 1px solid #6670e0; font-weight: bold; display: flex; align-items: center; justify-content: center; font-size: .8em; text-transform: uppercase; font-weight: bold;">
+        <div (click)="handleSwitch('command', fab)" [ngClass]="switchVar !== 'command' ? 'tab-passive-command-orders' : 'tab-active-command-orders'">
           Commander
         </div>
-        <div (click)="handleSwitch('establishments', fab)"
-          style="flex: 1; background-color: transparent; border-left: 1px solid #6670e0; border-top: 1px solid #6670e0; border-right: 1px solid #6670e0; color: #6670e0; font-weight: bold; display: flex; align-items: center; justify-content: center; font-size: .8em; text-transform: uppercase; font-weight: bold;">
+        <div (click)="handleSwitch('establishments', fab)" [ngClass]="switchVar !== 'establishments' ? 'tab-passive-estabs' : 'tab-active-estabs'">
           Restaurantes
         </div>
-        <div (click)="handleSwitch('orders', fab)"
-          style="flex: 1; background-color: transparent; color: #6670e0; border-top: 1px solid #6670e0; font-weight: bold; display: flex; align-items: center; justify-content: center; font-size: .8em; text-transform: uppercase; font-weight: bold;">
+        <div (click)="handleSwitch('orders', fab)" [ngClass]="switchVar !== 'orders' ? 'tab-passive-command-orders' : 'tab-active-command-orders'">
           Visitas
         </div>
       </div>
@@ -47,7 +44,7 @@
         <ion-icon name="add"></ion-icon>
       </ion-fab-button>
       <ion-fab-list side="start">
-        <ion-fab-button color="primary" (click)="appController.navigate('settings');">
+        <ion-fab-button color="primary" tooltip="Configurações" (click)="appController.navigate('settings');">
           <ion-icon name="settings"></ion-icon>
         </ion-fab-button>
       </ion-fab-list>

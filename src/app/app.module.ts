@@ -32,6 +32,7 @@ import { LocationAccuracy } from '@ionic-native/location-accuracy/ngx';
     CoreModule,
     RouterModule,
     ReactiveFormsModule,
+    // BrowserAnimationsModule
   ],
   exports: [
     CoreModule

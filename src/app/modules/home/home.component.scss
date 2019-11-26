@@ -105,3 +105,63 @@
   flex-direction: column; 
   justify-content: space-between;
 }
+
+.tab-passive-command-orders {
+  flex: 1; 
+  background-color: transparent; 
+  color: #6670e0; 
+  border-top: 1px solid #6670e0; 
+  font-weight: bold; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  font-size: .8em; 
+  text-transform: uppercase; 
+  font-weight: bold;
+}
+
+.tab-active-command-orders {
+  flex: 1; 
+  background-color: #6670e0; 
+  color: #ccc; 
+  border-top: 1px solid #6670e0; 
+  font-weight: bold; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  font-size: .8em; 
+  text-transform: uppercase; 
+  font-weight: bold;
+}
+
+.tab-passive-estabs {
+  flex: 1; 
+  background-color: transparent; 
+  border-left: 1px solid #6670e0; 
+  border-top: 1px solid #6670e0; 
+  border-right: 1px solid #6670e0; 
+  color: #6670e0; 
+  font-weight: bold; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  font-size: .8em; 
+  text-transform: uppercase; 
+  font-weight: bold;
+}
+
+.tab-active-estabs {
+  flex: 1; 
+  background-color: #6670e0;
+  border-left: 1px solid #6670e0; 
+  border-top: 1px solid #6670e0; 
+  border-right: 1px solid #6670e0; 
+  color: #ccc; 
+  font-weight: bold; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  font-size: .8em; 
+  text-transform: uppercase; 
+  font-weight: bold; 
+}
