@@ -1,4 +1,5 @@
 <!-- <ion-content> -->
+  <ion-title size="large" class="title-item" style="position: relative; top: 30px; z-index: 1; font-size: 1.3rem;">Commander</ion-title>
 
   <div class="main-container-pos">
     <svg viewBox="0 0 100 25" class="svg-header-waves">
@@ -29,7 +30,7 @@
 
     <div style="width: 100%; height: 50px; min-height: 50px; display: flex;">
         <div (click)="handleSwitch('command', fab)" [ngClass]="switchVar !== 'command' ? 'tab-passive-command-orders' : 'tab-active-command-orders'">
-          Commander
+          Comanda
         </div>
         <div (click)="handleSwitch('establishments', fab)" [ngClass]="switchVar !== 'establishments' ? 'tab-passive-estabs' : 'tab-active-estabs'">
           Restaurantes
