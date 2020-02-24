@@ -11,7 +11,7 @@ import { Md5 } from "md5-typescript";
     styleUrls: ['./modal-password.component.scss']
   })
 export class ModalPasswordComponent implements OnInit, AfterViewInit {
-  @ViewChild('inputHidden', {static: false}) public inputFocus: ElementRef;
+  @ViewChild('inputHidden') public inputFocus: ElementRef;
 
   forms: FormGroup;
   
