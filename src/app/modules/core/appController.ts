@@ -182,12 +182,13 @@ export class AppController {
     }
 
     /**
-    * Retorna para uma nova rota de navegação.
-    * @param pPage Recebe uma string como parâmetro que faz referência a rota a ser navegada.
+    * Navega para uma nova rota.
+    * @param page Recebe uma string como parâmetro que faz referência a rota a ser navegada.
+    * @param params Parâmetros a serem enviados para a rota navegada.
     * @author igor.alves
     */
-    public async navigate(pPage: string, pParams = {}) {
-        await this.router.navigate(['/' + pPage, pParams]).catch(err => {
+    public async navigate(page: string, params = {}) {
+        await this.router.navigate(['/' + page, params]).catch(err => {
             this.tratarErro(err);
             // console.log('erro navigate: ', err);
         });

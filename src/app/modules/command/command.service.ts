@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { RestService } from 'src/app/modules/core/rest.service';
 import { map } from 'rxjs/operators';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class CommandService {
 
     constructor(private restService: RestService) { }
