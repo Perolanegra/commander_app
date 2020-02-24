@@ -57,7 +57,6 @@
     "material-icons": "^0.3.1",
     "md5-typescript": "^1.0.5",
     "moment": "^2.24.0",
-    "ngx-qrcode2": "0.0.9",
     "phonegap-plugin-barcodescanner": "^8.1.0",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
